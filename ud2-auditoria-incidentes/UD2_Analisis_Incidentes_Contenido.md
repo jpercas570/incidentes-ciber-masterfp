@@ -1,8 +1,7 @@
 <a id="portada"></a>
 
-# Análisis de incidentes de ciberseguridad
+# Unidad: Análisis de incidentes de ciberseguridad. Contenido didáctico
 
-**Unidad didáctica 2. Contenido didáctico interactivo para paquete SCORM**
 
 | | |
 |---|---|
