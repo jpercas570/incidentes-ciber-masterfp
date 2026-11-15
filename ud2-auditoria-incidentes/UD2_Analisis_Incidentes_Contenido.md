@@ -11,7 +11,6 @@
 | Unidad didáctica | UD2. Análisis de incidentes de ciberseguridad |
 | Resultado de aprendizaje | RA2. Analiza incidentes de ciberseguridad utilizando herramientas, mecanismos de detección y alertas de seguridad |
 | Criterios de evaluación | CE 2.a, 2.b, 2.c, 2.d y 2.e |
-| Centro y curso | IES Virgen del Carmen (Jaén). Curso 2026/2027 |
 | Formato | Guion maestro en Markdown: textos, diagramas Mermaid, cuadros de imagen y de recursos, actividades con retroalimentación |
 
 <a id="indice"></a>
