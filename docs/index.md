@@ -27,7 +27,7 @@ La seguridad no puede entenderse únicamente como una cuestión tecnológica. La
 | UD | Denominación | Enfoque principal |
 | --- | --- | --- |
 | UD1 | Desarrollo de planes de prevención y concienciación | Cultura, políticas, formación y supervisión |
-| UD2 | Auditoría de incidentes de ciberseguridad | Detección, monitorización, procedimientos y análisis inicial |
+| UD2 | Análisis de incidentes de ciberseguridad | Detección, monitorización, procedimientos y análisis inicial |
 | UD3 | Investigación del incidente | Evidencias, análisis forense y cadena de custodia |
 | UD4 | Implementación de medidas | Contención, recuperación, continuidad y resiliencia |
 | UD5 | Detección y documentación | Notificación, documentación y cierre del incidente |
@@ -39,10 +39,10 @@ La seguridad no puede entenderse únicamente como una cuestión tecnológica. La
 - [UD1. Desarrollo de planes de prevención y concienciación](ud1-planes-prevencion-concienciacion/)
 - [Apuntes completos en README](../ud1-planes-prevencion-concienciacion/README.md)
 
-### Unidad 2. Auditoría de incidentes
+### Unidad 2. Análisis de incidentes
 
-- [UD2. Auditoría de incidentes de ciberseguridad](ud2-auditoria-incidentes/)
-- [Apuntes completos en README](../ud2-auditoria-incidentes/README.md)
+- [UD2. Análisis de incidentes de ciberseguridad](ud2-analisis-incidentes/)
+- [Apuntes completos en README](../ud2-analisis-incidentes/README.md)
 
 ### Unidad 3. Investigación del incidente
 
