@@ -42,7 +42,7 @@ Este módulo combina la dimensión **técnica**, **organizativa** y **formativa*
 | UD | Denominación | Enfoque principal |
 | --- | --- | --- |
 | **UD1** | Desarrollo de planes de prevención y concienciación en ciberseguridad | Principios generales, normativa de puesto de trabajo, planes de formación y auditorías internas de cumplimiento. |
-| **UD2** | Auditoría de incidentes de ciberseguridad | Taxonomía, herramientas de monitorización y alerta, seguridad física, investigación OSINT y seguimiento inicial. |
+| **UD2** | Análisis de incidentes de ciberseguridad | Taxonomía, herramientas de monitorización y alerta, seguridad física, investigación OSINT y seguimiento inicial. |
 | **UD3** | Investigación del incidente | Recopilación y custodia segura de evidencias, análisis forense, intercambio con proveedores u organismos y contención. |
 | **UD4** | Implementación de medidas de ciberseguridad | Procedimientos de respuesta y mitigación, ciberresiliencia, escalado, restablecimiento de servicios y lecciones aprendidas. |
 | **UD5** | Detección y documentación de incidentes de ciberseguridad | Procedimientos de notificación, comunicación interna, a autoridades competentes, afectados y medios de comunicación. |
@@ -57,7 +57,7 @@ Este módulo combina la dimensión **técnica**, **organizativa** y **formativa*
 - Materiales de formación y concienciación.
 - Auditorías internas de cumplimiento en materia de prevención.
 
-### UD2. Auditoría de incidentes de ciberseguridad
+### UD2. Análisis de incidentes de ciberseguridad
 
 - Taxonomía de incidentes de ciberseguridad.
 - Controles, herramientas y mecanismos de monitorización, identificación, detección y alerta de incidentes: tipos y fuentes.
@@ -149,7 +149,7 @@ El módulo se desarrolla con **5 horas lectivas semanales** y se extiende a lo l
 | Unidad didáctica | Fechas estimadas | Duración |
 | --- | --- | --- |
 | **UD1: Desarrollo de planes de prevención y concienciación** | 29 sep - 23 oct | 4 semanas |
-| **UD2: Auditoría de incidentes** | 26 oct - 4 dic | 6 semanas |
+| **UD2: Análisis de incidentes** | 26 oct - 4 dic | 6 semanas |
 | **UD3: Investigación del incidente** | 7 dic - 19 feb | 8 semanas |
 | **UD4: Implementación de medidas** | 22 feb - 16 abr | 7 semanas |
 | **UD5: Detección y documentación** | 19 abr - 12 jun | 8 semanas |
@@ -187,7 +187,7 @@ El alumnado desarrollará competencias relacionadas con:
 - [README.md](README.md): presentación general del curso.
 - [transversal/README.md](transversal/README.md): base teórica transversal del módulo.
 - [ud1-planes-prevencion-concienciacion/README.md](ud1-planes-prevencion-concienciacion/README.md): materiales y recursos de la **Unidad Didáctica 1: Planes de prevención y concienciación**.
-- [ud2-auditoria-incidentes/README.md](ud2-auditoria-incidentes/README.md): materiales y recursos de la **Unidad Didáctica 2: Auditoría de incidentes**.
+- [ud2-analisis-incidentes/README.md](ud2-analisis-incidentes/README.md): materiales y recursos de la **Unidad Didáctica 2: Análisis de incidentes**.
 - [ud3-investigacion-incidente/README.md](uud3-investigacion-incidente/README.md): materiales y recursos de la **Unidad Didáctica 3: Investigación del incidente**.
 - [ud4-implementacion-medidas/README.md](ud4-implementacion-medidas/README.md): materiales y recursos de la **Unidad Didáctica 4: Implementación de medidas**.
 - [ud5-detección-documentacion/README.md](ud5-detección-documentacion/README.md): materiales y recursos de la **Unidad Didáctica 5: Detección y documentación**.

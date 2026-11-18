@@ -1,7 +1,8 @@
 <a id="portada"></a>
 
-# Unidad: Análisis de incidentes de ciberseguridad. Contenido didáctico
+# Análisis de incidentes de ciberseguridad
 
+**Unidad didáctica 2. Contenido didáctico**
 
 | | |
 |---|---|
@@ -10,7 +11,15 @@
 | Unidad didáctica | UD2. Análisis de incidentes de ciberseguridad |
 | Resultado de aprendizaje | RA2. Analiza incidentes de ciberseguridad utilizando herramientas, mecanismos de detección y alertas de seguridad |
 | Criterios de evaluación | CE 2.a, 2.b, 2.c, 2.d y 2.e |
-| Formato | Guion maestro en Markdown: textos, diagramas Mermaid, cuadros de imagen y de recursos, actividades con retroalimentación |
+| Centro y curso | IES Virgen del Carmen (Jaén). Curso 2026/2027 |
+
+> **Otras formas de trabajar la unidad**
+>
+> - [Unidad interactiva](https://jpercas570.github.io/incidentes-ciber-masterfp/ud2-analisis-incidentes/curso/): la misma del aula virtual, con las quince actividades autocorregibles. Fuera de Moodle, el progreso se guarda en tu navegador.
+> - [Contenido en PDF](descargas/UD2_Analisis_Incidentes_Contenido.pdf), con portada e índice.
+> - [Recursos para las prácticas P2 a P5](descargas/UD2_Recursos_alumnado.zip) (capturas, reglas, datos y plantillas).
+> - [Guía de instalación del laboratorio](descargas/UD2_Guia_instalacion_laboratorio.pdf): qué máquinas virtuales hacen falta y cómo prepararlas.
+> - [Plantilla de la ficha de registro del incidente](Plantilla_Ficha_Incidentes.md), la que se usa en la práctica P5.
 
 <a id="indice"></a>
 
@@ -22,16 +31,17 @@
   - [El caso que nos acompaña: ACME Logística](#p-p-2)
   - [Cómo trabajar con este material](#p-p-3)
 - [Módulo 1. Taxonomía y valoración de incidentes](#m-1)
-  - [1.1 Lunes, 08:05: hay 1 240 alertas en la cola](#p-1-1)
+  - [1.1 Tu primer turno: 1 240 alertas en la cola](#p-1-1)
   - [1.2 Evento, alerta e incidente](#p-1-2)
   - [1.3 La taxonomía de referencia](#p-1-3)
   - [1.4 Nivel de peligrosidad](#p-1-4)
   - [1.5 Nivel de impacto](#p-1-5)
   - [1.6 La matriz de valoración](#p-1-6)
   - [1.7 Tres tipos de incidente frente a frente](#p-1-7)
-  - [1.8 Ejemplo práctico: los tres casos del lunes](#p-1-8)
-  - [1.9 Recursos y referencias](#p-1-9)
-  - [1.10 Actividades interactivas](#p-1-act)
+  - [1.8 Ejemplo práctico: los tres casos del ejercicio](#p-1-8)
+  - [1.9 Práctica P1. Clasifica y valora como en el SOC](#p-1-9)
+  - [1.10 Recursos y referencias](#p-1-10)
+  - [1.11 Actividades interactivas](#p-1-act)
 - [Módulo 2. Monitorización técnica: SIEM (Wazuh) y NIDS (Suricata)](#m-2)
   - [2.1 Sin registros no hay detección](#p-2-1)
   - [2.2 Fuentes internas de registros](#p-2-2)
@@ -40,8 +50,9 @@
   - [2.5 Wazuh: arquitectura y despliegue](#p-2-5)
   - [2.6 Del registro a la alerta: decodificadores, reglas y niveles](#p-2-6)
   - [2.7 Caso de uso: fuerza bruta contra SSH](#p-2-7)
-  - [2.8 Recursos y referencias](#p-2-8)
-  - [2.9 Actividades interactivas](#p-2-act)
+  - [2.8 Práctica P2. Suricata y Wazuh con las capturas del caso](#p-2-8)
+  - [2.9 Recursos y referencias](#p-2-9)
+  - [2.10 Actividades interactivas](#p-2-act)
 - [Módulo 3. Detección e identificación en seguridad física](#m-3)
   - [3.1 El atacante que entra por la puerta](#p-3-1)
   - [3.2 Tipos de incidentes de seguridad física](#p-3-2)
@@ -50,8 +61,9 @@
   - [3.5 Sensores de intrusión y de entorno](#p-3-5)
   - [3.6 Correlación físico-lógica](#p-3-6)
   - [3.7 Ejemplo práctico: la intrusión que el vigilante no vio](#p-3-7)
-  - [3.8 Recursos y referencias](#p-3-8)
-  - [3.9 Actividades interactivas](#p-3-act)
+  - [3.8 Práctica P3. Correlaciona el CPD con los inicios de sesión](#p-3-8)
+  - [3.9 Recursos y referencias](#p-3-9)
+  - [3.10 Actividades interactivas](#p-3-act)
 - [Módulo 4. Ciberinteligencia OSINT y fuentes abiertas](#m-4)
   - [4.1 Lo que se ve desde fuera](#p-4-1)
   - [4.2 OSINT e inteligencia de amenazas](#p-4-2)
@@ -59,23 +71,26 @@
   - [4.4 Herramientas para activos, fugas y suplantación](#p-4-4)
   - [4.5 Indicadores de compromiso, OTX y MISP](#p-4-5)
   - [4.6 Ejemplo práctico: del indicador a la lista de bloqueo](#p-4-6)
-  - [4.7 Recursos y referencias](#p-4-7)
-  - [4.8 Actividades interactivas](#p-4-act)
+  - [4.7 Práctica P4. Del evento de MISP a la lista de bloqueo](#p-4-7)
+  - [4.8 Recursos y referencias](#p-4-8)
+  - [4.9 Actividades interactivas](#p-4-act)
 - [Módulo 5. Triaje, registro inicial y seguimiento](#m-5)
-  - [5.1 Jueves, 11:52: una alerta de hace dos días](#p-5-1)
+  - [5.1 Jueves, 07:58: una alerta de nivel 10](#p-5-1)
   - [5.2 El SOC por niveles](#p-5-2)
   - [5.3 Metodología de triaje](#p-5-3)
   - [5.4 Del aviso al cierre: el flujo de trabajo](#p-5-4)
   - [5.5 La ficha de registro del incidente](#p-5-5)
   - [5.6 Seguimiento inicial y escalado](#p-5-6)
-  - [5.7 Ejemplo práctico: ficha de una exfiltración confirmada](#p-5-7)
-  - [5.8 Recursos y referencias](#p-5-8)
-  - [5.9 Actividades interactivas](#p-5-act)
+  - [5.7 Ejemplo práctico: el triaje de la alerta 100401](#p-5-7)
+  - [5.8 La ficha del INC-2026-0162](#p-5-8)
+  - [5.9 Práctica P5. Tu turno en la cola](#p-5-9)
+  - [5.10 Recursos y referencias](#p-5-10)
+  - [5.11 Actividades interactivas](#p-5-act)
 - [Cierre de la unidad](#m-c)
   - [Ideas clave de la unidad](#p-c-1)
-  - [Glosario](#p-c-2)
-  - [Referencias generales](#p-c-3)
-- [Guía para el docente](#docente)
+  - [Recursos para las prácticas](#p-c-2)
+  - [Glosario](#p-c-3)
+  - [Referencias generales](#p-c-4)
 
 ---
 
@@ -119,29 +134,33 @@ El SOC es pequeño: dos analistas de nivel 1 por turno y un analista de nivel 2 
 
 **Diagrama 0.1. Red de ACME Logística y puntos de observación del SOC.** Los agentes de Wazuh observan cada equipo desde dentro; el sensor de Suricata observa el tráfico copiado por el puerto espejo del conmutador central; el control de acceso físico envía sus eventos al mismo SIEM.
 
-```mermaid
-flowchart TB
-    NET(["Internet"]) --> FW["Cortafuegos perimetral"]
-    FW --> DMZ["DMZ: srv-web01<br/>portal de clientes<br/>10.20.1.15"]
-    FW --> SW["Conmutador central<br/>con puerto espejo (SPAN)"]
-    SW --> SRV["Servidores<br/>srv-files01, 10.20.1.20<br/>srv-bd01, 10.20.1.30"]
-    SW --> USR["Puestos de usuario<br/>10.20.5.0/24"]
-    SW -. "copia del tráfico" .-> IDS["ids01: sensor Suricata<br/>10.20.0.20"]
-    CPD["CPD: control de acceso<br/>por tarjeta<br/>pacs01, 10.20.9.10"]
-    DMZ -. "agente" .-> SIEM["wazuh01: servidor Wazuh<br/>10.20.0.10"]
-    SRV -. "agente" .-> SIEM
-    USR -. "agente" .-> SIEM
-    IDS -. "eve.json" .-> SIEM
-    CPD -. "eventos de puertas" .-> SIEM
-    SIEM --> SOC(["Analistas del SOC"])
-```
+![Diagrama 0.1. Red de ACME Logística y puntos de observación del SOC](img/diagrama_0-1.png)
+
+> **Descripción en texto del diagrama 0.1.** Internet llega al cortafuegos perimetral. Del cortafuegos salen dos ramas: la DMZ, con el portal de clientes srv-web01 (10.20.1.15), y el conmutador central. Del conmutador cuelgan los servidores srv-files01 (10.20.1.20) y srv-bd01 (10.20.1.30) y los puestos de usuario (10.20.5.0/24). El conmutador envía además una copia del tráfico al sensor Suricata ids01 (10.20.0.20). El control de acceso del CPD, pacs01 (10.20.9.10), está aparte. Hacia el servidor Wazuh wazuh01 (10.20.0.10) envían sus datos los agentes de la DMZ, de los servidores y de los puestos, el sensor ids01 (su fichero eve.json) y el control de accesos (eventos de puertas). Wazuh los entrega a los analistas del SOC.
 
 | Dato del caso | Valor |
 |---|---|
 | Dominio corporativo | `acme-logistica.example` |
 | Red interna | `10.20.0.0/16` |
 | Direcciones de atacantes en los ejemplos | `203.0.113.45`, `198.51.100.77`, `198.51.100.23` |
-| Cuentas que aparecen | `jperez` (administración de sistemas), `mgarcia` (administración), `amolina` (facturación), `svc_backup` (cuenta de servicio) |
+| Cuentas que aparecen | `jperez` (Javier Pérez, Sistemas), `mgarcia` (María García, Administración), `amolina` (Ana Molina, Facturación), `facturacion` (buzón compartido), `svc_backup` (cuenta de servicio) |
+| Equipo del SOC | Lucía Ortega (nivel 1), Raúl Vidal (nivel 2) y Marta Cano, Responsable de la Seguridad. En el módulo 5 aparecen también Elena Soto (Dirección) e Inés Navarro (delegada de protección de datos) |
+
+### La semana del caso
+
+Los módulos 2 a 5 transcurren en dos semanas de noviembre de 2026. Esta línea de tiempo te ayuda a situar cada ejemplo; las horas son peninsulares.
+
+| Día | Qué ocurre | Dónde lo ves |
+|---|---|---|
+| Martes 10, 08:14 | Intento de fuerza bruta contra SSH en `srv-web01` desde `203.0.113.45` (`INC-2026-0158`) | Módulo 2 |
+| Viernes 13 | La vigilancia de dominios detecta `acrne-logistica.example`, recién registrado. Se vigila con una regla de Suricata | Módulos 2 y 4 |
+| Domingo 15, 22:47 | Alguien entra en el CPD con la tarjeta de `jperez` e inicia una sesión SSH | Módulo 3 |
+| Martes 17, 08:51 | Llega a tres buzones el correo «Factura 2026-1147 pendiente de pago». A las 09:14, `PC-ADM-07` descarga el fichero. Las alertas, de nivel bajo, quedan sin revisar | Módulos 4 y 5 |
+| Miércoles 18, 19:10 | Un cliente reenvía un correo fraudulento que suplanta a ACME | Módulo 4 |
+| Jueves 19, 07:00 a 07:55 | Lucía investiga el dominio y carga los indicadores en Wazuh | Módulo 4 |
+| Jueves 19, 07:58 | Salta la alerta 100401: `PC-ADM-07` conecta con el servidor del atacante. Empieza el `INC-2026-0162` | Módulo 5 |
+
+El incidente `INC-2026-0162` continúa en las unidades siguientes: en la UD3 se investiga y en la UD4 se resuelve.
 
 > **Recuerda.** Todos los datos del caso son ficticios. Las direcciones IP externas pertenecen a los rangos reservados para documentación (RFC 5737) y el dominio usa el sufijo `.example` (RFC 2606), de modo que ningún ejemplo apunta a un sistema real.
 
@@ -149,30 +168,40 @@ flowchart TB
 
 ## Cómo trabajar con este material
 
-Cada módulo sigue el mismo recorrido: una situación de partida, la teoría con sus diagramas, un ejemplo práctico resuelto, recursos para ampliar y tres actividades interactivas (dos preguntas de test y una actividad de clasificación o emparejamiento).
+Cada módulo sigue el mismo recorrido: los objetivos, una situación de partida, la teoría con sus diagramas, un ejemplo práctico resuelto, una práctica guiada, recursos para ampliar, un resumen de lo esencial y tres actividades interactivas (dos preguntas de test y una actividad de clasificación o emparejamiento).
 
 - **Avanza en orden.** Los módulos se apoyan unos en otros: la taxonomía del módulo 1 se usa en todos los demás y el módulo 5 reúne todo lo anterior.
 - **Las actividades puntúan en el primer intento.** Después de responder puedes consultar la retroalimentación de todas las opciones; léela aunque hayas acertado, porque explica por qué fallan las alternativas.
 - **Tu progreso se guarda.** Si accedes desde el aula virtual, la plataforma registra las páginas visitadas y la puntuación. La unidad se da por completada cuando has visitado todas las páginas y respondido las quince actividades.
-- **Los recuadros tienen siempre el mismo significado:** «Recuerda» resume lo imprescindible, «Ejemplo SOC Tier 1» muestra un caso real de consola, «Atención» avisa de un error frecuente y «En el laboratorio» indica cómo reproducirlo en el aula.
+- **Los recuadros tienen siempre el mismo significado:** «Recuerda» resume lo imprescindible, «Ejemplo SOC Tier 1» muestra un caso real de consola, «Atención» avisa de un error frecuente, «En el laboratorio» indica cómo reproducirlo en el aula e «Idea clave» resume la lección del apartado.
+- **Cada diagrama tiene una descripción en texto.** Púlsala debajo del diagrama si usas un lector de pantalla o si prefieres leerlo en orden.
+- **Las prácticas usan material descargable.** Está en la página «Recursos para las prácticas», al final de la unidad.
 
-> **En el laboratorio.** Los ejemplos están pensados para máquinas virtuales con Ubuntu y Windows 11 y solo usan herramientas de código abierto. Las reglas de Suricata de esta unidad se han probado con Suricata 7 sobre capturas de tráfico sintéticas; las reglas de Wazuh siguen la sintaxis de la rama 4.x y debes validarlas en tu servidor con `wazuh-logtest` antes de darlas por buenas.
+> **En el laboratorio.** Los ejemplos están pensados para máquinas virtuales con Ubuntu 26.04 y Windows 11 y solo usan herramientas de código abierto. Las reglas de Suricata de esta unidad se han probado sobre las capturas sintéticas de las prácticas, que no contienen nada malicioso; en el aula usarás Suricata 8, la versión de Ubuntu 26.04. Las reglas de Wazuh siguen la sintaxis de la rama 4.x y debes validarlas en tu servidor con `wazuh-logtest` antes de darlas por buenas.
 
 <a id="m-1"></a>
 
 # Módulo 1. Taxonomía y valoración de incidentes
 
 **Criterio de evaluación:** CE 2.a. Se ha clasificado y definido la taxonomía de incidentes de ciberseguridad que pueden afectar a la organización.  
-**Tiempo estimado de estudio:** 90 minutos.
+**Tiempo estimado de estudio:** 90 minutos.  
+**Práctica:** P1, una sesión de 2 horas.
+
+**Al terminar este módulo serás capaz de:**
+
+- Distinguir un evento, una alerta y un incidente.
+- Clasificar un suceso con la taxonomía nacional, con su clasificación principal y las secundarias.
+- Asignar el nivel de peligrosidad y el de impacto y obtener el nivel que rige y la prioridad.
+- Saber cuándo hay que notificar, a quién y en qué plazo.
 
 <a id="p-1-1"></a>
 
-## 1.1 Lunes, 08:05: hay 1 240 alertas en la cola
+## 1.1 Tu primer turno: 1 240 alertas en la cola
 
-Empiezas tu turno como analista de nivel 1 en el SOC de ACME Logística. La consola muestra 1 240 alertas acumuladas durante el fin de semana. Tres de ellas destacan:
+Lunes, 08:05. Es tu primer día como analista de nivel 1 en el SOC de ACME Logística. Antes de dejarte sola o solo ante la consola, Raúl Vidal, analista de nivel 2, te plantea el ejercicio de mesa con el que el SOC forma a cada persona nueva: un lunes imaginario en el que la cola amanece con 1 240 alertas acumuladas durante el fin de semana. Tres de ellas destacan:
 
 - **Caso A.** El sensor de red ha visto 1 500 intentos de conexión a 600 puertos distintos del cortafuegos, todos desde `203.0.113.45`, en cuatro minutos. Ninguna conexión llegó a establecerse.
-- **Caso B.** Una administrativa, `mgarcia`, avisó el viernes de que había escrito su contraseña en una página que imitaba el correo corporativo. El sábado hubo un inicio de sesión correcto en su buzón desde otro país.
+- **Caso B.** Una comercial, `lsanz`, avisó el viernes de que había escrito su contraseña en una página que imitaba el correo corporativo. El sábado hubo un inicio de sesión correcto en su buzón desde otro país.
 - **Caso C.** En el servidor de ficheros `srv-files01` hay miles de archivos renombrados con la extensión `.locked` y una nota de rescate en cada carpeta.
 
 ¿Cuál atiendes primero? ¿Con qué criterio lo justificas ante tu responsable? ¿Hay que avisar a alguien de fuera de la empresa, y en qué plazo?
@@ -184,6 +213,8 @@ Responder a ojo no es una opción: dos analistas distintos llegarían a conclusi
 3. Dos **escalas de valoración**: el nivel de peligrosidad y el nivel de impacto.
 
 Al final del módulo resolveremos los tres casos con ellas.
+
+> **Recuerda.** No es un problema de laboratorio. INCIBE gestionó 122 223 incidentes en 2025, un 26 % más que el año anterior. Casi la mitad fueron de malware y unos cuatro de cada diez, fraudes en línea, con el *phishing* a la cabeza. Con ese volumen, decidir por intuición qué se atiende primero no funciona.
 
 <a id="p-1-2"></a>
 
@@ -201,20 +232,15 @@ Al final del módulo resolveremos los tres casos con ellas.
 |---|---|---|---|
 | **Qué es** | Un hecho observable | Un aviso sobre eventos sospechosos | Un suceso confirmado que daña o amenaza la seguridad |
 | **Quién lo produce** | Sistemas, aplicaciones, dispositivos de red, lectores de acceso | Reglas del SIEM, del IDS o del EDR; también un usuario que avisa | El analista, al terminar el triaje |
-| **Ejemplo en ACME** | `Failed password for root from 203.0.113.45` | «Cinco contraseñas fallidas en 60 segundos desde la misma IP» | «Compromiso de la cuenta `mgarcia` por phishing» |
+| **Ejemplo en ACME** | `Failed password for root from 203.0.113.45` | «Cinco contraseñas fallidas en 60 segundos desde la misma IP» | «Compromiso de la cuenta `lsanz` por phishing» |
 | **Volumen diario (orden de magnitud)** | Millones | Cientos o miles | Unidades |
 | **Qué se hace** | Se registra y se conserva | Se revisa (triaje) | Se abre una ficha, se clasifica, se valora y se gestiona |
 
 **Diagrama 1.1. Del evento al incidente.** Las reglas convierten una pequeña parte de los eventos en alertas; el triaje del analista decide cuáles son incidentes y cuáles se cierran como falsos positivos.
 
-```mermaid
-flowchart LR
-    E["Eventos<br/>millones al día"] -->|"reglas, umbrales<br/>y correlación"| A["Alertas<br/>cientos o miles"]
-    A -->|"triaje del<br/>analista N1"| D{"¿Daño real o<br/>amenaza cierta?"}
-    D -->|"Sí"| I["Incidente<br/>ficha, clasificación<br/>y valoración"]
-    D -->|"No"| F["Falso positivo<br/>cierre con motivo"]
-    F -.->|"ajuste de<br/>la regla"| A
-```
+![Diagrama 1.1. Del evento al incidente](img/diagrama_1-1.png)
+
+> **Descripción en texto del diagrama 1.1.** De izquierda a derecha. Los eventos, millones al día, pasan por reglas, umbrales y correlación y se convierten en alertas, cientos o miles. El analista de nivel 1 hace el triaje de cada alerta y se pregunta si hay daño real o una amenaza cierta. Si la respuesta es sí, la alerta se convierte en incidente: ficha, clasificación y valoración. Si es no, es un falso positivo y se cierra con su motivo. Desde el falso positivo, una flecha discontinua vuelve a las alertas: el ajuste de la regla.
 
 > **Ejemplo SOC Tier 1.** Tres contraseñas mal escritas por `jperez` a las 08:02 son tres *eventos*. Si la regla dice «cinco fallos en 60 segundos», aún no hay *alerta*. A las 03:10, veinte fallos seguidos contra `root` desde una IP externa sí disparan la alerta. Si el analista comprueba que después hubo un inicio de sesión correcto desde esa misma IP, declara un *incidente*. Si no lo hubo y la IP ya está bloqueada, lo registra como intento y sigue vigilando.
 
@@ -261,26 +287,9 @@ La tabla de INCIBE-CERT añade algunos tipos más recientes, como el dominio gen
 
 **Diagrama 1.2. Árbol de la taxonomía.** Las diez clasificaciones y sus tipos principales, de un vistazo.
 
-```mermaid
-flowchart LR
-    T(["Taxonomía de<br/>ciberincidentes"])
-    T --- C1["Contenido abusivo"] --- T1["Spam, delito de odio,<br/>contenido sexual o violento"]
-    T --- C2["Contenido dañino"] --- T2["Sistema infectado, servidor de mando y control,<br/>distribución o configuración de malware"]
-    T --- C3["Obtención de información"] --- T3["Escaneo de redes, análisis de paquetes,<br/>ingeniería social"]
-    T --- C4["Intento de intrusión"] --- T4["Explotación de vulnerabilidades, acceso con<br/>credenciales vulneradas, ataque desconocido"]
-    T --- C5["Intrusión"] --- T5["Cuenta con o sin privilegios, aplicación<br/>comprometida, robo o intrusión física"]
-    T --- C6["Disponibilidad"] --- T6["DoS y DDoS, mala configuración,<br/>sabotaje, interrupciones"]
-    T --- C7["Compromiso de<br/>la información"] --- T7["Acceso no autorizado, modificación<br/>no autorizada, pérdida de datos"]
-    T --- C8["Fraude"] --- T8["Uso no autorizado de recursos, derechos<br/>de autor, suplantación, phishing"]
-    T --- C9["Vulnerable"] --- T9["Criptografía débil, amplificador DDoS,<br/>servicio expuesto, sistema vulnerable"]
-    T --- C10["Otros"] --- T10["APT y tipos<br/>no catalogados"]
-    classDef clase fill:#2A3990,stroke:#2A3990,color:#ffffff
-    classDef tipos fill:#ffffff,stroke:#AEB5DA,color:#1F2433
-    classDef raiz fill:#FCE8EF,stroke:#B0124A,color:#1F2433
-    class C1,C2,C3,C4,C5,C6,C7,C8,C9,C10 clase
-    class T1,T2,T3,T4,T5,T6,T7,T8,T9,T10 tipos
-    class T raiz
-```
+![Diagrama 1.2. Árbol de la taxonomía](img/diagrama_1-2.png)
+
+> **Descripción en texto del diagrama 1.2.** Un árbol con la taxonomía en la raíz y diez ramas, una por clasificación, cada una con sus tipos. Contenido abusivo: spam, delito de odio, contenido sexual o violento. Contenido dañino: sistema infectado, servidor de mando y control, distribución o configuración de malware. Obtención de información: escaneo de redes, análisis de paquetes, ingeniería social. Intento de intrusión: explotación de vulnerabilidades, acceso con credenciales vulneradas, ataque desconocido. Intrusión: cuenta con o sin privilegios, aplicación comprometida, robo o intrusión física. Disponibilidad: DoS y DDoS, mala configuración, sabotaje, interrupciones. Compromiso de la información: acceso no autorizado, modificación no autorizada, pérdida de datos. Fraude: uso no autorizado de recursos, derechos de autor, suplantación, phishing. Vulnerable: criptografía débil, amplificador DDoS, servicio expuesto, sistema vulnerable. Otros: APT y tipos no catalogados.
 
 ### Cómo se clasifica en la práctica
 
@@ -313,28 +322,9 @@ Hay cinco niveles. Cada tipo de la taxonomía tiene uno asignado en la Instrucci
 
 **Diagrama 1.3. Árbol de decisión de la peligrosidad.** Se recorre de arriba abajo; la primera pregunta que se responde con un «sí» fija el nivel.
 
-```mermaid
-flowchart TD
-    S(["Tipo de incidente<br/>según la taxonomía"]) --> Q1{{"¿Es una amenaza persistente<br/>avanzada (APT)?"}}
-    Q1 -->|"Sí"| C["CRÍTICO"]
-    Q1 -->|"No"| Q2{{"¿Distribución o configuración de malware,<br/>robo, sabotaje o interrupciones?"}}
-    Q2 -->|"Sí"| MA["MUY ALTO"]
-    Q2 -->|"No"| Q3{{"¿Sistema infectado, mando y control, aplicación o cuenta<br/>con privilegios comprometida, ataque desconocido, DoS o DDoS,<br/>acceso, modificación o pérdida de información, phishing<br/>o contenido sexual o violento inadecuado?"}}
-    Q3 -->|"Sí"| AL["ALTO"]
-    Q3 -->|"No"| Q4{{"¿Spam, escaneo de redes, análisis<br/>de paquetes u otro tipo no catalogado?"}}
-    Q4 -->|"Sí"| B["BAJO"]
-    Q4 -->|"No"| M["MEDIO"]
-    classDef critico fill:#7A1126,stroke:#7A1126,color:#ffffff
-    classDef muyalto fill:#C62828,stroke:#C62828,color:#ffffff
-    classDef alto fill:#EF6C00,stroke:#EF6C00,color:#ffffff
-    classDef medio fill:#F9C846,stroke:#B88A00,color:#1F2433
-    classDef bajo fill:#2E7D32,stroke:#2E7D32,color:#ffffff
-    class C critico
-    class MA muyalto
-    class AL alto
-    class M medio
-    class B bajo
-```
+![Diagrama 1.3. Árbol de decisión de la peligrosidad](img/diagrama_1-3.png)
+
+> **Descripción en texto del diagrama 1.3.** Un árbol de decisión que se recorre de arriba abajo. Primera pregunta: ¿es una APT? Si es así, CRÍTICO. Si no, segunda: ¿distribución o configuración de malware, robo, sabotaje o interrupciones? Si es así, MUY ALTO. Si no, tercera: ¿sistema infectado, mando y control, aplicación o cuenta con privilegios comprometida, ataque desconocido, DoS o DDoS, acceso, modificación o pérdida de información, phishing o contenido sexual o violento inadecuado? Si es así, ALTO. Si no, cuarta: ¿spam, escaneo de redes, análisis de paquetes u otro tipo no catalogado? Si es así, BAJO; si no, MEDIO.
 
 > **Atención.** La peligrosidad de un phishing es ALTO aunque nadie haya picado todavía, y la de un escaneo de puertos es BAJO aunque dure toda la noche. La peligrosidad habla del tipo de amenaza; lo que de verdad ha pasado en tu organización lo mide el impacto.
 
@@ -385,19 +375,9 @@ La matriz siguiente es una ayuda de trabajo construida con esa regla. Cruza las 
 
 **Diagrama 1.4. Los tres casos de ACME sobre la matriz.** Cada punto sitúa un caso según su peligrosidad (eje vertical) y su impacto (eje horizontal). Todo lo que no está en el cuadrante inferior izquierdo exige notificación si la entidad está obligada.
 
-```mermaid
-quadrantChart
-    title Peligrosidad e impacto de los casos A, B y C
-    x-axis "Impacto bajo" --> "Impacto alto"
-    y-axis "Peligrosidad baja" --> "Peligrosidad alta"
-    quadrant-1 "Notificar y escalar"
-    quadrant-2 "Notificar: manda la peligrosidad"
-    quadrant-3 "Flujo ordinario"
-    quadrant-4 "Notificar: manda el impacto"
-    "A. Escaneo de puertos": [0.20, 0.16]
-    "B. Phishing con buzón comprometido": [0.34, 0.66]
-    "C. Ransomware en ficheros": [0.80, 0.74]
-```
+![Diagrama 1.4. Los tres casos de ACME sobre la matriz](img/diagrama_1-4.png)
+
+> **Descripción en texto del diagrama 1.4.** Un gráfico de cuadrantes con el impacto en el eje horizontal y la peligrosidad en el vertical. El cuadrante inferior izquierdo es el flujo ordinario; el superior izquierdo, notificar porque manda la peligrosidad; el inferior derecho, notificar porque manda el impacto; el superior derecho, notificar y escalar. El caso A, escaneo de puertos, está abajo a la izquierda, con peligrosidad e impacto bajos. El caso B, phishing con buzón comprometido, está arriba a la izquierda: peligrosidad alta e impacto moderado. El caso C, ransomware en el servidor de ficheros, está arriba a la derecha: peligrosidad e impacto altos.
 
 ### A quién se notifica y en qué plazo
 
@@ -424,7 +404,11 @@ La notificación inicial se cuenta desde que se tiene conocimiento del incidente
 
 > **Atención.** Estos plazos conviven con otros. Si el incidente afecta a datos personales y supone un riesgo para las personas, el Reglamento General de Protección de Datos (artículo 33) obliga a notificarlo a la Agencia Española de Protección de Datos en un máximo de 72 horas desde que se tiene constancia. Y si hay indicios de delito, procede la denuncia ante las Fuerzas y Cuerpos de Seguridad. Son tres vías distintas y pueden darse a la vez.
 
-> **Recuerda.** A la fecha de cierre de este material (noviembre de 2026) España no ha publicado la ley que transpone la directiva europea NIS2, de modo que siguen vigentes el Real Decreto-ley 12/2018 y su desarrollo, el Real Decreto 43/2021. Antes de aplicar plazos en un caso real, comprueba si la normativa ha cambiado.
+> **Recuerda.** La normativa se está moviendo. Antes de aplicar plazos en un caso real, comprueba si ha cambiado. A 17 de noviembre de 2026:
+>
+> - **NIS2.** España no ha aprobado la ley que la transpone: el anteproyecto de Ley de Coordinación y Gobernanza de la Ciberseguridad es de enero de 2025, y en julio de 2026 la Comisión Europea decidió llevar a España ante el Tribunal de Justicia de la UE por el retraso. Siguen vigentes el Real Decreto-ley 12/2018 y el Real Decreto 43/2021.
+> - **Protección de datos.** El paquete europeo *Digital Omnibus* propone ampliar de 72 a 96 horas el plazo para notificar una brecha y crear un punto único de notificación. Es una propuesta en negociación: hoy rigen las 72 horas del artículo 33 del Reglamento General de Protección de Datos.
+> - **Productos con elementos digitales.** Desde el 11 de septiembre de 2026, el Reglamento de Ciberresiliencia (artículo 14) obliga a los fabricantes a notificar las vulnerabilidades explotadas activamente y los incidentes graves que afecten a sus productos, a través de la plataforma única de ENISA. La primera alerta se envía en 24 horas.
 
 ### De la valoración a la prioridad del SOC
 
@@ -455,18 +439,15 @@ Malware, denegación de servicio y fuga de información son los tres grandes blo
 | **Primera contención** | Aislar el equipo de la red | Filtrar el tráfico con el proveedor o el cortafuegos | Cortar el canal de salida y revocar credenciales |
 | **Obligación añadida** | — | — | Valorar la brecha de datos personales (72 horas) |
 
-> **[IMAGEN ILUSTRATIVA 1.1: Infografía comparativa «Malware, denegación de servicio y fuga de información»]**
->
-> - **Qué debe mostrar:** tres columnas del mismo ancho, una por tipo de incidente, con un icono grande en la cabecera (un insecto para malware, un servidor saturado para la denegación de servicio y un documento que sale de una caja para la fuga). Debajo, cinco filas alineadas: dimensión afectada, clasificación en la taxonomía, nivel de peligrosidad, señales de detección y primera medida de contención. Los contenidos son los de la tabla anterior.
-> - **Formato:** infografía horizontal de 1 600 × 900 píxeles en PNG o SVG, fondo blanco, un color por columna y la etiqueta de peligrosidad «ALTO» en naranja en las tres.
-> - **Texto alternativo:** «Comparación de malware, denegación de servicio y fuga de información según la dimensión de seguridad afectada, su clasificación, sus señales de detección y su primera contención».
-> - **Nota para el docente:** el paquete SCORM ya incluye esta infografía construida en HTML; sustitúyela solo si quieres un diseño propio.
+![Comparación de malware, denegación de servicio y fuga de información según la dimensión de seguridad afectada, su clasificación, sus señales de detección y su primera contención](img/figura_1-1.png)
+
+*Figura 1.1. Infografía comparativa «Malware, denegación de servicio y fuga de información»*
 
 <a id="p-1-8"></a>
 
-## 1.8 Ejemplo práctico: los tres casos del lunes
+## 1.8 Ejemplo práctico: los tres casos del ejercicio
 
-Aplicamos el método completo a los tres casos de la situación inicial. Los pasos son siempre los mismos: clasificar, asignar peligrosidad, estimar impacto, obtener el nivel que rige y decidir.
+Aplicamos el método completo a los tres casos del ejercicio de mesa. Los pasos son siempre los mismos: clasificar, asignar peligrosidad, estimar impacto, obtener el nivel que rige y decidir.
 
 ### Caso A. Barrido de puertos contra el cortafuegos
 
@@ -513,7 +494,41 @@ El orden de atención es **C, B, A**. La peligrosidad por sí sola no lo habría
 
 <a id="p-1-9"></a>
 
-## 1.9 Recursos y referencias
+## 1.9 Práctica P1. Clasifica y valora como en el SOC
+
+> **En el laboratorio.** **Objetivo:** aplicar la taxonomía y las dos escalas a casos nuevos y justificar cada decisión. **Duración:** una sesión (2 horas). **Material:** esta página y las tablas de los apartados 1.3 a 1.6. **Se trabaja:** por parejas; la puesta en común, en gran grupo.
+
+### Los casos
+
+Seis sucesos de una semana cualquiera en ACME:
+
+1. **Lunes, 09:10.** La pasarela de correo retiene 35 de 40 mensajes que imitan el aviso de una empresa de mensajería y enlazan con una página que pide la contraseña del correo. Los otros cinco llegaron a los buzones; nadie ha escrito su contraseña.
+2. **Martes, de 09:00 a 18:10.** El portal de clientes no responde por una inundación de peticiones desde miles de direcciones. Durante esas nueve horas, el 60 % de los clientes no puede consultar sus envíos.
+3. **Miércoles.** Un técnico cambia una regla del cortafuegos y deja accesible desde Internet el escritorio remoto de `srv-bd01` durante cuatro horas. Lo detecta la vigilancia de la superficie de exposición; los registros no muestran ningún acceso.
+4. **Jueves.** Un comercial pierde en el tren un portátil sin cifrar. Contiene una hoja de cálculo con el nombre, el teléfono y la dirección de 900 clientes.
+5. **Viernes, 23:00.** El vigilante encuentra abierto un armario del CPD. Falta un servidor de pruebas, sin datos reales.
+6. **Sábado.** El SIEM detecta que un ordenador de la oficina pasa las noches minando criptomonedas. Lo instaló un empleado.
+
+### Qué tienes que hacer
+
+1. Copia esta tabla y rellena una fila por caso. En cada celda, escribe también el criterio que has aplicado.
+
+   | Caso | Clasificación → tipo | Peligrosidad | Impacto estimado y criterio | Nivel que rige | Prioridad | ¿Notificación al CSIRT si ACME fuera sujeto obligado? | ¿Otras vías? (AEPD, denuncia) |
+   |---|---|---|---|---|---|---|---|
+   | 1 | | | | | | | |
+
+2. Ordena los seis casos por urgencia de atención y justifica el orden en tres líneas.
+3. Señala un caso en el que mande la peligrosidad y otro en el que mande el impacto.
+4. En el caso 3 hay una trampa de clasificación. ¿Cuál es y por qué no es «Mala configuración»?
+5. Elige un caso y reescríbelo para que su nivel suba un escalón. ¿Qué dato has tenido que cambiar?
+
+**Comprueba tu trabajo.** Si en algún caso la peligrosidad y el impacto son iguales, revisa que no hayas mezclado las dos escalas: la primera habla del tipo de amenaza y la segunda de lo que ha pasado en ACME.
+
+**Entrega:** la tabla y las respuestas, en un documento o en la tarea del aula virtual.
+
+<a id="p-1-10"></a>
+
+## 1.10 Recursos y referencias
 
 > **[VÍDEO / RECURSO RECOMENDADO 1.1: La Guía Nacional de Notificación y Gestión de Ciberincidentes, explicada por INCIBE-CERT]**
 >
@@ -521,7 +536,6 @@ El orden de atención es **C, B, A**. La peligrosidad por sí sola no lo habría
 > - **Formato e idioma:** artículo en español; lectura de cinco minutos.
 > - **Qué aporta:** resume para qué sirve la guía, cómo se prioriza un incidente según su peligrosidad e impacto y cómo se notifica a INCIBE-CERT.
 > - **Cómo usarlo:** léelo antes de la actividad de clasificación y localiza en la guía completa la tabla de niveles de impacto.
-> - **Nota para el docente:** no he localizado una píldora oficial en vídeo del CCN-CERT sobre la guía con enlace estable. Si quieres grabar una propia de cuatro a seis minutos, este guion funciona: (1) qué es la guía y a quién obliga; (2) la taxonomía en una diapositiva; (3) peligrosidad frente a impacto con el caso B; (4) la ventana temporal de reporte; (5) a qué CSIRT se notifica.
 
 > **[REFERENCIAS Y GUÍAS OFICIALES]**
 >
@@ -537,9 +551,9 @@ El orden de atención es **C, B, A**. La peligrosidad por sí sola no lo habría
 
 <a id="p-1-act"></a>
 
-## 1.10 Actividades interactivas
+## 1.11 Actividades interactivas
 
-Cada actividad cuenta una vez, en el primer intento. Las preguntas de test muestran después la retroalimentación de todas las opciones.
+Responde antes de desplegar la solución. En la [unidad interactiva](https://jpercas570.github.io/incidentes-ciber-masterfp/ud2-analisis-incidentes/curso/) se corrigen solas y cuentan en el primer intento.
 
 ### Actividad 1.1. Clasificar con lo confirmado (pregunta de test)
 
@@ -550,6 +564,9 @@ El sensor de red de ACME registra 40 intentos de inicio de sesión fallidos cont
 - **c)** Intrusión → Compromiso de cuenta sin privilegios. Peligrosidad MEDIO.
 - **d)** Obtención de información → Escaneo de redes. Peligrosidad BAJO.
 
+<details markdown="1">
+<summary>Ver la solución y la retroalimentación</summary>
+
 | Opción | Resultado | Retroalimentación |
 |---|---|---|
 | a) | Incorrecta | No. Es el peor desenlace posible, pero no ha ocurrido. Valorar por miedo desordena las prioridades: este caso pasaría por delante de incidentes reales. Si se confirma un acceso, se reclasifica en ese momento. |
@@ -557,7 +574,7 @@ El sensor de red de ACME registra 40 intentos de inicio de sesión fallidos cont
 | c) | Incorrecta | No. «Intrusión» exige que el atacante haya entrado, y aquí no consta ningún acceso correcto. Se clasifica lo que se ha confirmado, no lo que se teme. El nivel coincide, pero la clasificación cambia las estadísticas y la forma de tratar el caso. |
 | d) | Incorrecta | No. Un escaneo sondea qué puertos y servicios hay. Aquí el atacante ya conoce el servicio y está probando credenciales contra él, que es un paso más: un intento de intrusión, con peligrosidad MEDIO. |
 
-*Tipo de contenido H5P o Moodle:* Multiple Choice (una sola respuesta), con la retroalimentación de cada fila en el campo de la opción correspondiente.
+</details>
 
 ### Actividad 1.2. El nivel que rige (pregunta de test)
 
@@ -568,6 +585,9 @@ Un incidente se clasifica como «Mala configuración», de peligrosidad MEDIO. L
 - **c)** ALTO, porque manda el impacto. Notificación inicial inmediata al CSIRT de referencia.
 - **d)** MEDIO, porque la peligrosidad es la del tipo de incidente. No hay que notificar.
 
+<details markdown="1">
+<summary>Ver la solución y la retroalimentación</summary>
+
 | Opción | Resultado | Retroalimentación |
 |---|---|---|
 | a) | Incorrecta | No. La Instrucción nacional pide notificar cuando la peligrosidad **o** el impacto son ALTO, MUY ALTO o CRÍTICO. No hace falta que coincidan. |
@@ -575,11 +595,27 @@ Un incidente se clasifica como «Mala configuración», de peligrosidad MEDIO. L
 | c) | **Correcta** | Correcto. Una interrupción de más de 1 hora que afecta a más del 10 % de los usuarios es impacto ALTO. El nivel que rige es el mayor de los dos, y a partir de ALTO la notificación inicial es obligatoria e inmediata. |
 | d) | Incorrecta | No. La peligrosidad es solo una de las dos escalas. El impacto mide lo que de verdad ha ocurrido, y aquí es ALTO. Basta con que una de las dos alcance ese nivel para que haya que notificar. |
 
-*Tipo de contenido H5P o Moodle:* Multiple Choice (una sola respuesta), con la retroalimentación de cada fila en el campo de la opción correspondiente.
+</details>
 
 ### Actividad 1.3. Cada suceso, en su clasificación (clasificación)
 
 Coloca cada suceso en la clasificación de la taxonomía que le corresponde.
+
+**Sucesos:**
+
+- Un puesto contacta cada diez minutos con un servidor de mando y control
+- Barrido de puertos contra el cortafuegos
+- Un falso técnico pide por teléfono la contraseña a una empleada
+- Una inyección SQL entrega el control de la aplicación web
+- Una persona ajena entra en el CPD con una tarjeta copiada
+- Una inundación de peticiones deja sin servicio el portal de clientes
+- Una página imita el correo corporativo para capturar contraseñas
+- El escritorio remoto de un servidor es accesible desde Internet
+
+**Clasificaciones:** Contenido dañino, Disponibilidad, Fraude, Intrusión, Obtención de información, Vulnerable.
+
+<details markdown="1">
+<summary>Ver la solución y la retroalimentación</summary>
 
 | Elemento | Categoría | Comentario al corregir |
 |---|---|---|
@@ -592,28 +628,22 @@ Coloca cada suceso en la clasificación de la taxonomía que le corresponde.
 | Una página imita el correo corporativo para capturar contraseñas | Fraude | Tipo «Phishing». |
 | El escritorio remoto de un servidor es accesible desde Internet | Vulnerable | Tipo «Servicios con acceso potencial no deseado»: todavía no ha pasado nada. |
 
-*Tipo de contenido H5P recomendado:* Drag and Drop (zonas con texto) o Drag the Words.
-
-Texto preparado para pegar en **Drag the Words** (las respuestas van entre asteriscos):
-
-```text
-Un puesto contacta cada diez minutos con un servidor de mando y control: *Contenido dañino*
-Barrido de puertos contra el cortafuegos: *Obtención de información*
-Un falso técnico pide por teléfono la contraseña a una empleada: *Obtención de información*
-Una inyección SQL entrega el control de la aplicación web: *Intrusión*
-Una persona ajena entra en el CPD con una tarjeta copiada: *Intrusión*
-Una inundación de peticiones deja sin servicio el portal de clientes: *Disponibilidad*
-Una página imita el correo corporativo para capturar contraseñas: *Fraude*
-El escritorio remoto de un servidor es accesible desde Internet: *Vulnerable*
-```
-
+</details>
 
 <a id="m-2"></a>
 
 # Módulo 2. Monitorización técnica: SIEM (Wazuh) y NIDS (Suricata)
 
 **Criterio de evaluación:** CE 2.b. Se han establecido controles, herramientas y mecanismos de monitorización, identificación, detección y alerta de incidentes.  
-**Tiempo estimado de estudio:** 150 minutos.
+**Tiempo estimado de estudio:** 150 minutos.  
+**Práctica:** P2, dos sesiones (5 horas).
+
+**Al terminar este módulo serás capaz de:**
+
+- Identificar qué registros generan Linux, Windows y los dispositivos de red, y cuáles sirven para detectar.
+- Explicar cómo viaja un evento desde el equipo hasta el panel de Wazuh.
+- Leer, escribir y probar reglas de Suricata y de Wazuh.
+- Llevar las alertas de red al SIEM y elevar las que importan.
 
 <a id="p-2-1"></a>
 
@@ -687,7 +717,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; Id=4625} -MaxEvents 5 |
   Format-List TimeCreated, Message
 ```
 
-Sysmon no viene instalado: es una utilidad gratuita de Microsoft Sysinternals que añade al sistema un registro mucho más detallado de procesos, conexiones y ficheros. Sin Sysmon (o sin la auditoría de creación de procesos con línea de comandos) es muy difícil detectar el abuso de herramientas legítimas como PowerShell.
+Sysmon es una utilidad gratuita de Microsoft Sysinternals que añade al sistema un registro mucho más detallado de procesos, conexiones y ficheros. Desde 2026, Windows 11 la incluye como característica opcional, desactivada por defecto: se activa con `Enable-WindowsOptionalFeature -Online -FeatureName Sysmon` y se pone en marcha con `sysmon -i`, que admite un fichero de configuración propio. En equipos sin esa actualización se sigue descargando de Sysinternals. Sin Sysmon (o sin la auditoría de creación de procesos con línea de comandos) es muy difícil detectar el abuso de herramientas legítimas como PowerShell.
 
 ### Dispositivos de red
 
@@ -742,22 +772,9 @@ Un **IPS** (sistema de prevención) es un IDS colocado en línea, por donde pasa
 
 **Diagrama 2.1. Dónde se coloca cada sensor en la red de ACME.** Los agentes envían los registros de cada equipo; el sensor de red recibe una copia del tráfico y envía sus alertas al mismo servidor.
 
-```mermaid
-flowchart TB
-    ATK(["Origen externo<br/>203.0.113.45"]) --> FW["Cortafuegos"]
-    FW --> SW["Conmutador central"]
-    subgraph RED["Red interna 10.20.0.0/16"]
-        SW --- WEB["srv-web01<br/>agente Wazuh"]
-        SW --- FIL["srv-files01<br/>agente Wazuh"]
-        SW --- PC["PC-ADM-07, Windows 11<br/>agente Wazuh y Sysmon"]
-        SW -. "puerto espejo:<br/>copia del tráfico" .-> IDS["ids01<br/>Suricata"]
-    end
-    WEB -. "registros" .-> SIEM["wazuh01<br/>servidor, indexador y panel"]
-    FIL -. "registros" .-> SIEM
-    PC -. "registros" .-> SIEM
-    IDS -. "alertas de red" .-> SIEM
-    FW -. "syslog" .-> SIEM
-```
+![Diagrama 2.1. Dónde se coloca cada sensor en la red de ACME](img/diagrama_2-1.png)
+
+> **Descripción en texto del diagrama 2.1.** El origen externo 203.0.113.45 llega al cortafuegos y de ahí al conmutador central, dentro de la red interna 10.20.0.0/16. Del conmutador cuelgan srv-web01, srv-files01 y PC-ADM-07 (Windows 11), cada uno con su agente de Wazuh; PC-ADM-07 lleva además Sysmon. El conmutador envía una copia del tráfico por su puerto espejo al sensor ids01, con Suricata. Hacia wazuh01, que reúne servidor, indexador y panel, van los registros de los tres equipos, las alertas de red de ids01 y el syslog del cortafuegos.
 
 <a id="p-2-4"></a>
 
@@ -765,7 +782,7 @@ flowchart TB
 
 ### Qué es y cómo trabaja
 
-Suricata es un motor de código abierto, mantenido por la Open Information Security Foundation (OISF), que analiza el tráfico de red. Reconoce los protocolos por su contenido (no solo por el puerto), aplica reglas y escribe todo lo que ve en un fichero JSON llamado `eve.json`. La rama estable actual es la 8; la rama 7 llegó al final de su ciclo de vida en septiembre de 2026.
+Suricata es un motor de código abierto, mantenido por la Open Information Security Foundation (OISF), que analiza el tráfico de red. Reconoce los protocolos por su contenido (no solo por el puerto), aplica reglas y escribe todo lo que ve en un fichero JSON llamado `eve.json`. La rama estable actual es la 8, que es la que instala Ubuntu 26.04 desde sus repositorios. La rama 7 ya no tiene soporte: su última versión, la 7.0.17, salió en septiembre de 2026. Si encuentras tutoriales escritos para la 7, las reglas suelen servir tal cual, pero algunos campos de `eve.json` han cambiado.
 
 Las reglas pueden proceder de un conjunto público (por ejemplo, Emerging Threats Open, que se descarga con `suricata-update`) o escribirse a medida.
 
@@ -774,7 +791,7 @@ Las reglas pueden proceder de un conjunto público (por ejemplo, Emerging Threat
 Una regla tiene tres partes: la **acción**, la **cabecera** (qué tráfico se examina) y las **opciones** entre paréntesis (qué se busca y cómo se informa).
 
 ```text
-alert tcp $EXTERNAL_NET any -> $HOME_NET 22 (msg:"LOCAL Posible fuerza bruta SSH: 5 conexiones nuevas en 60 s desde el mismo origen"; flow:to_server; flags:S,12; threshold:type both, track by_src, count 5, seconds 60; classtype:attempted-admin; sid:1000002; rev:1;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET 22 (msg:"ACME - Posible fuerza bruta SSH (5 conexiones nuevas en 60 s desde el mismo origen)"; flow:to_server; flags:S,12; threshold:type both, track by_src, count 5, seconds 60; classtype:attempted-admin; sid:1000002; rev:2;)
 ```
 
 | Parte | Valor en el ejemplo | Significado |
@@ -784,12 +801,12 @@ alert tcp $EXTERNAL_NET any -> $HOME_NET 22 (msg:"LOCAL Posible fuerza bruta SSH
 | Origen | `$EXTERNAL_NET any` | Cualquier dirección externa, cualquier puerto |
 | Dirección | `->` | De origen a destino. `<>` examina los dos sentidos |
 | Destino | `$HOME_NET 22` | La red propia, puerto 22 |
-| `msg` | Texto | Lo que verá el analista |
+| `msg` | Texto | Lo que verá el analista. Un prefijo común (aquí, `ACME -`) permite filtrar de un vistazo las reglas propias |
 | `flow` | `to_server` | Solo paquetes del cliente hacia el servidor |
 | `flags` | `S,12` | Paquetes con el indicador SYN: inicios de conexión |
 | `threshold` | `type both, track by_src, count 5, seconds 60` | Avisa una sola vez cuando el mismo origen acumula cinco coincidencias en 60 segundos |
 | `classtype` | `attempted-admin` | Categoría, que fija la prioridad (1 es la más alta) |
-| `sid` y `rev` | `1000002`, `1` | Identificador único y versión. El rango de 1 000 000 a 1 999 999 está reservado para reglas locales |
+| `sid` y `rev` | `1000002`, `2` | Identificador único y versión, que sube cada vez que se modifica la regla. El rango de 1 000 000 a 1 999 999 está reservado para reglas locales |
 
 `$HOME_NET` y `$EXTERNAL_NET` son variables que se definen en `/etc/suricata/suricata.yaml`. Si `HOME_NET` no describe bien tu red, las reglas no se disparan o se disparan con todo.
 
@@ -799,19 +816,22 @@ alert tcp $EXTERNAL_NET any -> $HOME_NET 22 (msg:"LOCAL Posible fuerza bruta SSH
 # /etc/suricata/rules/local.rules
 
 # 1. Ping hacia la red interna (regla de prueba para comprobar que el sensor funciona)
-alert icmp any any -> $HOME_NET any (msg:"LOCAL ICMP echo request hacia la red interna"; itype:8; classtype:misc-activity; sid:1000001; rev:1;)
+alert icmp any any -> $HOME_NET any (msg:"ACME - ICMP echo request hacia la red interna"; itype:8; classtype:misc-activity; sid:1000001; rev:2;)
 
 # 2. Posible fuerza bruta contra SSH
-alert tcp $EXTERNAL_NET any -> $HOME_NET 22 (msg:"LOCAL Posible fuerza bruta SSH: 5 conexiones nuevas en 60 s desde el mismo origen"; flow:to_server; flags:S,12; threshold:type both, track by_src, count 5, seconds 60; classtype:attempted-admin; sid:1000002; rev:1;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET 22 (msg:"ACME - Posible fuerza bruta SSH (5 conexiones nuevas en 60 s desde el mismo origen)"; flow:to_server; flags:S,12; threshold:type both, track by_src, count 5, seconds 60; classtype:attempted-admin; sid:1000002; rev:2;)
 
-# 3. Consulta DNS a un dominio que imita al corporativo (lo localizaremos en el módulo 4)
-alert dns $HOME_NET any -> any any (msg:"LOCAL Consulta DNS a dominio de typosquatting vigilado"; dns.query; content:"acrne-logistica.example"; nocase; classtype:bad-unknown; sid:1000003; rev:1;)
+# 3. Consulta DNS a un dominio que imita al corporativo (añadida el viernes 13 de noviembre,
+#    cuando la vigilancia de dominios del módulo 4 lo localizó)
+alert dns $HOME_NET any -> any any (msg:"ACME - Consulta DNS a dominio vigilado (acrne-logistica.example)"; dns.query; content:"acrne-logistica.example"; nocase; classtype:bad-unknown; sid:1000003; rev:2;)
 
 # 4. Descarga de un ejecutable por HTTP sin cifrar
-alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"LOCAL Descarga de ejecutable .exe por HTTP en claro"; flow:established,to_server; http.method; content:"GET"; http.uri; content:".exe"; nocase; endswith; classtype:policy-violation; sid:1000004; rev:1;)
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"ACME - Descarga de ejecutable .exe por HTTP en claro"; flow:established,to_server; http.method; content:"GET"; http.uri; content:".exe"; nocase; endswith; classtype:policy-violation; sid:1000004; rev:2;)
 ```
 
-En las reglas 3 y 4 aparecen los *búferes*: `dns.query`, `http.method` y `http.uri` indican en qué parte del protocolo debe buscarse el `content` que viene a continuación. Así la regla 3 solo mira el nombre consultado y no cualquier paquete que contenga ese texto.
+En las reglas 3 y 4 aparecen los *búferes*: `dns.query`, `http.method` y `http.uri` indican en qué parte del protocolo debe buscarse el `content` que viene a continuación. Así la regla 3 solo mira el nombre consultado y no cualquier paquete que contenga ese texto. Como `content` busca el texto en cualquier posición, la regla también avisa de los subdominios, como `sync.acrne-logistica.example`.
+
+> **Atención.** `dns.query` solo examina las peticiones DNS. Suricata 8 añade `dns.queries.rrname`, que mira el nombre consultado tanto en las peticiones como en las respuestas; si lo usas, limita el sentido con `flow`. Las dos palabras clave funcionan en la versión 8.
 
 Para activar las reglas:
 
@@ -841,7 +861,7 @@ sudo tail -f /var/log/suricata/fast.log
 
 ### Qué escribe Suricata cuando una regla se dispara
 
-Este es el registro que deja la regla 2 en `eve.json`. Es una salida real, obtenida al procesar una captura de tráfico de laboratorio con ocho inicios de conexión separados cinco segundos; la alerta aparece exactamente en el quinto.
+Este es el registro que deja la regla 2 en `eve.json`. Es una salida real (se omiten algunos campos), obtenida durante la preparación de este material al procesar con Suricata la captura `fuerza_bruta_ssh.pcap` de la práctica P2: ocho inicios de conexión separados cinco segundos. La alerta aparece exactamente en el quinto.
 
 ```json
 {
@@ -856,8 +876,8 @@ Este es el registro que deja la regla 2 en `eve.json`. Es una salida real, obten
     "action": "allowed",
     "gid": 1,
     "signature_id": 1000002,
-    "rev": 1,
-    "signature": "LOCAL Posible fuerza bruta SSH: 5 conexiones nuevas en 60 s desde el mismo origen",
+    "rev": 2,
+    "signature": "ACME - Posible fuerza bruta SSH (5 conexiones nuevas en 60 s desde el mismo origen)",
     "category": "Attempted Administrator Privilege Gain",
     "severity": 1
   },
@@ -888,27 +908,9 @@ En un laboratorio o en una organización pequeña, los tres componentes centrale
 
 **Diagrama 2.2. Del registro al panel.** Recorrido completo de un evento: se genera en el equipo, el agente lo envía, el servidor lo analiza en tres fases, la regla produce la alerta y el indexador la pone a disposición del panel.
 
-```mermaid
-flowchart TB
-    subgraph EQ["En el equipo vigilado"]
-        direction LR
-        L["Registro del equipo<br/>auth.log o journald"] --> AG["Agente Wazuh"]
-    end
-    subgraph AN["En el servidor Wazuh: motor de análisis"]
-        direction LR
-        P1["1. Predecodificación<br/>fecha, equipo, programa"] --> P2["2. Decodificación<br/>usuario, IP, puerto"]
-        P2 --> P3["3. Reglas simples<br/>y de correlación"]
-        P3 -->|"nivel 3 o superior"| AL["Alerta y<br/>respuesta activa"]
-        P3 -->|"nivel inferior"| X["Sin alerta"]
-    end
-    subgraph VI["Almacenamiento y consulta"]
-        direction LR
-        IX["Indexador"] --> DB["Panel"]
-        DB --> AN1(["Analista N1"])
-    end
-    EQ -->|"1514/TCP, cifrado"| AN
-    AN -->|"9200/TCP"| VI
-```
+![Diagrama 2.2. Del registro al panel](img/diagrama_2-2.png)
+
+> **Descripción en texto del diagrama 2.2.** Tres bloques en vertical. En el equipo vigilado, el registro (auth.log o journald) pasa al agente de Wazuh. El agente lo envía cifrado por el puerto 1514/TCP al servidor, donde el motor de análisis hace tres fases: predecodificación (fecha, equipo y programa), decodificación (usuario, IP y puerto) y reglas simples y de correlación. Si la regla da nivel 3 o superior, se genera la alerta y, si está configurada, la respuesta activa; con un nivel inferior no hay alerta. Por el puerto 9200/TCP la alerta llega al indexador, el panel la muestra y el analista de nivel 1 la consulta.
 
 ### Despliegue en el laboratorio
 
@@ -1035,7 +1037,7 @@ Las reglas propias se guardan en `/var/ossec/etc/rules/local_rules.xml` (o en ot
 | `<global_frequency />` | Cuenta eventos de todos los agentes; sin esta etiqueta solo se cuentan los del mismo agente |
 | `<time>`, `<weekday>` | Franja horaria o días de la semana, según el reloj del servidor |
 | `ignore` | Segundos durante los que la regla no vuelve a dispararse, para evitar avalanchas |
-| `<mitre>` | Técnica de MITRE ATT&CK asociada |
+| `<mitre>` | Técnica de MITRE ATT&CK asociada. La versión vigente de ATT&CK es la 20 (octubre de 2026); desde la 19, la antigua táctica *Defense Evasion* se divide en *Stealth* (TA0005) y *Defense Impairment* (TA0112) |
 | `<group>` | Etiquetas para agrupar y filtrar alertas |
 
 > **Recuerda.** Una regla *simple* mira un solo evento («esta línea contiene Failed password»). Una regla de *correlación* mira varios eventos relacionados en una ventana de tiempo («cinco de esas líneas, desde la misma IP, en 60 segundos»). Lo que distingue a un SIEM de un simple almacén de registros es la segunda.
@@ -1144,26 +1146,9 @@ En el panel, la alerta se localiza en **Threat Hunting → Events** con el filtr
 
 **Diagrama 2.3. El ataque visto por los dos sensores.** El servidor atacado y el sensor de red informan por separado; el servidor Wazuh correlaciona y el analista comprueba si hubo un acceso correcto posterior.
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant AT as Atacante 203.0.113.45
-    participant SV as srv-web01 con agente
-    participant NI as ids01 con Suricata
-    participant WZ as wazuh01
-    participant AN as Analista N1
-    loop Cinco intentos en 20 segundos
-        AT->>SV: Contraseña para root
-        SV-->>AT: Permiso denegado
-        SV->>WZ: Failed password (regla 5760, nivel 5)
-    end
-    NI->>WZ: Firma 1000002, cinco conexiones nuevas al puerto 22
-    WZ->>WZ: Regla 100100, cinco fallos de la misma IP en 60 s
-    WZ->>AN: Alerta de nivel 10 en el panel
-    AN->>WZ: Consulta si hubo un acceso correcto posterior
-    WZ-->>AN: Ningún Accepted desde esa IP
-    AN->>SV: Bloqueo temporal de la IP y anotación en la ficha
-```
+![Diagrama 2.3. El ataque visto por los dos sensores](img/diagrama_2-3.png)
+
+> **Descripción en texto del diagrama 2.3.** Un diagrama de secuencia con cinco participantes: el atacante 203.0.113.45, srv-web01 con agente, ids01 con Suricata, wazuh01 y el analista de nivel 1. Cinco veces en 20 segundos, el atacante prueba una contraseña para root, el servidor la deniega y envía a Wazuh un Failed password (regla 5760, nivel 5). A la vez, ids01 envía la firma 1000002 por cinco conexiones nuevas al puerto 22. Wazuh aplica la regla 100100 (cinco fallos de la misma IP en 60 segundos) y muestra una alerta de nivel 10. El analista consulta si hubo un acceso correcto posterior; Wazuh responde que no hay ningún Accepted desde esa IP. El analista bloquea temporalmente la IP y lo anota en la ficha.
 
 ### Integrar Suricata en Wazuh
 
@@ -1207,17 +1192,77 @@ Wazuh puede reaccionar por sí mismo. Este bloque, en el `ossec.conf` del servid
 
 > **Atención.** Automatizar un bloqueo es cómodo y peligroso. Antes de activarlo hay que excluir las direcciones propias (la del equipo de administración, la del sistema de copias) y probarlo: un bloqueo automático mal ajustado se convierte en una denegación de servicio que te haces a ti mismo.
 
-> **[IMAGEN ILUSTRATIVA 2.1: Captura anotada del panel de Wazuh con el evento de fuerza bruta SSH]**
->
-> - **Qué capturar:** el módulo **Threat Hunting → Events** del panel de Wazuh del laboratorio, con el filtro `rule.id:(5760 OR 100100)` y el intervalo «últimos 15 minutos», justo después de lanzar el ataque de prueba contra `srv-web01`.
-> - **Anotaciones numeradas sobre la captura:** (1) la barra de búsqueda con el filtro; (2) el histograma, donde se aprecia el pico de eventos; (3) la fila de la alerta de nivel 10 con la regla 100100; (4) los campos `agent.name`, `data.srcip` y `rule.mitre.id` en el detalle del evento; (5) las filas de nivel 5 de la regla 5760, que son los cinco intentos individuales.
-> - **Formato:** PNG a 1 920 × 1 080 píxeles, con las anotaciones en círculos numerados y una leyenda debajo.
-> - **Texto alternativo:** «Panel de Wazuh con cinco eventos de contraseña fallida de nivel 5 y una alerta de nivel 10 por fuerza bruta SSH desde 203.0.113.45 contra srv-web01».
-> - **Nota para el docente:** el paquete SCORM muestra en este punto una recreación esquemática con datos ficticios. Sustitúyela por la captura real de tu laboratorio en cuanto la tengas.
+![Panel de Wazuh con cinco eventos de contraseña fallida de nivel 5 y una alerta de nivel 10 por fuerza bruta SSH desde 203.0.113.45 contra srv-web01](img/figura_2-1.png)
+
+*Figura 2.1. Captura anotada del panel de Wazuh con el evento de fuerza bruta SSH*
 
 <a id="p-2-8"></a>
 
-## 2.8 Recursos y referencias
+## 2.8 Práctica P2. Suricata y Wazuh con las capturas del caso
+
+> **En el laboratorio.** **Objetivo:** ejecutar las reglas del módulo sobre tráfico real del caso, leer `eve.json` y llevar las alertas a Wazuh. **Duración:** dos sesiones (5 horas). **Material:** carpeta `P2` de los recursos de las prácticas. **Máquinas:** una máquina Ubuntu 26.04 para la parte A (puede ser `ids01`) y el servidor `wazuh01` para la parte B. Las capturas son sintéticas y no contienen nada malicioso.
+
+### Parte A. Suricata sin red: leer capturas
+
+Suricata puede analizar un fichero de captura en lugar del tráfico en directo. Es la forma más cómoda de probar reglas.
+
+1. Instala Suricata y `jq`, y comprueba la versión (debe ser la 8):
+
+   ```bash
+   sudo apt update && sudo apt install -y suricata jq
+   suricata -V
+   ```
+
+2. Desde la carpeta `P2`, procesa la captura de prueba:
+
+   ```bash
+   mkdir -p salida/ping
+   TZ=Europe/Madrid suricata -r capturas/ping_prueba.pcap -S reglas/local.rules \
+     -l salida/ping -k none --runmode single --set vars.address-groups.HOME_NET="[10.20.0.0/16]"
+   cat salida/ping/fast.log
+   ```
+
+   `-r` lee la captura, `-S` carga solo las reglas indicadas, `-l` elige la carpeta de salida, `-k none` desactiva la comprobación de sumas de verificación (las capturas sintéticas no las llevan), `--runmode single` usa un solo hilo para que los umbrales cuenten siempre igual y `--set` define `HOME_NET` sin tocar `suricata.yaml`. `TZ=Europe/Madrid` hace que las horas salgan en hora peninsular. Si aparece un error de permisos, repite la orden con `sudo`.
+
+   **Resultado esperado:** tres alertas de la regla 1000001, a las 08:00:00, 08:00:01 y 08:00:02 del 10 de noviembre.
+
+3. Repite con `capturas/fuerza_bruta_ssh.pcap` y la carpeta `salida/ssh`.
+
+   **Resultado esperado:** una sola alerta de la regla 1000002, a las 08:14:22, desde `203.0.113.45:40104`. Responde: ¿por qué en el quinto intento y no en el octavo?, ¿por qué no se repite con el sexto, el séptimo y el octavo?
+
+4. Repite con `capturas/caso_0162_extracto.pcap` y la carpeta `salida/caso`. Después explora `eve.json`:
+
+   ```bash
+   cd salida/caso
+   jq -r .event_type eve.json | sort | uniq -c
+   jq -c 'select(.event_type=="alert") | {timestamp, src_ip, dest_ip, sid: .alert.signature_id}' eve.json
+   jq -c 'select(.event_type=="tls") | {timestamp, src_ip, dest_ip, sni: .tls.sni}' eve.json
+   jq -c 'select(.event_type=="flow") | {src_ip, dest_ip, dest_port, enviados: .flow.bytes_toserver, inicio: .flow.start}' eve.json
+   ```
+
+   **Resultado esperado:** cinco alertas (cuatro de la regla 1000003 y una de la 1000004), tres conexiones TLS a `sync.acrne-logistica.example` y un flujo que envía 4 358 494 bytes. El número de eventos de cada tipo puede variar un poco según la versión de Suricata; las alertas deben ser las mismas.
+
+5. Las conexiones cifradas con el servidor de mando y control no han disparado ninguna regla: solo lo han hecho las consultas DNS. Añade a una copia de `local.rules` esta regla, que mira el nombre del servidor en el saludo TLS, y vuelve a procesar la captura:
+
+   ```text
+   alert tls $HOME_NET any -> any any (msg:"ACME - Conexión TLS a un dominio vigilado"; tls.sni; content:"acrne-logistica.example"; endswith; nocase; classtype:bad-unknown; sid:1000005; rev:1;)
+   ```
+
+   **Resultado esperado:** tres alertas nuevas de la regla 1000005: martes a las 09:15:10, jueves a las 02:17:05 y jueves a las 07:57:58.
+
+### Parte B. Las reglas de Wazuh
+
+1. En `wazuh01`, añade el contenido de `wazuh/local_rules.xml` a `/var/ossec/etc/rules/local_rules.xml`.
+2. Ejecuta `sudo /var/ossec/bin/wazuh-logtest` y pega, una a una, las líneas de `wazuh/auth_srv-web01.log`. Anota qué regla y qué nivel devuelve cada línea. La quinta debe devolver la regla 100100 con nivel 10; si no es así, revisa la regla antes de seguir.
+3. Reinicia el servidor (`sudo systemctl restart wazuh-manager`).
+4. Instala el agente de Wazuh en la máquina de Suricata y añade a su `ossec.conf` el bloque `<localfile>` del apartado 2.7 para que lea `/var/log/suricata/eve.json`.
+5. Procesa de nuevo `fuerza_bruta_ssh.pcap` escribiendo en esa carpeta (`sudo suricata -r … -l /var/log/suricata …`) y busca en el panel la regla 100200.
+
+**Entrega:** las salidas de `fast.log` y de las órdenes `jq`, la regla 1000005 con su prueba, una captura de `wazuh-logtest` con la quinta línea y una captura del panel con la alerta 100200. Responde también: ¿qué alerta del caso habría avisado el martes si alguien la hubiera elevado como la 100200?
+
+<a id="p-2-9"></a>
+
+## 2.9 Recursos y referencias
 
 > **[VÍDEO / RECURSO RECOMENDADO 2.1: Despliegue de Wazuh y alta de un agente]**
 >
@@ -1256,25 +1301,28 @@ Wazuh puede reaccionar por sí mismo. Este bloque, en el `ossec.conf` del servid
 
 <a id="p-2-act"></a>
 
-## 2.9 Actividades interactivas
+## 2.10 Actividades interactivas
 
-Cada actividad cuenta una vez, en el primer intento. Las preguntas de test muestran después la retroalimentación de todas las opciones.
+Responde antes de desplegar la solución. En la [unidad interactiva](https://jpercas570.github.io/incidentes-ciber-masterfp/ud2-analisis-incidentes/curso/) se corrigen solas y cuentan en el primer intento.
 
 ### Actividad 2.1. Leer una regla de Suricata (pregunta de test)
 
 Observa la regla y decide cuándo genera una alerta.
 
 ```text
-alert tcp $EXTERNAL_NET any -> $HOME_NET 22 (msg:"LOCAL Posible fuerza bruta SSH";
+alert tcp $EXTERNAL_NET any -> $HOME_NET 22 (msg:"ACME - Posible fuerza bruta SSH";
     flow:to_server; flags:S,12;
     threshold:type both, track by_src, count 5, seconds 60;
-    classtype:attempted-admin; sid:1000002; rev:1;)
+    classtype:attempted-admin; sid:1000002; rev:2;)
 ```
 
 - **a)** Cuando una misma dirección externa abre cinco conexiones nuevas al puerto 22 en 60 segundos, y como máximo una vez por origen en cada ventana.
 - **b)** Cuando cinco direcciones externas distintas se conectan al puerto 22 en 60 segundos.
 - **c)** Cada vez que cualquier equipo se conecta al puerto 22.
 - **d)** Cuando se escriben cinco contraseñas incorrectas en 60 segundos.
+
+<details markdown="1">
+<summary>Ver la solución y la retroalimentación</summary>
 
 | Opción | Resultado | Retroalimentación |
 |---|---|---|
@@ -1283,7 +1331,7 @@ alert tcp $EXTERNAL_NET any -> $HOME_NET 22 (msg:"LOCAL Posible fuerza bruta SSH
 | c) | Incorrecta | No. La cabecera limita la regla al tráfico que va de la red externa a la interna, y el umbral exige cinco conexiones nuevas del mismo origen en 60 segundos. Una conexión aislada no dispara nada. |
 | d) | Incorrecta | No. Suricata ve el tráfico, y la sesión SSH va cifrada: no puede saber si una contraseña falló. Cuenta inicios de conexión. Quien sabe que la autenticación falló es el agente del equipo, que lee el registro de `sshd`. Por eso las dos miradas se complementan. |
 
-*Tipo de contenido H5P o Moodle:* Multiple Choice (una sola respuesta), con la retroalimentación de cada fila en el campo de la opción correspondiente.
+</details>
 
 ### Actividad 2.2. Una etiqueta de correlación (pregunta de test)
 
@@ -1302,6 +1350,9 @@ En la regla propia de Wazuh aparece la etiqueta `<same_srcip />`. ¿Qué hace y 
 - **c)** Hace que la regla solo tenga en cuenta los eventos del mismo agente.
 - **d)** Exige que los cinco eventos procedan de la misma dirección de origen. Sin ella, cinco fallos de cinco orígenes distintos en 60 segundos también dispararían la regla.
 
+<details markdown="1">
+<summary>Ver la solución y la retroalimentación</summary>
+
 | Opción | Resultado | Retroalimentación |
 |---|---|---|
 | a) | Incorrecta | No. Eso lo hace la etiqueta contraria, `<different_srcip />`, útil para detectar un ataque repartido entre muchos orígenes. `same_srcip` pide justo lo opuesto. |
@@ -1309,11 +1360,32 @@ En la regla propia de Wazuh aparece la etiqueta `<same_srcip />`. ¿Qué hace y 
 | c) | Incorrecta | No. Contar solo los eventos de un mismo agente es el comportamiento normal de la correlación, sin ninguna etiqueta; para contar entre agentes se usa `<global_frequency />`. `same_srcip` se refiere al campo de la dirección de origen. |
 | d) | **Correcta** | Correcto. `frequency` y `timeframe` fijan cuántos eventos y en cuánto tiempo; `same_srcip` añade que todos compartan origen. Sin esa condición, cinco usuarios que se equivocan a la vez un lunes por la mañana generarían una alerta de fuerza bruta: un falso positivo. |
 
-*Tipo de contenido H5P o Moodle:* Multiple Choice (una sola respuesta), con la retroalimentación de cada fila en el campo de la opción correspondiente.
+</details>
 
 ### Actividad 2.3. Cada pieza, con su función (emparejamiento)
 
 Relaciona cada elemento de la arquitectura de monitorización con lo que hace.
+
+**Elementos:**
+
+- Agente de Wazuh
+- Decodificador
+- Regla
+- Indexador
+- Puerto espejo (SPAN)
+- `wazuh-logtest`
+
+**Con qué van:**
+
+- **A.** Almacena las alertas y permite buscarlas
+- **B.** Compara los campos con unas condiciones y asigna un nivel
+- **C.** Entrega al sensor de red una copia del tráfico
+- **D.** Extrae de una línea de registro campos como el usuario o la dirección de origen
+- **E.** Prueba una regla con líneas de registro antes de cargarla
+- **F.** Recoge los registros del equipo y los envía al servidor
+
+<details markdown="1">
+<summary>Ver la solución y la retroalimentación</summary>
 
 | Elemento | Va con | Comentario al corregir |
 |---|---|---|
@@ -1324,26 +1396,21 @@ Relaciona cada elemento de la arquitectura de monitorización con lo que hace.
 | Puerto espejo (SPAN) | Entrega al sensor de red una copia del tráfico | Sin copia del tráfico, Suricata no ve nada. |
 | `wazuh-logtest` | Prueba una regla con líneas de registro antes de cargarla | Ninguna regla propia va a producción sin pasar por aquí. |
 
-*Tipo de contenido H5P recomendado:* Drag the Words.
-
-Texto preparado para pegar en **Drag the Words** (las respuestas van entre asteriscos):
-
-```text
-Recoge los registros del equipo y los envía al servidor: *Agente de Wazuh*
-Extrae de una línea de registro campos como el usuario o la dirección de origen: *Decodificador*
-Compara los campos con unas condiciones y asigna un nivel: *Regla*
-Almacena las alertas y permite buscarlas: *Indexador*
-Entrega al sensor de red una copia del tráfico: *Puerto espejo (SPAN)*
-Prueba una regla con líneas de registro antes de cargarla: *wazuh-logtest*
-```
-
+</details>
 
 <a id="m-3"></a>
 
 # Módulo 3. Detección e identificación en seguridad física
 
 **Criterio de evaluación:** CE 2.c. Se han establecido controles y mecanismos de detección e identificación de incidentes de seguridad física.  
-**Tiempo estimado de estudio:** 100 minutos.
+**Tiempo estimado de estudio:** 100 minutos.  
+**Práctica:** P3, una sesión de 3 horas.
+
+**Al terminar este módulo serás capaz de:**
+
+- Reconocer los incidentes de seguridad física y clasificarlos con la taxonomía.
+- Describir qué eventos generan el control de accesos, la videovigilancia y los sensores.
+- Correlacionar un evento físico con uno lógico y conocer los límites de esa correlación.
 
 <a id="p-3-1"></a>
 
@@ -1494,26 +1561,9 @@ Para poder cruzarlos hacen falta cuatro cosas:
 
 **Diagrama 3.1. Integración de la seguridad física con el SIEM.** Los tres subsistemas físicos envían sus eventos al mismo servidor que recibe los registros de los equipos; el directorio corporativo aporta la relación entre tarjeta y cuenta de usuario.
 
-```mermaid
-flowchart LR
-    subgraph FIS["Seguridad física"]
-        LEC["Lectores, sensores de<br/>puerta y controladora"] --> PACS["pacs01<br/>control de accesos"]
-        CAM["Cámaras con analítica"] --> VMS["Grabador de vídeo"]
-        AMB["Sensores ambientales<br/>y de intrusión"] --> MON["Monitorización"]
-    end
-    subgraph LOG["Sistemas de información"]
-        SRV["Servidores del CPD<br/>con agente Wazuh"]
-        SWI["Conmutador de gestión<br/>y servidor DHCP"]
-        DIR["Directorio corporativo"]
-    end
-    PACS -->|"JSON"| SIEM["wazuh01<br/>reglas de correlación"]
-    VMS -->|"analítica"| SIEM
-    MON -->|"alarmas"| SIEM
-    SRV -->|"sesiones"| SIEM
-    SWI -->|"equipos nuevos"| SIEM
-    DIR -. "tarjeta y cuenta" .-> SIEM
-    SIEM --> SOC(["Analista N1"])
-```
+![Diagrama 3.1. Integración de la seguridad física con el SIEM](img/diagrama_3-1.png)
+
+> **Descripción en texto del diagrama 3.1.** A la izquierda, la seguridad física: los lectores, sensores de puerta y la controladora envían a pacs01, el control de accesos; las cámaras con analítica, al grabador de vídeo; los sensores ambientales y de intrusión, a la monitorización. En el centro, los sistemas de información: los servidores del CPD con agente de Wazuh, el conmutador de gestión con el servidor DHCP y el directorio corporativo. Todos envían a wazuh01, que aplica las reglas de correlación: pacs01 en JSON, el grabador su analítica, la monitorización sus alarmas, los servidores sus sesiones y el conmutador los equipos nuevos. El directorio aporta la relación entre tarjeta y cuenta. Wazuh entrega las alertas al analista de nivel 1.
 
 ### Casos de uso de correlación
 
@@ -1605,37 +1655,15 @@ Nov 15 22:51:40 srv-bd01 sshd[4410]: Accepted password for jperez from 10.20.9.7
 
 **Diagrama 3.2. Fichaje fuera de horario e inicio de sesión concurrente.** Ninguno de los dos eventos es alarmante por separado; la alerta de nivel 12 nace de que coinciden el usuario y la ventana de tiempo.
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant IN as Intruso
-    participant LE as Lector CPD-01
-    participant PA as pacs01
-    participant BD as srv-bd01
-    participant WZ as wazuh01
-    participant AN as Analista N1
-    IN->>LE: 22.47 h, presenta una tarjeta clonada
-    LE->>PA: Tarjeta 0004587123, titular jperez
-    PA-->>LE: Acceso concedido
-    PA->>WZ: Evento acceso_concedido en zona CPD
-    Note over WZ: Regla 100310, entrada fuera de horario, nivel 7
-    IN->>BD: 22.51 h, inicio de sesión SSH como jperez
-    BD->>WZ: Accepted password for jperez, regla 5715
-    Note over WZ: Regla 100320, mismo usuario en menos de 10 minutos, nivel 12
-    WZ->>AN: Alerta de correlación físico-lógica
-    AN->>PA: Consulta el titular de la tarjeta y su turno
-    AN->>AN: Llama a jperez, que está en su casa
-    AN->>WZ: Escala a nivel 2 como intrusión física
-```
+![Diagrama 3.2. Fichaje fuera de horario e inicio de sesión concurrente](img/diagrama_3-2.png)
+
+> **Descripción en texto del diagrama 3.2.** Un diagrama de secuencia con el intruso, el lector de la puerta CPD-01, pacs01, srv-bd01, wazuh01 y el analista de nivel 1. A las 22:47 el intruso presenta una tarjeta clonada; el lector la identifica como de jperez y pacs01 concede el acceso y envía el evento a Wazuh, que aplica la regla 100310 (entrada fuera de horario, nivel 7). A las 22:51 el intruso inicia una sesión SSH como jperez en srv-bd01; el servidor envía el Accepted password (regla 5715) y Wazuh dispara la regla 100320 (mismo usuario en menos de 10 minutos, nivel 12). La alerta llega al analista, que consulta el titular y su turno, llama a jperez, que está en su casa, y escala al nivel 2 como intrusión física.
 
 > **Atención.** Estas reglas tienen tres límites que debes conocer. Primero, `<time>` y `timeframe` usan la hora a la que el servidor Wazuh procesa el evento, no la que figura en el registro: si los eventos llegan con retraso, la correlación falla. Segundo, una regla solo puede reaccionar a algo que ocurre; el caso «sesión en consola *sin* fichaje previo» (ausencia de un evento) no se puede expresar así y se resuelve con consultas programadas sobre el indexador. Tercero, todo depende de que la relación entre tarjeta y cuenta esté al día.
 
-> **[IMAGEN ILUSTRATIVA 3.1: Esquema de la arquitectura de integración entre el sistema de fichaje físico y el servidor SIEM]**
->
-> - **Qué debe mostrar:** a la izquierda, el plano simplificado de una planta con la puerta del CPD, su lector, una cámara y una sonda de temperatura; en el centro, el servidor de control de accesos, el grabador de vídeo y el sistema de monitorización; a la derecha, el servidor SIEM con el panel del analista. Flechas etiquetadas con el formato de cada flujo: «eventos en JSON», «eventos de analítica», «alarmas SNMP» e «inicios de sesión». Un recuadro inferior con las tres condiciones de la correlación: identidad común, reloj común y mapa de zonas y activos.
-> - **Formato:** esquema horizontal de 1 600 × 900 píxeles en SVG o PNG, con los elementos físicos en un color y los lógicos en otro.
-> - **Texto alternativo:** «Arquitectura de integración: los lectores, las cámaras y los sensores del CPD envían sus eventos al SIEM, que los cruza con los inicios de sesión de los servidores».
-> - **Nota para el docente:** el paquete SCORM incluye una versión de este esquema construida en HTML. El diagrama 3.1 contiene la misma información en formato Mermaid.
+![Arquitectura de integración: los lectores, las cámaras y los sensores del CPD envían sus eventos al SIEM, que los cruza con los inicios de sesión de los servidores](img/figura_3-1.png)
+
+*Figura 3.1. Esquema de la arquitectura de integración entre el sistema de fichaje físico y el servidor SIEM*
 
 <a id="p-3-7"></a>
 
@@ -1697,7 +1725,51 @@ El miniordenador, las grabaciones de las cámaras, el historial del control de a
 
 <a id="p-3-8"></a>
 
-## 3.8 Recursos y referencias
+## 3.8 Práctica P3. Correlaciona el CPD con los inicios de sesión
+
+> **En el laboratorio.** **Objetivo:** cruzar los eventos del control de accesos con los inicios de sesión de los servidores y decidir qué coincidencias son incidentes. **Duración:** una sesión (3 horas). **Material:** carpeta `P3` de los recursos de las prácticas. **Máquina:** cualquiera con Python 3.10 o posterior y `jq`.
+
+`correlaciona.py` hace lo mismo que la regla 100320 de Wazuh, pero sobre ficheros: busca entradas al CPD entre las 20:00 y las 07:00 seguidas, en los diez minutos siguientes, de un inicio de sesión SSH correcto del mismo usuario.
+
+1. Explora los eventos del control de accesos:
+
+   ```bash
+   jq -c 'select(.pacs.zona=="CPD") | [.timestamp, .pacs.evento, .dstuser]' pacs_eventos.json
+   ```
+
+   ¿Cuántos eventos hay en la zona CPD? ¿Cuántos son entradas fuera de horario?
+
+2. Ejecuta la correlación:
+
+   ```bash
+   python3 correlaciona.py --pacs pacs_eventos.json --auth auth_srv-bd01.log auth_srv-web01.log
+   ```
+
+   **Resultado esperado:**
+
+   ```text
+   Entradas a la zona CPD fuera de horario (20:00-7:00): 3
+   Inicios de sesión SSH correctos leídos: 10
+
+   CORRELACIÓN  2026-11-12 21:05:33  CPD-01  mruiz (Marcos Ruiz, tarjeta 0004587190)
+                -> 21:09:02 srv-bd01: Accepted publickey desde 10.20.5.14 (+209 s)
+
+   CORRELACIÓN  2026-11-15 22:47:12  CPD-01  jperez (Javier Pérez, tarjeta 0004587123)
+                -> 22:51:40 srv-bd01: Accepted password desde 10.20.9.77 (+268 s)
+
+   Sin sesión posterior: 2026-11-14 03:12:40 CPD-01 vigilancia (Vigilancia (tarjeta de ronda))
+   ```
+
+3. Haz el triaje de las dos correlaciones con `ordenes_trabajo.csv` e `inventario_red.csv`. Para cada una: veredicto, tres datos que lo justifican y qué harías. Fíjate también en el método de autenticación de cada sesión.
+4. Repite con `--ventana 3600`. ¿Aparece algo nuevo? ¿Mejora o empeora la regla? ¿Qué ventana propondrías y por qué?
+5. El 13 de noviembre a las 18:30 hay un acceso denegado en la puerta del CPD. El programa no lo muestra. ¿Debería avisar? Propón una condición (umbral, horario o titular) y justifícala.
+6. **Ampliación.** Carga las reglas 100300 a 100320 del apartado 3.6 en tu `wazuh01` y pruébalas con `wazuh-logtest`. Ten en cuenta lo que dice el recuadro «Atención» sobre la hora del servidor.
+
+**Entrega:** la salida del programa, la tabla de triaje de las dos correlaciones y las respuestas a los puntos 4 y 5.
+
+<a id="p-3-9"></a>
+
+## 3.9 Recursos y referencias
 
 > **[VÍDEO / RECURSO RECOMENDADO 3.1: «I'll Let Myself In: Tactics of Physical Pen Testers»]**
 >
@@ -1727,9 +1799,9 @@ El miniordenador, las grabaciones de las cámaras, el historial del control de a
 
 <a id="p-3-act"></a>
 
-## 3.9 Actividades interactivas
+## 3.10 Actividades interactivas
 
-Cada actividad cuenta una vez, en el primer intento. Las preguntas de test muestran después la retroalimentación de todas las opciones.
+Responde antes de desplegar la solución. En la [unidad interactiva](https://jpercas570.github.io/incidentes-ciber-masterfp/ud2-analisis-incidentes/curso/) se corrigen solas y cuentan en el primer intento.
 
 ### Actividad 3.1. De dos eventos normales a una alerta (pregunta de test)
 
@@ -1740,6 +1812,9 @@ A las 22:47 el control de accesos concede la entrada al CPD con la tarjeta de `j
 - **c)** La regla de correlación: una entrada al CPD fuera de horario y, en los diez minutos siguientes, un inicio de sesión del mismo usuario.
 - **d)** El inicio de sesión SSH correcto, que Wazuh trata siempre como un incidente.
 
+<details markdown="1">
+<summary>Ver la solución y la retroalimentación</summary>
+
 | Opción | Resultado | Retroalimentación |
 |---|---|---|
 | a) | Incorrecta | No. En el caso, la cámara grabó pero no avisó: el acceso era válido y no había ninguna regla de analítica para la presencia en el CPD fuera de horario. Esa era una de las lecciones. |
@@ -1747,7 +1822,7 @@ A las 22:47 el control de accesos concede la entrada al CPD con la tarjeta de `j
 | c) | **Correcta** | Correcto. La regla 100320 parte de un inicio de sesión correcto y comprueba si antes hubo una entrada al CPD fuera de horario con el mismo usuario. Ninguno de los dos eventos es grave por separado; la combinación sí lo es. |
 | d) | Incorrecta | No. Un inicio de sesión correcto es la regla 5715, de nivel 3: ocurre cientos de veces al día. Solo llama la atención cuando se relaciona con otra cosa. |
 
-*Tipo de contenido H5P o Moodle:* Multiple Choice (una sola respuesta), con la retroalimentación de cada fila en el campo de la opción correspondiente.
+</details>
 
 ### Actividad 3.2. La tarjeta copiada (pregunta de test)
 
@@ -1758,6 +1833,9 @@ El intruso abrió la puerta del CPD con una copia de una tarjeta de proximidad d
 - **c)** Instalar más cámaras en el pasillo.
 - **d)** Activar el anti-passback.
 
+<details markdown="1">
+<summary>Ver la solución y la retroalimentación</summary>
+
 | Opción | Resultado | Retroalimentación |
 |---|---|---|
 | a) | Incorrecta | No. OSDP cifra y supervisa el cable entre el lector y el controlador, lo que evita que alguien capture o inyecte datos en ese tramo. Pero una tarjeta copiada presenta el mismo número por el camino normal. |
@@ -1765,11 +1843,32 @@ El intruso abrió la puerta del CPD con una copia de una tarjeta de proximidad d
 | c) | Incorrecta | No. Las cámaras detectan y documentan, pero no impiden el paso. Además, para el sistema el acceso era válido: no había nada que una cámara sin analítica pudiera señalar. |
 | d) | Incorrecta | No. El anti-passback impide entrar dos veces seguidas sin haber salido. El titular estaba fuera, así que para el sistema la tarjeta copiada hacía una entrada normal. Solo habría fallado si el titular hubiera estado dentro. |
 
-*Tipo de contenido H5P o Moodle:* Multiple Choice (una sola respuesta), con la retroalimentación de cada fila en el campo de la opción correspondiente.
+</details>
 
 ### Actividad 3.3. Qué detecta cada mecanismo (emparejamiento)
 
 Relaciona cada mecanismo de seguridad física con la situación que permite detectar o impedir.
+
+**Elementos:**
+
+- Contacto magnético de la puerta
+- Esclusa
+- Anti-passback
+- Analítica de vídeo
+- Sensor de temperatura y humedad
+- Control de acceso a la red (802.1X)
+
+**Con qué van:**
+
+- **A.** Dos personas que pasan con una sola acreditación
+- **B.** Presencia en una zona restringida fuera de horario
+- **C.** Un dispositivo desconocido conectado a un puerto del conmutador
+- **D.** Un fallo de la climatización del CPD
+- **E.** Una puerta forzada o mantenida abierta
+- **F.** Una tarjeta que entra dos veces sin haber salido
+
+<details markdown="1">
+<summary>Ver la solución y la retroalimentación</summary>
 
 | Elemento | Va con | Comentario al corregir |
 |---|---|---|
@@ -1780,34 +1879,31 @@ Relaciona cada mecanismo de seguridad física con la situación que permite dete
 | Sensor de temperatura y humedad | Un fallo de la climatización del CPD | Las interrupciones por causas ambientales también son incidentes. |
 | Control de acceso a la red (802.1X) | Un dispositivo desconocido conectado a un puerto del conmutador | Es la defensa frente al hardware malicioso. |
 
-*Tipo de contenido H5P recomendado:* Drag the Words.
-
-Texto preparado para pegar en **Drag the Words** (las respuestas van entre asteriscos):
-
-```text
-Una puerta forzada o mantenida abierta: *Contacto magnético de la puerta*
-Dos personas que pasan con una sola acreditación: *Esclusa*
-Una tarjeta que entra dos veces sin haber salido: *Anti-passback*
-Presencia en una zona restringida fuera de horario: *Analítica de vídeo*
-Un fallo de la climatización del CPD: *Sensor de temperatura y humedad*
-Un dispositivo desconocido conectado a un puerto del conmutador: *Control de acceso a la red (802.1X)*
-```
-
+</details>
 
 <a id="m-4"></a>
 
 # Módulo 4. Ciberinteligencia OSINT y fuentes abiertas
 
 **Criterio de evaluación:** CE 2.d. Se han establecido controles, herramientas y mecanismos de monitorización, identificación, detección y alerta de incidentes a través de la investigación en fuentes abiertas (OSINT).  
-**Tiempo estimado de estudio:** 120 minutos.
+**Tiempo estimado de estudio:** 120 minutos.  
+**Práctica:** P4, una sesión de 3 horas.
+
+**Al terminar este módulo serás capaz de:**
+
+- Explicar qué son OSINT y la inteligencia de amenazas, y sus límites legales y éticos.
+- Vigilar la superficie de exposición de una organización con herramientas abiertas.
+- Obtener, depurar y usar indicadores de compromiso para bloquear, detectar y buscar hacia atrás.
 
 <a id="p-4-1"></a>
 
 ## 4.1 Lo que se ve desde fuera
 
-Jueves, 10:20. Un cliente reenvía a ACME un correo que ha recibido «de ACME Logística»: le piden que vuelva a introducir los datos de su tarjeta para liberar un envío retenido. El enlace lleva a `acrne-logistica.example`. A primera vista parece el dominio de la empresa; mirando despacio, la «m» de *acme* son en realidad una «r» y una «n».
+Miércoles 18 de noviembre, 19:10. Un cliente reenvía al buzón de atención al cliente un correo que ha recibido «de ACME Logística»: le piden que vuelva a introducir los datos de su tarjeta para liberar un envío retenido. El enlace lleva a `acrne-logistica.example`. A primera vista parece el dominio de la empresa; mirando despacio, la «m» de *acme* son en realidad una «r» y una «n».
 
-Ningún sensor de ACME ha visto nada, y no es un fallo: ese dominio lo registró un tercero, en un servidor ajeno, y el correo nunca pasó por la red de la empresa. Wazuh y Suricata solo ven lo que ocurre dentro.
+El jueves a las 07:00, Lucía Ortega, analista de nivel 1, lo encuentra al empezar su turno. El nombre le suena: la vigilancia de dominios lo había detectado el viernes anterior. Ahora ya se sabe para qué lo registraron.
+
+Ningún sensor de ACME ha avisado de ese correo, y no es un fallo: lo recibió el cliente, en sus propios sistemas, y el dominio está en un servidor ajeno. Wazuh y Suricata solo ven lo que ocurre dentro.
 
 Fuera hay más cosas que la organización no ve desde sus propios sistemas: la contraseña de un empleado en una filtración de otra web, una clave de acceso olvidada en un repositorio público, un servidor de pruebas que alguien dejó abierto a Internet. El atacante sí las ve, porque antes de atacar hace un reconocimiento.
 
@@ -1907,13 +2003,9 @@ Esto es lo que encontró el SOC de ACME en su primera revisión:
 | Puerto 3389 abierto en la IP pública del almacén de Valencia | Shodan | Vulnerable → Servicios con acceso potencial no deseado | Cerrar el puerto; acceso solo por VPN |
 | El servidor de correo acepta TLS 1.0 | Censys | Vulnerable → Criptografía débil | Actualizar la configuración |
 
-> **[IMAGEN ILUSTRATIVA 4.1: Captura del mapa de activos expuestos en Shodan y árbol de dominios similares generado con dnstwist]**
->
-> - **Qué capturar (mitad izquierda):** la vista de resultados de Shodan para el filtro `net:` con el rango público del laboratorio o de una organización para la que se tenga autorización, mostrando el mapa con los puntos de cada servicio y el resumen lateral de puertos y productos más frecuentes.
-> - **Qué construir (mitad derecha):** un árbol con el dominio legítimo en la raíz y una rama por técnica de variación (homoglifo, omisión, transposición, repetición, guion, inserción), con dos o tres dominios de ejemplo por rama. Los dominios que resulten estar registrados se marcan en rojo y, si tienen servidor de correo, con un icono de sobre.
-> - **Formato:** composición horizontal de 1 920 × 1 080 píxeles en PNG. Las direcciones IP y los nombres reales deben difuminarse o sustituirse por datos de ejemplo.
-> - **Texto alternativo:** «A la izquierda, mapa de Shodan con los servicios expuestos de una organización. A la derecha, árbol de dominios parecidos al legítimo, con los registrados destacados».
-> - **Nota para el docente:** el paquete SCORM muestra aquí una recreación con datos ficticios. Las variantes del árbol son las que genera realmente dnstwist para `acme-logistica.example`.
+![A la izquierda, mapa de Shodan con los servicios expuestos de una organización. A la derecha, árbol de dominios parecidos al legítimo, con los registrados destacados](img/figura_4-1.png)
+
+*Figura 4.1. Captura del mapa de activos expuestos en Shodan y árbol de dominios similares generado con dnstwist*
 
 ### Fugas de credenciales y de secretos
 
@@ -1974,6 +2066,8 @@ homoglyph     acrne-logistica.example    198.51.100.77  NS:ns1.alojamiento.examp
 omission      acm-logistica.example      198.51.100.80  NS:ns1.aparcamiento.example
 hyphenation   acme-logist-ica.example    -
 ```
+
+> **Ejemplo SOC Tier 1.** Viernes 13 de noviembre, revisión semanal de dominios. `acrne-logistica.example` aparece por primera vez: se registró el día anterior, tiene servidor de correo y todavía no publica ninguna página. Lucía lo pasa a la lista de vigilancia y pide que se añada la regla 3 de Suricata del módulo 2, que avisará si algún equipo de ACME lo consulta. No lo bloquea todavía: no hay pruebas de uso malicioso, y bloquear un dominio requiere la aprobación del nivel 2.
 
 No todo dominio parecido es un ataque: muchos están «aparcados» por revendedores. Las señales que elevan la sospecha son cuatro: que tenga **servidor de correo** (puede enviar y recibir mensajes en nombre de la empresa), que se haya **registrado hace pocos días**, que su página **se parezca** a la legítima y que se le haya **emitido un certificado**.
 
@@ -2041,30 +2135,17 @@ Los formatos **STIX** (cómo se describe la inteligencia) y **TAXII** (cómo se 
 
 **Diagrama 4.1. El ciclo de inteligencia aplicado a un dominio sospechoso.** Una pregunta concreta dirige la obtención; la elaboración decide si el dominio es malicioso; la difusión reparte los indicadores entre quienes bloquean, detectan y comparten, y lo aprendido reabre el ciclo.
 
-```mermaid
-flowchart TD
-    D["1. Dirección<br/>¿Alguien suplanta nuestro dominio?"] --> O["2. Obtención<br/>dnstwist, certificados emitidos,<br/>avisos de clientes"]
-    O --> E["3. Elaboración<br/>¿Está registrado? ¿Tiene correo?<br/>¿Imita nuestra web?"]
-    E --> V{"¿Es malicioso?"}
-    V -->|"Dudoso"| W["Lista de vigilancia<br/>y revisión semanal"]
-    V -->|"Sí"| I["4. Difusión de los indicadores<br/>dominio, IP y URL"]
-    I --> B["Bloqueo en DNS,<br/>proxy y cortafuegos"]
-    I --> S["Regla en Suricata<br/>y lista en Wazuh"]
-    I --> C["Aviso al CSIRT<br/>y solicitud de retirada"]
-    I --> M["Evento en MISP<br/>con etiqueta TLP"]
-    B --> R["5. Revisión<br/>¿Algún equipo lo visitó?<br/>¿Hay variantes nuevas?"]
-    S --> R
-    W --> R
-    R --> D
-```
+![Diagrama 4.1. El ciclo de inteligencia aplicado a un dominio sospechoso](img/diagrama_4-1.png)
+
+> **Descripción en texto del diagrama 4.1.** Un ciclo de cinco pasos. Uno, dirección: ¿alguien suplanta nuestro dominio? Dos, obtención: dnstwist, certificados emitidos y avisos de clientes. Tres, elaboración: ¿está registrado?, ¿tiene correo?, ¿imita nuestra web? De ahí sale la decisión: si es dudoso, va a una lista de vigilancia con revisión semanal; si es malicioso, paso cuatro, difusión de los indicadores (dominio, IP y URL) hacia cuatro destinos: bloqueo en DNS, proxy y cortafuegos; regla en Suricata y lista en Wazuh; aviso al CSIRT con solicitud de retirada; y evento en MISP con etiqueta TLP. Del bloqueo, de la detección y de la lista de vigilancia se pasa al paso cinco, revisión: ¿algún equipo lo visitó?, ¿hay variantes nuevas? La revisión vuelve a la dirección.
 
 <a id="p-4-6"></a>
 
 ## 4.6 Ejemplo práctico: del indicador a la lista de bloqueo
 
-Volvemos al correo del jueves. La investigación del dominio `acrne-logistica.example` ha dado estos resultados: se registró hace seis días, tiene servidor de correo, su página copia el portal de clientes y está alojado en `198.51.100.77`. Además, un evento compartido en MISP por otra empresa del sector describe la misma campaña y aporta dos direcciones más.
+Volvemos al correo que reenvió el cliente. Jueves, de 07:00 a 07:40: la investigación de Lucía sobre `acrne-logistica.example` da estos resultados: se registró el 12 de noviembre, tiene servidor de correo, su página copia ahora el portal de clientes y está alojado en `198.51.100.77`. Además, un evento compartido en MISP el miércoles por otra empresa de logística describe la misma campaña. Aporta el servidor de mando y control que usa el malware de la campaña, `sync.acrne-logistica.example` (`198.51.100.23`), y una dirección desde la que el mismo grupo lanza ataques de fuerza bruta: `203.0.113.45`, que ya conoces del módulo 2.
 
-El objetivo del ejercicio es llevar esos indicadores al cortafuegos del laboratorio de forma controlada.
+El objetivo es llevar esos indicadores, de forma controlada, a tres sitios: el cortafuegos, para bloquear; Wazuh, para detectar; y el histórico, para buscar hacia atrás.
 
 ### Paso 1. Extraer los indicadores
 
@@ -2099,84 +2180,79 @@ acrne-logistica.example
 
 Cargar una lista sin revisar es la forma más rápida de provocar un incidente de disponibilidad. Hay una dirección repetida, una interna, un servidor DNS público, un dominio que no es una IP y una dirección del rango público de la propia empresa. Este programa las filtra y genera el fichero para el cortafuegos:
 
-```python
-#!/usr/bin/env python3
-"""Depura una lista de direcciones IP obtenidas de fuentes de inteligencia
-y genera un conjunto de nftables listo para cargar en el cortafuegos."""
+<pre><code>#!/usr/bin/env python3
+&quot;&quot;&quot;Depura una lista de direcciones IP obtenidas de fuentes de inteligencia
+y genera un conjunto de nftables listo para cargar en el cortafuegos.&quot;&quot;&quot;
 import ipaddress
 import sys
 from datetime import date
 
 # Redes que nunca deben acabar en una lista de bloqueo
 NO_BLOQUEAR = [ipaddress.ip_network(red) for red in (
-    "10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16",   # direccionamiento privado
-    "127.0.0.0/8", "169.254.0.0/16", "224.0.0.0/4",    # bucle local, enlace local, multidifusión
-    "192.0.2.0/24",                                    # rango público de la organización (ejemplo)
+    &quot;10.0.0.0/8&quot;, &quot;172.16.0.0/12&quot;, &quot;192.168.0.0/16&quot;,   # direccionamiento privado
+    &quot;127.0.0.0/8&quot;, &quot;169.254.0.0/16&quot;, &quot;224.0.0.0/4&quot;,    # bucle local, enlace local, multidifusión
+    &quot;192.0.2.0/24&quot;,                                    # rango público de la organización (ejemplo)
 )]
-PERMITIDAS = {ipaddress.ip_address(ip) for ip in (
-    "1.1.1.1", "8.8.8.8", "9.9.9.9",                   # servidores DNS públicos de uso general
-)}
-
+PERMITIDAS = &#123;ipaddress.ip_address(ip) for ip in (
+    &quot;1.1.1.1&quot;, &quot;8.8.8.8&quot;, &quot;9.9.9.9&quot;,                   # servidores DNS públicos de uso general
+)&#125;
 
 def depurar(lineas):
     validas, descartadas = set(), []
     for linea in lineas:
-        texto = linea.split("#")[0].strip()
+        texto = linea.split(&quot;#&quot;)[0].strip()
         if not texto:
             continue
         try:
             ip = ipaddress.ip_address(texto)
         except ValueError:
-            descartadas.append((texto, "no es una dirección IP"))
+            descartadas.append((texto, &quot;no es una dirección IP&quot;))
             continue
         if ip.version != 4:
-            descartadas.append((texto, "no es IPv4"))
+            descartadas.append((texto, &quot;no es IPv4&quot;))
         elif ip in PERMITIDAS:
-            descartadas.append((texto, "está en la lista de direcciones permitidas"))
+            descartadas.append((texto, &quot;está en la lista de direcciones permitidas&quot;))
         elif any(ip in red for red in NO_BLOQUEAR):
-            descartadas.append((texto, "pertenece a una red propia o reservada"))
+            descartadas.append((texto, &quot;pertenece a una red propia o reservada&quot;))
         else:
             validas.add(ip)
     return sorted(validas), descartadas
 
-
 def main():
     if len(sys.argv) != 3:
-        sys.exit("Uso: depura_ioc.py ENTRADA.txt SALIDA.nft")
-    with open(sys.argv[1], encoding="utf-8") as entrada:
+        sys.exit(&quot;Uso: depura_ioc.py ENTRADA.txt SALIDA.nft&quot;)
+    with open(sys.argv[1], encoding=&quot;utf-8&quot;) as entrada:
         validas, descartadas = depurar(entrada)
     if not validas:
-        sys.exit("No queda ninguna dirección válida: no se genera el fichero.")
-    elementos = ", ".join(str(ip) for ip in validas)
-    with open(sys.argv[2], "w", encoding="utf-8") as salida:
-        salida.write(f"""#!/usr/sbin/nft -f
-# Generado por depura_ioc.py el {date.today().isoformat()}
+        sys.exit(&quot;No queda ninguna dirección válida: no se genera el fichero.&quot;)
+    elementos = &quot;, &quot;.join(str(ip) for ip in validas)
+    with open(sys.argv[2], &quot;w&quot;, encoding=&quot;utf-8&quot;) as salida:
+        salida.write(f&quot;&quot;&quot;#!/usr/sbin/nft -f
+# Generado por depura_ioc.py el &#123;date.today().isoformat()&#125;
 # Cada dirección caduca sola a los 30 días si no se vuelve a cargar.
 table inet filtro_ioc
 delete table inet filtro_ioc
 
-table inet filtro_ioc {{
-    set ioc_ipv4 {{
+table inet filtro_ioc &#123;&#123;
+    set ioc_ipv4 &#123;&#123;
         type ipv4_addr
         flags timeout
         timeout 30d
-        elements = {{ {elementos} }}
-    }}
-    chain reenvio {{
+        elements = &#123;&#123; &#123;elementos&#125; &#125;&#125;
+    &#125;&#125;
+    chain reenvio &#123;&#123;
         type filter hook forward priority filter; policy accept;
-        ip daddr @ioc_ipv4 counter log prefix "IOC-BLOQUEADA " drop
-        ip saddr @ioc_ipv4 counter log prefix "IOC-BLOQUEADA " drop
-    }}
-}}
-""")
-    print(f"Direcciones cargadas: {len(validas)}")
+        ip daddr @ioc_ipv4 counter log prefix &quot;IOC-BLOQUEADA &quot; drop
+        ip saddr @ioc_ipv4 counter log prefix &quot;IOC-BLOQUEADA &quot; drop
+    &#125;&#125;
+&#125;&#125;
+&quot;&quot;&quot;)
+    print(f&quot;Direcciones cargadas: &#123;len(validas)&#125;&quot;)
     for texto, motivo in descartadas:
-        print(f"Descartada {texto}: {motivo}")
+        print(f&quot;Descartada &#123;texto&#125;: &#123;motivo&#125;&quot;)
 
-
-if __name__ == "__main__":
-    main()
-```
+if __name__ == &quot;__main__&quot;:
+    main()</code></pre>
 
 ```text
 $ python3 depura_ioc.py ioc_ip.txt ioc.nft
@@ -2189,9 +2265,9 @@ Descartada 192.0.2.10: pertenece a una red propia o reservada
 
 > **En el laboratorio.** En un entorno real se puede simplificar la comprobación con la propiedad `ip.is_global` de Python. Aquí no se usa porque las direcciones de documentación de los ejemplos (`203.0.113.0/24`, `198.51.100.0/24`) no son direcciones globales y se descartarían todas.
 
-### Paso 3. Cargar el conjunto en el cortafuegos
+### Paso 3. Preparar el bloqueo en el cortafuegos
 
-En la máquina Linux que hace de cortafuegos del laboratorio:
+En ACME, un bloqueo perimetral lo aprueba el nivel 2: un error aquí corta servicios. A las 07:40 Lucía deja el fichero comprobado y pide la aprobación; se aplicará a las 09:07, ya dentro del incidente del módulo 5. En la máquina Linux que hace de cortafuegos del laboratorio:
 
 ```bash
 # Comprueba la sintaxis sin aplicar nada
@@ -2219,7 +2295,7 @@ El conjunto usa la opción `timeout`: cada dirección desaparece sola a los 30 d
 
 ### Paso 4. Detectar además de bloquear
 
-Los mismos indicadores se cargan en una lista de Wazuh para que salte una alerta si aparecen en cualquier registro:
+Detectar no exige aprobación, porque no corta nada. A las 07:55 Lucía carga los mismos indicadores en una lista de Wazuh, para que salte una alerta si aparecen en cualquier registro:
 
 ```text
 # /var/ossec/etc/lists/ioc-ip
@@ -2256,17 +2332,21 @@ Los mismos indicadores se cargan en una lista de Wazuh para que salte una alerta
 </group>
 ```
 
-El dominio se vigila con la regla 3 de Suricata del módulo 2, que avisa de cualquier consulta DNS a `acrne-logistica.example`.
+El dominio ya se vigilaba desde el viernes con la regla 3 de Suricata del módulo 2, que avisa de cualquier consulta DNS a `acrne-logistica.example` o a sus subdominios.
+
+A las 07:58, tres minutos después de cargar la lista, salta la primera alerta de la regla 100401: `PC-ADM-07` acaba de conectar con `198.51.100.23`. El módulo 5 empieza ahí.
 
 ### Paso 5. Buscar hacia atrás
 
-En el panel de Wazuh, en **Threat Hunting → Events**, con el intervalo «últimos 30 días»:
+En el panel de Wazuh, en **Threat Hunting → Events**, con el intervalo «últimos 30 días», dos búsquedas: una por las direcciones y otra por las reglas que vigilan el dominio.
 
 ```text
 data.dest_ip:("198.51.100.77" OR "198.51.100.23" OR "203.0.113.45") OR data.srcip:("198.51.100.77" OR "198.51.100.23" OR "203.0.113.45")
+
+data.alert.signature_id:(1000003 OR 1000004)
 ```
 
-En ACME la búsqueda devuelve un resultado que nadie había mirado: una alerta de nivel 3 del martes en la que el puesto `PC-ADM-07` descarga un fichero `.exe` por HTTP desde `198.51.100.77`. Es la firma 4 de Suricata del módulo 2, que llegó a Wazuh con el nivel bajo que tienen por defecto las alertas de red. Ese equipo pasa a ser un caso para el módulo 5.
+En ACME las búsquedas devuelven lo que nadie había mirado: dos alertas de nivel 3 del martes a las 09:14, en las que el puesto `PC-ADM-07` consulta el dominio falso y descarga un fichero `.exe` por HTTP desde `198.51.100.77`. Son las firmas 3 y 4 de Suricata del módulo 2, que llegaron a Wazuh con el nivel bajo que tienen por defecto las alertas de red. Y aparecen también conexiones con `198.51.100.23` desde el martes. Lucía ya está con la alerta de las 07:58: en el módulo 5 verás cómo la trabaja.
 
 ### Paso 6. Cerrar el ciclo
 
@@ -2279,7 +2359,58 @@ En ACME la búsqueda devuelve un resultado que nadie había mirado: una alerta d
 
 <a id="p-4-7"></a>
 
-## 4.7 Recursos y referencias
+## 4.7 Práctica P4. Del evento de MISP a la lista de bloqueo
+
+> **En el laboratorio.** **Objetivo:** recorrer el ciclo completo de un indicador: obtenerlo, depurarlo, preparar el bloqueo, cargarlo para detectar y buscar hacia atrás. **Duración:** una sesión (3 horas). **Material:** carpeta `P4` de los recursos de las prácticas y la salida del caso de la práctica P2. **Máquina:** Ubuntu 26.04 con `jq`, `nftables` y `dnstwist` (`sudo apt install -y jq nftables dnstwist`).
+
+1. **Dominios parecidos.** Genera las variantes del dominio del caso. Esta orden no consulta Internet:
+
+   ```bash
+   dnstwist --format list acme-logistica.example | wc -l
+   dnstwist --format list acme-logistica.example | grep -n acrne
+   ```
+
+   **Resultado esperado:** 10 972 variantes, entre ellas `acrne-logistica.example`. Si tienes conexión, prueba `dnstwist --registered` con el dominio de tu centro: solo hace consultas DNS públicas.
+
+2. **El evento de MISP.** Abre `misp_evento_1874.json` y responde: quién lo comparte, con qué etiqueta TLP y qué técnicas de ATT&CK cita. Después lista sus atributos:
+
+   ```bash
+   jq -r '.Event.Attribute[] | [.type, .to_ids, .value, .comment] | @tsv' misp_evento_1874.json
+   ```
+
+   ¿Qué atributos no deben usarse para detectar o bloquear? ¿Cómo lo indica el propio evento?
+
+3. **La lista en bruto.** Junta todas las direcciones de MISP y del pulso de OTX, como haría un proceso automático mal ajustado:
+
+   ```bash
+   jq -r '.Event.Attribute[] | select(.type=="ip-dst" or .type=="ip-src") | .value' misp_evento_1874.json > ioc_ip.txt
+   jq -r '.results[] | .indicator' otx_pulso.json >> ioc_ip.txt
+   cat ioc_ip.txt
+   ```
+
+4. **Depurar.** Ejecuta el programa del apartado 4.6:
+
+   ```bash
+   python3 depura_ioc.py ioc_ip.txt ioc.nft
+   ```
+
+   **Resultado esperado:** tres direcciones cargadas (`198.51.100.23`, `198.51.100.77` y `203.0.113.45`) y cuatro descartadas, cada una con su motivo. Responde: ¿por qué aparece una dirección interna de ACME en un pulso público? ¿Qué ha pasado con las direcciones repetidas? Mejora el programa para que informe también de los duplicados.
+
+5. **Comprobar el bloqueo sin aplicarlo:** `sudo nft -c -f ioc.nft`. No debe devolver nada. Si tienes la máquina cortafuegos del laboratorio, cárgalo y lista el conjunto como en el apartado 4.6.
+6. **Detectar.** Genera con `awk` la lista de Wazuh (`198.51.100.23:campana-acrne`…) a partir de las direcciones cargadas y, si tienes `wazuh01`, añade la lista y las reglas 100400 y 100401 del apartado 4.6.
+7. **Buscar hacia atrás sin SIEM.** Usa el `eve.json` del caso que obtuviste en la práctica P2:
+
+   ```bash
+   jq -c 'select(.dest_ip=="198.51.100.23" or .dest_ip=="198.51.100.77") | [.timestamp, .event_type, .src_ip, .dest_ip, .dest_port]' ../P2/salida/caso/eve.json
+   ```
+
+   ¿Qué equipo aparece, desde cuándo y con qué actividad? ¿Qué le dirías al nivel 2?
+
+**Entrega:** las salidas de cada paso, el programa mejorado y las respuestas.
+
+<a id="p-4-8"></a>
+
+## 4.8 Recursos y referencias
 
 > **[VÍDEO / RECURSO RECOMENDADO 4.1: «MISP Training Module 1 - An Introduction to Cybersecurity Information Sharing»]**
 >
@@ -2320,9 +2451,9 @@ En ACME la búsqueda devuelve un resultado que nadie había mirado: una alerta d
 
 <a id="p-4-act"></a>
 
-## 4.8 Actividades interactivas
+## 4.9 Actividades interactivas
 
-Cada actividad cuenta una vez, en el primer intento. Las preguntas de test muestran después la retroalimentación de todas las opciones.
+Responde antes de desplegar la solución. En la [unidad interactiva](https://jpercas570.github.io/incidentes-ciber-masterfp/ud2-analisis-incidentes/curso/) se corrigen solas y cuentan en el primer intento.
 
 ### Actividad 4.1. La fuente adecuada (pregunta de test)
 
@@ -2333,6 +2464,9 @@ El SOC quiere averiguar, sin tocar ningún sistema, para qué subdominios de `ac
 - **c)** Un escaneo con Nmap de todo el rango público.
 - **d)** Los registros de transparencia de certificados, por ejemplo en crt.sh.
 
+<details markdown="1">
+<summary>Ver la solución y la retroalimentación</summary>
+
 | Opción | Resultado | Retroalimentación |
 |---|---|---|
 | a) | Incorrecta | No. dnstwist genera dominios *parecidos* al propio para detectar suplantaciones. Aquí se buscan subdominios *del propio* dominio. |
@@ -2340,7 +2474,7 @@ El SOC quiere averiguar, sin tocar ningún sistema, para qué subdominios de `ac
 | c) | Incorrecta | No. Un escaneo es reconocimiento activo: toca los sistemas, y el enunciado lo excluye. Además solo encontraría lo que responda en las direcciones que ya conoces, no los nombres que has olvidado. |
 | d) | **Correcta** | Correcto. Cada certificado de confianza pública queda anotado en registros que cualquiera puede consultar. Es reconocimiento pasivo: no se envía ni un paquete a los sistemas investigados. |
 
-*Tipo de contenido H5P o Moodle:* Multiple Choice (una sola respuesta), con la retroalimentación de cada fila en el campo de la opción correspondiente.
+</details>
 
 ### Actividad 4.2. Antes de bloquear (pregunta de test)
 
@@ -2351,6 +2485,9 @@ Has descargado de una fuente de inteligencia una lista con 3 000 direcciones IP.
 - **c)** Subirla a un servicio público para que otros la validen.
 - **d)** Cargarla completa cuanto antes: cuantos más indicadores, más protección.
 
+<details markdown="1">
+<summary>Ver la solución y la retroalimentación</summary>
+
 | Opción | Resultado | Retroalimentación |
 |---|---|---|
 | a) | **Correcta** | Correcto. Una lista sin depurar puede contener tu propio rango o un servidor DNS público, y bloquearlos es provocarte una denegación de servicio. La caducidad evita que una dirección que hoy es maliciosa siga bloqueada cuando pertenezca a otro. |
@@ -2358,11 +2495,32 @@ Has descargado de una fuente de inteligencia una lista con 3 000 direcciones IP.
 | c) | Incorrecta | No sin mirar antes su etiqueta TLP. La inteligencia compartida tiene límites de difusión, y publicarla puede romper la confianza de quien te la dio. |
 | d) | Incorrecta | No. La cantidad no es calidad. Los indicadores caducados o erróneos generan bloqueos indebidos y alertas falsas, y entierran los que importan. |
 
-*Tipo de contenido H5P o Moodle:* Multiple Choice (una sola respuesta), con la retroalimentación de cada fila en el campo de la opción correspondiente.
+</details>
 
 ### Actividad 4.3. Cada herramienta, para lo suyo (emparejamiento)
 
 Relaciona cada herramienta de fuentes abiertas con el uso que le da el SOC.
+
+**Elementos:**
+
+- Shodan
+- Have I Been Pwned
+- TruffleHog
+- dnstwist
+- urlscan.io
+- MISP
+
+**Con qué van:**
+
+- **A.** Almacenar indicadores y compartirlos con otras organizaciones
+- **B.** Buscar servicios de la organización expuestos a Internet
+- **C.** Encontrar claves y contraseñas en el historial de un repositorio
+- **D.** Examinar una página sospechosa sin visitarla desde un equipo propio
+- **E.** Generar dominios parecidos al corporativo y comprobar cuáles existen
+- **F.** Saber si las cuentas del dominio aparecen en filtraciones
+
+<details markdown="1">
+<summary>Ver la solución y la retroalimentación</summary>
 
 | Elemento | Va con | Comentario al corregir |
 |---|---|---|
@@ -2373,34 +2531,29 @@ Relaciona cada herramienta de fuentes abiertas con el uso que le da el SOC.
 | urlscan.io | Examinar una página sospechosa sin visitarla desde un equipo propio | La abre en un entorno aislado y devuelve una captura. |
 | MISP | Almacenar indicadores y compartirlos con otras organizaciones | OTX cumple un papel parecido como comunidad abierta. |
 
-*Tipo de contenido H5P recomendado:* Drag the Words.
-
-Texto preparado para pegar en **Drag the Words** (las respuestas van entre asteriscos):
-
-```text
-Buscar servicios de la organización expuestos a Internet: *Shodan*
-Saber si las cuentas del dominio aparecen en filtraciones: *Have I Been Pwned*
-Encontrar claves y contraseñas en el historial de un repositorio: *TruffleHog*
-Generar dominios parecidos al corporativo y comprobar cuáles existen: *dnstwist*
-Examinar una página sospechosa sin visitarla desde un equipo propio: *urlscan.io*
-Almacenar indicadores y compartirlos con otras organizaciones: *MISP*
-```
-
+</details>
 
 <a id="m-5"></a>
 
 # Módulo 5. Triaje, registro inicial y seguimiento
 
 **Criterio de evaluación:** CE 2.e. Se ha llevado a cabo la clasificación, valoración, documentación y seguimiento inicial del incidente de ciberseguridad.  
-**Tiempo estimado de estudio:** 130 minutos.
+**Tiempo estimado de estudio:** 130 minutos.  
+**Práctica:** P5, dos sesiones (5 horas).
+
+**Al terminar este módulo serás capaz de:**
+
+- Aplicar los ocho pasos del triaje y emitir un veredicto justificado.
+- Cumplimentar la ficha de registro de un incidente separando hechos e hipótesis.
+- Escalar con el guion de cinco puntos y calcular los plazos de notificación.
 
 <a id="p-5-1"></a>
 
-## 5.1 Jueves, 11:52: una alerta de hace dos días
+## 5.1 Jueves, 07:58: una alerta de nivel 10
 
-Jueves, 19 de noviembre de 2026, 11:52. La búsqueda retrospectiva del módulo 4 acaba de devolver un resultado: una alerta del martes, de nivel 3, que nadie llegó a abrir. El puesto `PC-ADM-07` descargó un fichero `.exe` por HTTP desde `198.51.100.77`, la dirección que aloja el dominio que suplanta a ACME.
+Jueves, 19 de noviembre de 2026, 07:58. Hace tres minutos que Lucía Ortega, analista de nivel 1, ha cargado en Wazuh la lista de indicadores de la campaña que suplanta a ACME (lo viste en el módulo 4). La consola muestra la primera coincidencia: una alerta de la regla 100401, de nivel 10. El puesto `PC-ADM-07`, de administración, acaba de conectar con `198.51.100.23`, una de las direcciones de la lista.
 
-Tienes delante una alerta vieja, un equipo de administración y una IP que ya sabes que es maliciosa. A partir de aquí hay cuatro preguntas, y hay que contestarlas en este orden:
+Tienes delante una alerta recién creada, un equipo de administración y una dirección que otra empresa ha señalado como servidor de mando y control. A partir de aquí hay cuatro preguntas, y hay que contestarlas en este orden:
 
 1. ¿Es real o es un falso positivo?
 2. Si es real, ¿qué ha pasado exactamente y cómo de grave es?
@@ -2412,6 +2565,8 @@ Los cuatro módulos anteriores te han dado las piezas: la taxonomía y la valora
 1. El **triaje**: cómo se decide, en minutos, qué es cada alerta.
 2. El **registro**: qué campos lleva la ficha de un incidente y cómo se rellenan.
 3. El **seguimiento inicial**: cuándo y cómo se escala, a quién se notifica y cómo se cierra.
+
+Al final del módulo seguirás minuto a minuto el triaje de esta alerta y verás la ficha del incidente tal como quedó a las 10:25.
 
 <a id="p-5-2"></a>
 
@@ -2535,28 +2690,9 @@ La Guía Nacional añade indicadores para el proceso completo, entre ellos el ti
 
 **Diagrama 5.1. Flujo de trabajo del analista de nivel 1.** Desde que recibe la alerta hasta que la cierra o la escala. Las líneas discontinuas son la mejora continua: lo que se aprende de cada cierre vuelve a las reglas.
 
-```mermaid
-flowchart TD
-    A(["Alerta en la consola<br/>o aviso de una persona"]) --> B["Hacerse cargo, validar con el<br/>dato en bruto y enriquecer"]
-    B --> D{{"¿Ocurrió lo que dice la alerta?"}}
-    D -->|"No"| FP["Falso positivo:<br/>cierre con motivo"]
-    D -->|"Sí"| E{{"¿Era actividad autorizada o inocua?"}}
-    E -->|"Sí"| BN["Positivo benigno:<br/>cierre sin impacto"]
-    E -->|"No, o no se sabe"| F["Incidente: clasificar, valorar<br/>y fijar la prioridad"]
-    F --> G["Ficha de registro y contención<br/>inmediata prevista para el nivel 1"]
-    G --> J{{"¿Nivel ALTO o superior, activo crítico<br/>o fuera de tus atribuciones?"}}
-    J -->|"No"| L["Resolver en el nivel 1<br/>según el procedimiento"]
-    J -->|"Sí"| K["Escalar al nivel 2<br/>con la ficha y una llamada"]
-    K --> M{{"¿MUY ALTO o CRÍTICO, datos personales<br/>o decisión de negocio?"}}
-    M -->|"No"| O["Nivel 2: análisis<br/>y contención"]
-    M -->|"Sí"| N["Nivel 3: comité de crisis<br/>y notificación al CSIRT"]
-    L --> P["Seguimiento hasta la resolución"]
-    O --> P
-    N --> P
-    P --> Q(["Cierre con estado,<br/>motivo y lecciones"])
-    FP -.-> R["Propuesta de ajuste<br/>de la regla"]
-    BN -.-> R
-```
+![Diagrama 5.1. Flujo de trabajo del analista de nivel 1](img/diagrama_5-1.png)
+
+> **Descripción en texto del diagrama 5.1.** Un diagrama de flujo de arriba abajo. La alerta, o el aviso de una persona, lleva a hacerse cargo, validar con el dato en bruto y enriquecer. Primera pregunta: ¿ocurrió lo que dice la alerta? Si no, falso positivo, cierre con motivo. Si sí, segunda pregunta: ¿era actividad autorizada o inocua? Si sí, positivo benigno, cierre sin impacto. Si no, o no se sabe, es un incidente: clasificar, valorar y fijar la prioridad; abrir la ficha y aplicar la contención inmediata prevista para el nivel 1. Tercera pregunta: ¿nivel ALTO o superior, activo crítico o fuera de tus atribuciones? Si no, se resuelve en el nivel 1. Si sí, se escala al nivel 2 con la ficha y una llamada, y cuarta pregunta: ¿MUY ALTO o CRÍTICO, datos personales o decisión de negocio? Si no, el nivel 2 analiza y contiene; si sí, interviene el comité de crisis y se notifica al CSIRT. Todos los caminos llevan al seguimiento hasta la resolución y al cierre con estado, motivo y lecciones. Del falso positivo y del positivo benigno sale una línea discontinua hacia la propuesta de ajuste de la regla.
 
 ### Tiempos de respuesta
 
@@ -2573,24 +2709,9 @@ La prioridad que salió de la valoración (módulo 1) fija los plazos internos. 
 
 **Diagrama 5.2. Estados de una ficha en el SOC de ACME.** Toda alerta empieza como nueva y termina cerrada con un motivo. Entre medias, el estado dice a cualquier compañero en qué punto está el caso.
 
-```mermaid
-stateDiagram-v2
-    direction TB
-    state "Nueva" as NU
-    state "En triaje" as TR
-    state "Incidente abierto" as AB
-    state "Contenido" as CO
-    state "Resuelto" as RE
-    state "Cerrado" as CE
-    [*] --> NU
-    NU --> TR: un analista se la asigna
-    TR --> CE: falso positivo o sin impacto
-    TR --> AB: verdadero positivo
-    AB --> CO: el daño deja de crecer
-    CO --> RE: causa eliminada y servicio recuperado
-    RE --> CE: informe final y lecciones
-    CE --> [*]
-```
+![Diagrama 5.2. Estados de una ficha en el SOC de ACME](img/diagrama_5-2.png)
+
+> **Descripción en texto del diagrama 5.2.** Un diagrama de estados. Toda alerta empieza como Nueva. Cuando un analista se la asigna pasa a En triaje. Desde En triaje puede ir directamente a Cerrado, si es un falso positivo o no tiene impacto, o a Incidente abierto, si es un verdadero positivo. Del incidente abierto pasa a Contenido cuando el daño deja de crecer; de Contenido a Resuelto cuando se ha eliminado la causa y recuperado el servicio; y de Resuelto a Cerrado con el informe final y las lecciones.
 
 Cuando el incidente se ha notificado a un CSIRT, este usa los estados de la Guía Nacional:
 
@@ -2650,8 +2771,8 @@ La diferencia entre el inicio y la detección es el tiempo que el atacante ha te
 Todas las horas se escriben en un formato sin ambigüedad. El más extendido es el de la RFC 3339, que indica el desfase respecto a UTC:
 
 ```text
-2026-11-19T11:52:00+01:00    hora peninsular de invierno
-2026-11-19T10:52:00Z         el mismo instante en UTC
+2026-11-19T07:58:00+01:00    hora peninsular de invierno
+2026-11-19T06:58:00Z         el mismo instante en UTC
 ```
 
 > **Atención.** Antes de comparar horas de dos fuentes, comprueba en qué zona horaria escribe cada una. Suricata escribe la hora local con su desfase. Sysmon y el registro de eventos de Windows guardan la hora en UTC, aunque el visor la muestre en hora local. Muchos cortafuegos y servicios en la nube también usan UTC. Una hora de diferencia mal entendida descoloca toda la línea de tiempo.
@@ -2667,15 +2788,16 @@ De cada activo interesan seis datos: nombre, dirección, función, usuario habit
 Cada indicador se anota con su contexto: qué papel tuvo, dónde se vio, de qué fuente procede y qué se ha hecho con él. En fichas, correos e informes se escriben *desactivados*, para que nadie los abra por error y ningún programa los convierta en enlaces:
 
 ```text
-hxxp://acrne-logistica[.]example/visor/VisorAlbaranes.exe
-198.51.100[.]77
+hxxp://acrne-logistica[.]example/descargas/Factura_2026-1147.exe
+sync[.]acrne-logistica[.]example
+198.51.100[.]23
 ```
 
 ### Línea de tiempo
 
 Es una tabla única en la que cada fila tiene una hora, una fuente y un hecho. Tres reglas la hacen útil:
 
-- **Hechos, no opiniones.** «`visorsvc.exe` conecta con 198.51.100.77:443» es un hecho. «El equipo está controlado por un atacante» es una conclusión, y va en la descripción, marcada como hipótesis mientras no se confirme.
+- **Hechos, no opiniones.** «`adobesync.exe` conecta con 198.51.100.23:443» es un hecho. «El equipo está controlado por un atacante» es una conclusión, y va en la descripción, marcada como hipótesis mientras no se confirme.
 - **Cada hecho con su fuente.** Así cualquiera puede comprobarlo.
 - **La hora del hecho, no la de la anotación.** Si descubres hoy algo que ocurrió el martes, la fila lleva la hora del martes.
 
@@ -2705,13 +2827,9 @@ La ficha puede vivir en una herramienta de gestión de casos o, en una organizac
 | RTIR | Gestor de peticiones de código abierto adaptado al trabajo de un CSIRT | CSIRT |
 | GLPI u otro gestor de servicios de TI | Gestor de peticiones general, con una categoría propia para incidentes de seguridad y acceso restringido | Organizaciones pequeñas |
 
-> **[IMAGEN ILUSTRATIVA 5.1: Captura de una ficha de registro de incidente cumplimentada]**
->
-> - **Qué capturar:** la vista de detalle de un incidente ya cumplimentado en la herramienta de gestión de casos del laboratorio (por ejemplo, DFIR-IRIS o GLPI), o la plantilla de ficha rellenada si se trabaja con documentos.
-> - **Anotaciones numeradas sobre la captura:** (1) identificador, título, estado y marca TLP; (2) marcas de tiempo; (3) origen de la alerta; (4) activos involucrados; (5) clasificación y valoración; (6) indicadores de compromiso; (7) línea de tiempo; (8) acciones y escalado.
-> - **Formato:** PNG a 1 920 × 1 080 píxeles, con las anotaciones en círculos numerados y una leyenda debajo. Los datos reales deben sustituirse por datos de ejemplo.
-> - **Texto alternativo:** «Ficha de registro de un incidente de ciberseguridad con sus bloques: identificación, marcas de tiempo, origen de la alerta, activos, clasificación y valoración, indicadores de compromiso, línea de tiempo y acciones».
-> - **Nota para el docente:** el paquete SCORM muestra aquí una recreación de la ficha del intento de fuerza bruta del módulo 2 (`INC-2026-0158`), un caso sencillo que sirve para reconocer los campos antes de abordar la ficha completa del apartado 5.7.
+![Ficha de registro de un incidente de ciberseguridad con sus bloques: identificación, marcas de tiempo, origen de la alerta, activos, clasificación y valoración, indicadores de compromiso, línea de tiempo y acciones](img/figura_5-1.png)
+
+*Figura 5.1. Captura de una ficha de registro de incidente cumplimentada*
 
 <a id="p-5-6"></a>
 
@@ -2743,7 +2861,7 @@ Un escalado son dos cosas a la vez: la ficha y una llamada. La ficha lleva los d
 4. **Qué no sé** todavía.
 5. **Qué necesito** de ti.
 
-> **Ejemplo SOC Tier 1.** «Escalo el INC-2026-0162, prioridad P2. *Qué ha pasado:* el puesto PC-ADM-07, de facturación, descargó y ejecutó el martes a las 09:43 un programa desde el dominio que suplanta a ACME. *Qué he comprobado:* el proceso sigue activo e intenta conectar cada cinco minutos con 198.51.100.77; el miércoles a las 02:10 el equipo envió 1,9 GB a 198.51.100.23. *Qué he hecho:* el equipo está en cuarentena desde las 12:12, sin apagar; he cerrado las sesiones de la usuaria y he forzado el cambio de contraseña. *Qué no sé:* qué ficheros han salido ni si hay más equipos. *Qué necesito:* análisis del equipo y confirmación de la salida de datos.»
+> **Ejemplo SOC Tier 1.** Llamada de Lucía Ortega a Raúl Vidal, nivel 2 de guardia, el jueves a las 08:05: «Te llamo por una alerta de las 07:58 que va a ser un incidente; abro la ficha ahora. *Qué ha pasado:* `PC-ADM-07`, el puesto de María García en Administración, mantiene conexiones cifradas con `sync.acrne-logistica.example`, que está en el evento de MISP de la campaña. *Qué he comprobado:* el martes a las 09:14 ese equipo descargó `Factura_2026-1147.exe` del dominio falso; hubo alertas de nivel 3 que nadie abrió. Sysmon muestra que se ejecutó a las 09:15, que se copió como `adobesync.exe` y que creó una tarea programada. *Qué he hecho:* nada sobre el equipo; la lista de indicadores está cargada en Wazuh y el bloqueo perimetral está preparado, pendiente de tu aprobación. *Qué no sé:* si ha salido información ni si hay más equipos; el correo llegó a tres buzones. *Qué necesito:* que decidas la contención. Puedo aislar el puesto, pero tiene un proceso malicioso vivo en memoria.»
 
 Escalar no es desentenderse. El nivel 1 sigue en el caso: busca los indicadores en el resto de equipos, vigila las alertas relacionadas y mantiene la ficha al día.
 
@@ -2763,26 +2881,9 @@ La notificación inicial al CSIRT no espera a que la investigación termine. Se 
 
 **Diagrama 5.3. Escalado y comunicaciones en un incidente con datos personales.** Cada nivel recibe el caso con la ficha, hace su parte y avisa al siguiente. El nivel 1 no desaparece: sigue buscando indicadores y manteniendo la ficha.
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant N1 as Nivel 1
-    participant N2 as Nivel 2
-    participant RS as Responsable de la Seguridad
-    participant CC as Comité de crisis
-    participant EX as CSIRT de referencia y AEPD
-    N1->>N1: Triaje, ficha y contención inmediata
-    N1->>N2: Escalado funcional con ficha y llamada
-    N2->>N2: Análisis, contención y evidencias
-    N2->>RS: Alcance confirmado y propuesta de notificación
-    RS->>EX: Notificación inicial al CSIRT
-    RS->>CC: Convocatoria del comité
-    CC->>CC: Decisiones sobre clientes, denuncia y portavoz
-    CC->>EX: Notificación de la brecha a la AEPD antes de 72 horas
-    N1-->>N2: Búsqueda de indicadores en el resto de equipos
-    N2-->>RS: Revisión de la valoración y de la ficha
-    RS->>EX: Notificaciones intermedia y final si el nivel lo exige
-```
+![Diagrama 5.3. Escalado y comunicaciones en un incidente con datos personales](img/diagrama_5-3.png)
+
+> **Descripción en texto del diagrama 5.3.** Un diagrama de secuencia con cinco participantes: nivel 1, nivel 2, Responsable de la Seguridad, comité de crisis y, fuera, el CSIRT de referencia y la AEPD. Uno: el nivel 1 hace el triaje, la ficha y la contención inmediata. Dos: escala al nivel 2 con la ficha y una llamada. Tres: el nivel 2 analiza, contiene y recoge evidencias. Cuatro: comunica a la Responsable de la Seguridad el alcance confirmado y una propuesta de notificación. Cinco: ella envía la notificación inicial al CSIRT. Seis: convoca el comité. Siete: el comité decide sobre clientes, denuncia y portavoz. Ocho: el comité notifica la brecha a la AEPD antes de 72 horas. Mientras tanto, el nivel 1 sigue buscando indicadores en el resto de equipos y el nivel 2 revisa la valoración y la ficha. Por último, la Responsable de la Seguridad envía las notificaciones intermedia y final si el nivel lo exige.
 
 ### El seguimiento
 
@@ -2799,176 +2900,243 @@ En el relevo de turno, el analista saliente repasa con el entrante los incidente
 
 <a id="p-5-7"></a>
 
-## 5.7 Ejemplo práctico: ficha de una exfiltración confirmada
+## 5.7 Ejemplo práctico: el triaje de la alerta 100401
 
-### El triaje, paso a paso
+Sigue el trabajo de Lucía Ortega minuto a minuto. Todas las horas son peninsulares (UTC+01:00).
 
-**11:55. Hacerse cargo.** Lucía Ortega, analista de nivel 1, se asigna la alerta y abre el registro `INC-2026-0162`.
+### De 07:58 a 08:05: ¿es real?
 
-**11:56. Entender la regla.** Es la firma 1000004 de Suricata: una petición HTTP `GET` desde la red interna hacia el exterior cuya ruta termina en `.exe`. Por sí sola describe una infracción de la política de uso, no un ataque. Llegó a Wazuh con la regla 86601, de nivel 3.
+**07:58. Hacerse cargo.** Lucía se asigna la alerta en la consola de Wazuh.
 
-**11:58. Validar con el dato en bruto.** El evento original de `ids01` confirma la descarga y aporta el nombre del fichero y la página desde la que se pidió:
+**07:59. Entender la regla.** La 100401 es la regla que ella misma preparó en el módulo 4: salta con cualquier evento de Suricata cuyo destino esté en la lista `ioc-ip`, cargada a las 07:55. La regla dice que un equipo ha hablado con una dirección sospechosa. No dice que esté infectado: también saltaría si alguien hubiera pulsado el enlace del correo sin descargar nada.
+
+**08:00. Validar con el dato en bruto.** El evento original de `ids01` es un registro TLS de Suricata:
 
 ```json
 {
-  "timestamp": "2026-11-17T09:42:31.341000+0100",
+  "timestamp": "2026-11-19T07:57:58.650000+0100",
+  "event_type": "tls",
+  "src_ip": "10.20.5.37",
+  "src_port": 50311,
+  "dest_ip": "198.51.100.23",
+  "dest_port": 443,
+  "proto": "TCP",
+  "tls": {
+    "sni": "sync.acrne-logistica.example",
+    "version": "TLS 1.3"
+  }
+}
+```
+
+La conexión existió y el nombre del servidor (`sni`) es un subdominio del dominio falso. Una fracción de segundo antes, la regla 1000003 de Suricata había registrado la consulta DNS de ese mismo nombre. No es un falso positivo.
+
+**08:01. Enriquecer.** Las preguntas, con su fuente:
+
+| Pregunta | Respuesta | Fuente |
+|---|---|---|
+| ¿Qué activo es? | `PC-ADM-07`, 10.20.5.37, Windows 11, puesto de Administración. Tiene conectada la unidad `\\srv-files01\Facturacion` | Inventario |
+| ¿Quién lo usa? | María García (`mgarcia`), de 08:00 a 15:00. El miércoles dejó la sesión abierta al irse | Directorio; historial de inicios de sesión |
+| ¿Qué hay al otro lado? | `198.51.100.23` y `sync.acrne-logistica.example` figuran en el evento de MISP de otra empresa del sector como servidor de mando y control de la misma campaña | MISP (módulo 4) |
+| ¿Ha pasado antes? | La búsqueda hacia atrás del módulo 4 devuelve dos alertas del martes, de nivel 3 y sin abrir: a las 09:14:19 `PC-ADM-07` consultó `acrne-logistica.example` (regla 1000003) y un segundo después descargó `Factura_2026-1147.exe` por HTTP (regla 1000004) | Wazuh |
+| ¿Cómo llegó el enlace? | El martes a las 08:51 entró el correo «Factura 2026-1147 pendiente de pago», de `facturacion@acrne-logistica.example`, en tres buzones: `mgarcia`, `amolina` y el buzón compartido `facturacion` | Pasarela de correo |
+
+Este es el evento de la descarga del martes, tal como lo guardó Suricata (se omiten algunos campos):
+
+```json
+{
+  "timestamp": "2026-11-17T09:14:20.141000+0100",
   "event_type": "alert",
   "src_ip": "10.20.5.37",
-  "src_port": 49822,
   "dest_ip": "198.51.100.77",
   "dest_port": 80,
-  "proto": "TCP",
   "alert": {
     "action": "allowed",
     "signature_id": 1000004,
-    "signature": "LOCAL Descarga de ejecutable .exe por HTTP en claro",
-    "category": "Potential Corporate Privacy Violation",
+    "signature": "ACME - Descarga de ejecutable .exe por HTTP en claro",
     "severity": 1
   },
   "http": {
     "hostname": "acrne-logistica.example",
-    "url": "/visor/VisorAlbaranes.exe",
-    "http_refer": "https://acrne-logistica.example/portal/albaranes",
+    "url": "/descargas/Factura_2026-1147.exe",
     "http_method": "GET",
     "status": 200
   }
 }
 ```
 
-El campo `action` vale `allowed`: Suricata trabaja como detector y no bloqueó nada. El servidor respondió con un código 200, de modo que el fichero llegó al equipo.
+El campo `action` vale `allowed`: Suricata trabaja como detector y no bloquea. El servidor respondió con un código 200, así que el fichero llegó al equipo.
 
-**12:00. Enriquecer.** Las cinco preguntas, con su fuente:
-
-| Pregunta | Respuesta | Fuente |
-|---|---|---|
-| ¿Qué activo es? | `PC-ADM-07`, 10.20.5.37, Windows 11, puesto de facturación. Tiene conectada la unidad `\\srv-files01\administracion` | Inventario |
-| ¿Quién lo usa? | `amolina` (Ana Molina, facturación), con horario de 08:00 a 15:00 | Directorio y Recursos Humanos |
-| ¿Qué hay al otro lado? | 198.51.100.77 aloja el dominio que suplanta a ACME y está en la lista de indicadores desde las 11:40 | Módulo 4 |
-| ¿Qué pasó después? | El fichero se ejecutó, creó una tarea programada y conecta cada cinco minutos con la misma dirección | Eventos de Sysmon |
-| ¿Ha salido información? | El miércoles a las 02:10 el equipo envió 1,9 GB a 198.51.100.23, otra dirección de la lista | Registros del cortafuegos |
-
-Los eventos de Sysmon no habían generado ninguna alerta: la creación de un proceso o de un fichero es actividad normal, y las reglas de serie de Wazuh la registran con nivel 0. Se han podido consultar porque ACME archiva todos los eventos, no solo las alertas, con la opción `logall_json` del servidor. Están en el índice `wazuh-archives-*`:
+**08:03. ¿Qué pasó en el equipo?** Los eventos de Sysmon no habían generado ninguna alerta: crear un proceso o un fichero es actividad normal, y las reglas de serie de Wazuh los registran con nivel 0. Se pueden consultar porque ACME archiva todos los eventos, no solo las alertas, con la opción `logall_json` del servidor. Están en el índice `wazuh-archives-*`:
 
 ```text
-agent.name:"PC-ADM-07" AND data.win.system.eventID:(1 OR 3 OR 11 OR 26)
+agent.name:"PC-ADM-07" AND data.win.system.eventID:(1 OR 3 OR 11)
 ```
 
-| Hora del 17 de noviembre | Evento de Sysmon | Dato |
+| Martes 17 | Evento de Sysmon | Dato |
 |---|---|---|
-| 09:42:33 | 11, fichero creado | `C:\Users\amolina\Downloads\VisorAlbaranes.exe` |
-| 09:43:05 | 1, proceso creado | `VisorAlbaranes.exe`, lanzado por `explorer.exe`, sin firma digital |
-| 09:43:12 | 11, fichero creado | `C:\Users\amolina\AppData\Roaming\Visor\visorsvc.exe` |
-| 09:43:14 | 1, proceso creado | `schtasks.exe /create /tn VisorUpdate /sc minute /mo 5 /tr "…\Visor\visorsvc.exe"` |
-| 09:48:14 | 3, conexión de red | `visorsvc.exe` hacia 198.51.100.77:443. Se repite cada cinco minutos |
+| 09:14:21 | 11, fichero creado | `C:\Users\mgarcia\Downloads\Factura_2026-1147.exe` |
+| 09:15:03 | 1, proceso creado | `Factura_2026-1147.exe`, lanzado por `explorer.exe` desde Descargas, sin fabricante ni descripción en sus metadatos. SHA-256 `5cd557e4…4c8b` |
+| 09:15:05 | 11, fichero creado | `C:\Users\mgarcia\AppData\Roaming\AdobeSync\adobesync.exe`, con la misma huella |
+| 09:15:07 | 1, proceso creado | `schtasks.exe /create /tn AdobeSyncUpdate /sc onlogon /tr "…\AdobeSync\adobesync.exe"` |
+| 09:15:10 | 3, conexión de red | `adobesync.exe` hacia 198.51.100.23:443. Se repite cada 60 segundos mientras hay una sesión abierta |
 
-Hay una confirmación más. Desde que a las 11:40 se cargaron los indicadores en el cortafuegos, aparece cada cinco minutos una línea `IOC-BLOQUEADA` con origen en 10.20.5.37. El programa sigue vivo y sigue llamando.
+Un ejecutable sin datos de fabricante que llega por correo, se copia con el nombre de un programa conocido, se programa para arrancar en cada inicio de sesión y llama a casa cada minuto: el malware está confirmado.
 
-**12:10. Veredicto, clasificación y valoración.** Es un verdadero positivo. Con lo que se sabe en ese momento:
+**08:05. Aviso al nivel 2.** Ejecución de malware confirmada es uno de los motivos de escalado. Lucía llama a Raúl Vidal, de guardia, con el mensaje de cinco puntos del apartado 5.6, y crea el aviso en la herramienta de casos. Raúl le pide que abra la ficha, que no toque el equipo y que mire si ha salido algo.
+
+### De 08:05 a 08:12: ¿cómo de grave es?
+
+**08:07. ¿Ha salido información?** Lucía repite la búsqueda hacia atrás con la dirección del servidor de mando y control y encuentra un flujo de madrugada. Suricata registra un evento `flow` al terminar cada conexión (se muestran solo los campos útiles):
+
+```json
+{
+  "event_type": "flow",
+  "src_ip": "10.20.5.37",
+  "src_port": 50102,
+  "dest_ip": "198.51.100.23",
+  "dest_port": 443,
+  "app_proto": "tls",
+  "flow": {
+    "pkts_toserver": 2908,
+    "pkts_toclient": 295,
+    "bytes_toserver": 4358494,
+    "bytes_toclient": 16065,
+    "start": "2026-11-19T02:17:05.000000+0100",
+    "end": "2026-11-19T02:17:11.545173+0100"
+  }
+}
+```
+
+Una baliza normal envía unos 500 bytes. Esta conexión envió 4,36 MB en seis segundos, a las dos de la madrugada. Los procesos hijos de `adobesync.exe` completan la historia:
+
+| Fecha y hora | Evento de Sysmon | Dato |
+|---|---|---|
+| Miércoles 18, 11:20 | 1, proceso creado | `robocopy.exe` copia ficheros desde `\\srv-files01\Facturacion\2026` a `C:\Users\Public\Libraries\tmp` |
+| Jueves 19, 02:13:40 | 1, proceso creado | `tar.exe` comprime lo copiado en `f.zip` |
+| Jueves 19, 02:24 | 1, proceso creado | Se borran `f.zip` y la carpeta de preparación |
+
+`robocopy.exe` y `tar.exe` son programas legítimos de Windows. Un atacante que los usa no necesita traer herramientas propias; por eso hay que fijarse en quién los lanza y cuándo.
+
+**08:12. Veredicto, clasificación y valoración.** Lucía abre la ficha `INC-2026-0162` con lo que se sabe en ese momento:
 
 | Paso | Resultado | Razonamiento |
 |---|---|---|
-| Clasificación principal | Compromiso de la información → Acceso no autorizado a información | Hay indicios sólidos de salida de datos; es el daño más grave |
-| Clasificaciones secundarias | Contenido dañino → Sistema infectado. Fraude → Phishing | El equipo ejecuta malware; el vector fue un correo con enlace |
+| Veredicto | Verdadero positivo | La conexión ocurrió, el destino es un servidor de mando y control conocido y el malware se ve en Sysmon |
+| Clasificación principal | Contenido dañino → Sistema infectado | Es lo confirmado. Los tres tipos posibles tienen peligrosidad ALTO, así que manda el que describe el hecho probado |
+| Clasificaciones secundarias | Compromiso de la información → Acceso no autorizado a información. Fraude → Phishing | Indicios sólidos de salida de datos; el vector fue un correo con enlace |
 | Peligrosidad | ALTO | Los tres tipos tienen nivel ALTO |
-| Impacto (estimación inicial) | MEDIO | Un puesto afectado; entre 1 y 5 jornadas-persona. Pendiente de confirmar qué datos han salido |
-| Nivel que rige | ALTO (P2) | Primera respuesta en una hora; lo lleva el nivel 2 |
+| Impacto (estimación inicial) | MEDIO | Un puesto afectado; posible salida de unos 4 MB. Falta saber qué datos contenían |
+| Nivel que rige | ALTO | El mayor de los dos |
+| Prioridad | P2 | Primera respuesta en una hora; lo dirige el nivel 2 |
 
-**12:12. Contención inmediata.** El procedimiento de ACME autoriza al nivel 1 a aislar un puesto de usuario. Lucía pasa `PC-ADM-07` a la red de cuarentena desde la consola de gestión y no lo apaga. A las 12:14 cierra las sesiones de `amolina` y fuerza el cambio de su contraseña.
+### Después de las 08:12: el nivel 2 decide
 
-**12:15. Escalado.** Llama al analista de nivel 2 de guardia, Raúl Vidal, con el mensaje de cinco puntos del apartado 5.6.
+**08:20.** Raúl llega al puesto, fotografía la pantalla con Lucía como testigo y avisa a la Responsable de la Seguridad, Marta Cano: «posible exfiltración de Facturación».
 
-**12:40. Confirmación.** El nivel 2 cruza tres fuentes: la auditoría del servidor de ficheros (la sesión de `amolina` leyó 1 312 ficheros en dos minutos, a las 02:07 del miércoles), Sysmon (se creó y se borró un archivo comprimido de 1,9 GB) y el cortafuegos (ese mismo volumen salió hacia 198.51.100.23). La exfiltración queda confirmada. El impacto se revisa a ALTO y, como hay datos personales, se avisa a la Responsable de la Seguridad para convocar el comité de crisis.
+**08:25. Decisión D-01: preservar antes de aislar.** El procedimiento permitiría aislar ya el equipo, pero Raúl propone esperar unos minutos y Marta lo aprueba. La salida de datos terminó de madrugada; desde entonces solo hay balizas, y el cortafuegos está vigilado para cortar en cuanto aparezca tráfico nuevo. La memoria, en cambio, contiene el proceso malicioso vivo y sus conexiones, y perderla sería irreversible.
 
-### La ficha
+**08:31 a 08:58.** Raúl vuelca la memoria y lanza un triaje en vivo del equipo. Los verás en la UD3.
 
-Esta es la ficha tal como queda a las 13:30 del jueves, al empezar la primera reunión del comité.
+**09:05. Contención.** `PC-ADM-07` se aísla de la red sin apagarlo. A las 09:07 se cargan en el cortafuegos los indicadores que Lucía había preparado (módulo 4) y el DNS interno empieza a responder `0.0.0.0` para el dominio falso y sus subdominios. A las 09:10, Sistemas deshabilita la cuenta `mgarcia` y revoca sus sesiones, y a las 09:12 retira el correo de los tres buzones.
+
+**10:20. Revisión de la valoración.** El triaje del equipo confirma que lo comprimido eran 33 ficheros de `Facturacion\2026`: facturas con nombre, NIF, dirección y datos bancarios de clientes. Raúl revisa el impacto a ALTO y anota el motivo.
+
+> **Atención.** Aislar no es un acto reflejo. Si el daño sigue en curso (cifrado de ficheros, salida de datos), se corta ya. Si no lo está, preservar primero la memoria puede valer más que ganar unos minutos. Esa decisión la toma el nivel 2 y queda escrita en la ficha con su motivo, como la D-01.
+
+<a id="p-5-8"></a>
+
+## 5.8 La ficha del INC-2026-0162
+
+Así está la ficha a las 10:25, cuando Marta Cano la usa para preparar el primer informe de situación del comité de crisis.
 
 #### 1. Identificación
 
 | Campo | Valor |
 |---|---|
 | ID del incidente | `INC-2026-0162` |
-| Título | Exfiltración de documentación de administración desde `PC-ADM-07` tras un phishing con descarga de malware |
+| Título | Malware con mando y control y salida de ficheros de Facturación desde `PC-ADM-07` tras un phishing |
 | Estado | Abierto. Contenido en el equipo de origen; alcance en análisis |
 | Marca TLP | TLP:AMBER |
 | Registrado por | Lucía Ortega, analista de nivel 1 |
-| Responsable actual | Raúl Vidal, analista de nivel 2 |
-| Próxima revisión | 2026-11-19T16:15:00+01:00 |
+| Responsable actual | Raúl Vidal, analista de nivel 2. Gestora del incidente: Marta Cano |
+| Próxima revisión | 2026-11-19T12:00:00+01:00 |
 
 #### 2. Marcas de tiempo
 
 | Hito | Fecha y hora |
 |---|---|
-| Inicio (entrada del correo) | 2026-11-17T09:36:48+01:00 |
-| Primera alerta generada | 2026-11-17T09:42:31+01:00, de nivel 3, sin revisar |
-| Detección efectiva | 2026-11-19T11:52:00+01:00 |
-| Registro | 2026-11-19T11:55:00+01:00 |
-| Veredicto del triaje | 2026-11-19T12:10:00+01:00 |
-| Contención inicial | 2026-11-19T12:12:00+01:00 |
-| Escalado al nivel 2 | 2026-11-19T12:15:00+01:00 |
-| Confirmación de la exfiltración | 2026-11-19T12:40:00+01:00 |
-| Notificación inicial al CSIRT | 2026-11-19T13:05:00+01:00 |
-| Límite para notificar a la AEPD | 2026-11-22T12:40:00+01:00 |
+| Inicio (entrada del correo) | 2026-11-17T08:51:00+01:00 |
+| Compromiso (ejecución del fichero) | 2026-11-17T09:15:03+01:00 |
+| Primeras alertas generadas | 2026-11-17T09:14:19+01:00 y 09:14:20, de nivel 3, sin revisar |
+| Detección efectiva | 2026-11-19T07:57:58+01:00 (regla 100401) |
+| Aviso al nivel 2 | 2026-11-19T08:05:00+01:00 |
+| Registro | 2026-11-19T08:12:00+01:00 |
+| Contención inicial | 2026-11-19T09:05:00+01:00 |
+| Límite para notificar a la AEPD | 2026-11-22T08:12:00+01:00 |
 
-Tiempo de detección: 50 horas y 15 minutos. Tiempo de triaje, desde la detección efectiva: 18 minutos. Tiempo hasta la contención inicial: 20 minutos.
+| Métrica | Desde → hasta | Valor |
+|---|---|---|
+| Tiempo de permanencia | Compromiso → detección | 46 h 42 min |
+| Salida de datos antes de la detección | Exfiltración → detección | 5 h 41 min |
+| Tiempo hasta la apertura | Detección → registro | 14 min |
+| Tiempo hasta la contención | Detección → aislamiento | 1 h 07 min |
 
 #### 3. Origen de la alerta
 
 | Campo | Valor |
 |---|---|
-| Cómo se detectó | Búsqueda retrospectiva de indicadores en Wazuh, a raíz del aviso de un cliente sobre un correo fraudulento |
-| Alerta original | Suricata, firma 1000004, en `ids01`; regla 86601 de Wazuh, nivel 3 |
-| Consulta | `data.dest_ip:("198.51.100.77" OR "198.51.100.23" OR "203.0.113.45")`, últimos 30 días |
-| Fuentes de confirmación | Sysmon de `PC-ADM-07` (índice de archivo), auditoría de `srv-files01`, registros del cortafuegos, pasarela de correo |
+| Cómo se detectó | Regla 100401 de Wazuh (nivel 10): tráfico hacia una dirección de la lista `ioc-ip`, cargada a las 07:55 a raíz del correo fraudulento que un cliente reenvió el miércoles |
+| Evento original | Suricata en `ids01`, evento `tls` de 10.20.5.37:50311 a 198.51.100.23:443, SNI `sync.acrne-logistica.example` |
+| Alertas previas | Reglas 1000003 y 1000004 de Suricata, martes 09:14, nivel 3 en Wazuh |
+| Fuentes de confirmación | Sysmon de `PC-ADM-07` (índice de archivo), eventos `flow` de Suricata, pasarela de correo |
 
 #### 4. Activos involucrados
 
 | Activo | Datos | Papel en el incidente | Criticidad |
 |---|---|---|---|
-| `PC-ADM-07` | 10.20.5.37, Windows 11, facturación. Usuaria: `amolina` | Equipo infectado; origen de la exfiltración | Media |
-| `srv-files01` | 10.20.1.20, servidor de ficheros. Recurso `administracion` | Origen de los datos; sin indicios de infección | Alta |
-| Cuenta `amolina` | Usuaria sin privilegios de administración | Sesión utilizada por el malware | Media |
-| Información | Carpetas `clientes` y `facturacion\2026`: 1 312 ficheros, 1,9 GB comprimidos | Datos de contacto de clientes, datos fiscales y bancarios de clientes autónomos y facturas, incluidas las del contrato con el organismo público | Alta. Contiene datos personales |
+| `PC-ADM-07` | 10.20.5.37, Windows 11, Administración. Usuaria: `mgarcia` | Equipo infectado; origen de la salida de datos | Media |
+| Cuenta `mgarcia` | María García, sin privilegios de administración | Sesión usada por el malware | Media |
+| `srv-files01` | 10.20.1.20, servidor de ficheros. Recurso `Facturacion` | Origen de los datos; sin indicios de infección | Alta |
+| Cuentas `amolina` y `facturacion` | Recibieron el mismo correo | Expuestas; sin indicios de uso | Media |
+| Información | 33 ficheros de `Facturacion\2026` | Facturas con nombre, NIF, dirección y datos bancarios de clientes | Alta. Contiene datos personales |
 
 #### 5. Clasificación y valoración
 
 | Campo | Valor |
 |---|---|
-| Clasificación principal | Compromiso de la información → Acceso no autorizado a información |
-| Clasificaciones secundarias | Contenido dañino → Sistema infectado. Fraude → Phishing |
+| Clasificación principal | Contenido dañino → Sistema infectado |
+| Clasificaciones secundarias | Compromiso de la información → Acceso no autorizado a información. Fraude → Phishing |
 | Nivel de peligrosidad | ALTO |
-| Nivel de impacto | **ALTO** (revisado el 2026-11-19T12:40:00+01:00 por R. Vidal). Valor anterior: MEDIO (12:10, L. Ortega). Motivo: se confirma la exfiltración; el esfuerzo de resolución se estima en 9 jornadas-persona, dentro del tramo de 5 a 30 |
+| Nivel de impacto | **ALTO** (revisado el 2026-11-19T10:20:00+01:00 por R. Vidal). Valor anterior: MEDIO (08:12, L. Ortega). Motivo: se confirma que salieron facturas con datos personales y bancarios de clientes; el esfuerzo de resolución se estima en 9 jornadas-persona, dentro del tramo de 5 a 30 |
 | Nivel que rige | ALTO |
 | Prioridad interna | P2. Se convoca además el comité de crisis por haber datos personales y un contrato público afectados |
-| Regulación afectada | Reglamento General de Protección de Datos (artículos 33 y 34); Real Decreto 311/2022 (artículo 33); contrato de servicio con el organismo público |
-| Técnicas de MITRE ATT&CK | T1566.002, enlace de phishing · T1204.002, ejecución por el usuario · T1053.005, tarea programada · T1071.001, protocolos web · T1039, datos de unidades de red · T1560, archivo de los datos recopilados · T1048, exfiltración por un canal alternativo |
+| Regulación afectada | Reglamento General de Protección de Datos (artículos 33 y 34); Real Decreto 311/2022 (artículo 33), por el contrato con el organismo público |
+| Técnicas de MITRE ATT&CK (versión 20) | T1566.002, enlace de phishing · T1204.002, fichero malicioso · T1036.005, nombre legítimo · T1053.005, tarea programada · T1071.001, protocolos web · T1039, datos de unidades de red · T1560.001, compresión con una utilidad · T1041, exfiltración por el canal de mando y control · T1070.004, borrado de ficheros |
 
 #### 6. Descripción
 
-El martes 17 de noviembre, la usuaria `amolina` recibió un correo que aparentaba proceder de facturación de ACME y que enlazaba con una copia del portal de clientes alojada en un dominio parecido al corporativo. La página le ofreció un «visor de albaranes», que descargó y ejecutó. El programa instaló un componente persistente que se comunica cada cinco minutos con un servidor externo.
+El martes 17 de noviembre, tres buzones de ACME recibieron un correo que simulaba una factura pendiente de pago y enlazaba con un dominio que imita al corporativo. María García descargó y abrió el fichero desde `PC-ADM-07`. El programa se copió con otro nombre, se programó para arrancar en cada inicio de sesión y empezó a comunicarse cada minuto con un servidor externo.
 
-En la madrugada del miércoles 18, con el equipo encendido y la unidad de red conectada, el programa leyó 1 312 ficheros del recurso `administracion`, los comprimió y los envió a un segundo servidor externo.
+El miércoles 18 copió 33 ficheros del recurso `Facturacion` del servidor de ficheros. En la madrugada del jueves 19 los comprimió, los envió al mismo servidor externo y borró los ficheros temporales.
 
-*Hipótesis pendientes de confirmar:* que no haya otros equipos afectados (el mismo correo llegó a tres buzones más) y que el programa no haya obtenido las contraseñas guardadas en el navegador.
+*Hipótesis pendientes de confirmar:* que no haya otros equipos afectados (el correo llegó a otras dos cuentas) y que el atacante no haya usado las credenciales de `mgarcia` desde fuera.
 
 #### 7. Indicadores de compromiso
 
 | Tipo | Valor | Contexto | Fuente | Acción |
 |---|---|---|---|---|
-| Dominio | `acrne-logistica[.]example` | Página falsa y descarga del programa | Aviso de un cliente; dnstwist | Bloqueado en DNS y proxy |
-| Dirección IP | `198.51.100[.]77` | Aloja el dominio; mando y control por el puerto 443 cada cinco minutos | DNS; Sysmon, evento 3 | Bloqueada en el cortafuegos a las 11:40 |
-| Dirección IP | `198.51.100[.]23` | Destino de la exfiltración | Evento compartido en MISP; cortafuegos | Bloqueada en el cortafuegos a las 11:40 |
-| URL | `hxxp://acrne-logistica[.]example/visor/VisorAlbaranes.exe` | Descarga del programa | Suricata, firma 1000004 | Bloqueada en el proxy |
-| Correo | `facturacion@acrne-logistica[.]example`, asunto «Albarán pendiente de firma 2026-11-0457» | Mensaje de phishing | Pasarela de correo | Remitente bloqueado; mensaje retirado de los otros tres buzones |
-| Fichero | `VisorAlbaranes.exe`, 4,2 MB, sin firma | Instalador | Sysmon, evento 1 | Huella añadida a la lista de bloqueo |
-| Fichero | `%APPDATA%\Visor\visorsvc.exe` | Componente persistente | Sysmon, evento 11 | Huella añadida a la lista de bloqueo |
-| Tarea programada | `VisorUpdate`, cada cinco minutos | Persistencia | Sysmon, evento 1 (`schtasks.exe`) | Búsqueda en el resto de puestos |
-| Fichero | `%TEMP%\alb_7f3a.7z`, 1,9 GB | Archivo comprimido, enviado y borrado | Sysmon, eventos 11 y 26 | — |
+| Dominio | `acrne-logistica[.]example` | Envío del correo y descarga del fichero | `dnstwist` (13/11); correo de un cliente | Vigilado desde el 13/11 (regla 1000003). Sumidero DNS a las 09:07 |
+| Nombre de servidor | `sync[.]acrne-logistica[.]example` | Mando y control y salida de datos | MISP; Suricata (SNI) | Sumidero DNS a las 09:07 |
+| Dirección IP | `198.51.100[.]77` | Aloja el dominio y la descarga | DNS; Suricata, regla 1000004 | Lista de Wazuh a las 07:55. Bloqueada en el cortafuegos a las 09:07 |
+| Dirección IP | `198.51.100[.]23` | Mando y control cada 60 s; destino de la salida de datos | MISP; Suricata, eventos `tls` y `flow` | Lista de Wazuh a las 07:55. Bloqueada en el cortafuegos a las 09:07 |
+| URL | `hxxp://acrne-logistica[.]example/descargas/Factura_2026-1147.exe` | Descarga del programa | Suricata, regla 1000004 | Bloqueada en el proxy |
+| Correo | `facturacion@acrne-logistica[.]example`, asunto «Factura 2026-1147 pendiente de pago» | Mensaje de phishing | Pasarela de correo | Remitente bloqueado; mensaje retirado de tres buzones a las 09:12 |
+| Fichero | `Factura_2026-1147.exe` y su copia `%APPDATA%\AdobeSync\adobesync.exe` | Cargador y persistencia | Sysmon, eventos 1 y 11 | Huella añadida a la lista de bloqueo |
+| Tarea programada | `\AdobeSyncUpdate`, al iniciar sesión | Persistencia | Sysmon, evento 1 (`schtasks.exe`) | Búsqueda en el resto de puestos |
 
 ```text
-Huellas SHA-256 (valores inventados para el ejercicio)
-VisorAlbaranes.exe   406f2bf9198ad143adab702a181963914321095d289aba47f92ef4ff4beadbe9
-visorsvc.exe         5c1b11bc31933338bc1945aa1e26927ddf184ab4467767ee0b916b1c572425ac
+Huella SHA-256 del cargador y de su copia
+5cd557e44e5b96e041003b2d976db50b4175e26d700725e89b3264b2740b4c8b
 ```
 
 #### 8. Línea de tiempo
@@ -2977,108 +3145,135 @@ Todas las horas son locales (UTC+01:00).
 
 | Fecha y hora | Fuente | Hecho |
 |---|---|---|
-| 17 nov, 09:36:48 | Pasarela de correo | Entra el mensaje de `facturacion@acrne-logistica[.]example` para `amolina` y tres buzones más |
-| 17 nov, 09:42:10 | Suricata, registro DNS | `PC-ADM-07` resuelve el dominio falso: 198.51.100.77 |
-| 17 nov, 09:42:31 | Suricata, firma 1000004 | Descarga de `VisorAlbaranes.exe` por HTTP. Alerta de nivel 3 en Wazuh, sin revisar |
-| 17 nov, 09:43:05 | Sysmon, evento 1 | La usuaria ejecuta el fichero |
-| 17 nov, 09:43:14 | Sysmon, evento 1 | Se crea la tarea programada `VisorUpdate` |
-| 17 nov, 09:48:14 | Sysmon, evento 3 | Primera conexión de `visorsvc.exe` con 198.51.100.77:443 |
-| 18 nov, 02:07:20 | Auditoría de `srv-files01` | La sesión de `amolina` lee 1 312 ficheros en dos minutos |
-| 18 nov, 02:09:41 | Sysmon, evento 11 | Se crea `alb_7f3a.7z` |
-| 18 nov, 02:10:05 a 02:48:33 | Cortafuegos | 1,9 GB enviados a 198.51.100.23:443 |
-| 18 nov, 02:48:40 | Sysmon, evento 26 | Se borra `alb_7f3a.7z` |
-| 19 nov, 10:20 | Correo de un cliente | Aviso de un correo fraudulento que suplanta a ACME |
-| 19 nov, 11:40 | Cortafuegos | Se cargan los indicadores. Empiezan los bloqueos `IOC-BLOQUEADA` con origen en 10.20.5.37 |
-| 19 nov, 11:52 | Wazuh | La búsqueda retrospectiva localiza la alerta del martes |
-| 19 nov, 11:55 | L. Ortega | Apertura de la ficha |
-| 19 nov, 12:10 | L. Ortega | Veredicto: verdadero positivo. Clasificación y valoración inicial |
-| 19 nov, 12:12 | L. Ortega | `PC-ADM-07` pasa a la red de cuarentena, sin apagar |
-| 19 nov, 12:14 | L. Ortega | Cierre de sesiones y cambio forzado de la contraseña de `amolina` |
-| 19 nov, 12:15 | L. Ortega | Escalado al nivel 2, por teléfono y con la ficha |
-| 19 nov, 12:40 | R. Vidal | Exfiltración confirmada. Impacto revisado a ALTO |
-| 19 nov, 12:42 | R. Vidal | Aviso a la Responsable de la Seguridad, Marta Cano |
-| 19 nov, 13:05 | M. Cano | Notificación inicial a INCIBE-CERT |
-| 19 nov, 13:30 | Comité de crisis | Primera reunión |
+| 17 nov, 08:51 | Pasarela de correo | Entra el correo de `facturacion@acrne-logistica[.]example` para `mgarcia`, `amolina` y `facturacion` |
+| 17 nov, 09:14:19 | Suricata, regla 1000003 | `PC-ADM-07` resuelve el dominio falso: 198.51.100.77. Alerta de nivel 3, sin revisar |
+| 17 nov, 09:14:20 | Suricata, regla 1000004 | Descarga de `Factura_2026-1147.exe` por HTTP. Alerta de nivel 3, sin revisar |
+| 17 nov, 09:15:03 | Sysmon, evento 1 | La usuaria ejecuta el fichero desde Descargas |
+| 17 nov, 09:15:07 | Sysmon, evento 1 | Se crea la tarea programada `\AdobeSyncUpdate` |
+| 17 nov, 09:15:10 | Sysmon, evento 3; Suricata, evento `tls` | Primera conexión de `adobesync.exe` con 198.51.100.23:443 |
+| 18 nov, 11:20 | Sysmon, evento 1 | `robocopy.exe` copia ficheros de `\\srv-files01\Facturacion\2026` |
+| 18 nov, 19:10 | Buzón de atención al cliente | Un cliente reenvía un correo fraudulento que suplanta a ACME |
+| 19 nov, 02:13:40 | Sysmon, evento 1 | `tar.exe` comprime los ficheros en `f.zip` |
+| 19 nov, 02:17:05 a 02:17:11 | Suricata, evento `flow` | 4 358 494 bytes enviados a 198.51.100.23:443 |
+| 19 nov, 02:24 | Sysmon, evento 1 | Se borran `f.zip` y la carpeta de preparación |
+| 19 nov, 07:55 | L. Ortega | Carga de la lista de indicadores en Wazuh |
+| 19 nov, 07:57:58 | Suricata, evento `tls`; Wazuh, regla 100401 | Conexión de `PC-ADM-07` con 198.51.100.23. Alerta de nivel 10 |
+| 19 nov, 08:05 | L. Ortega | Aviso telefónico al nivel 2 |
+| 19 nov, 08:12 | L. Ortega | Apertura de la ficha. Verdadero positivo, P2 |
+| 19 nov, 08:20 | R. Vidal | Fotografía de la pantalla y aviso a la Responsable de la Seguridad |
+| 19 nov, 08:25 | R. Vidal; aprueba M. Cano | Decisión D-01: preservar antes de aislar |
+| 19 nov, 08:31 a 08:58 | R. Vidal | Volcado de memoria y triaje en vivo |
+| 19 nov, 09:05 | R. Vidal | Aislamiento de `PC-ADM-07`, sin apagar |
+| 19 nov, 09:07 | R. Vidal | Bloqueo en el cortafuegos y sumidero DNS |
+| 19 nov, 09:10 | Sistemas | Cuenta `mgarcia` deshabilitada y sesiones revocadas |
+| 19 nov, 09:12 | Sistemas | Correo retirado de los tres buzones |
+| 19 nov, 10:00 | R. Vidal | Apagado del equipo e inicio de la copia del disco |
+| 19 nov, 10:20 | R. Vidal | Impacto revisado a ALTO |
 
 #### 9. Acciones
 
 | Acción | Responsable | Estado |
 |---|---|---|
-| Aislar `PC-ADM-07` sin apagarlo | L. Ortega | Hecha, 12:12 |
-| Cerrar las sesiones y forzar el cambio de contraseña de `amolina` | L. Ortega | Hecha, 12:14 |
-| Capturar la memoria y obtener la imagen del disco de `PC-ADM-07` | R. Vidal | Memoria hecha, 12:52. Disco en curso |
-| Buscar los indicadores en todos los puestos y en el correo | L. Ortega | Hecha, 13:20. Sin más resultados; mensaje retirado de tres buzones |
-| Notificación inicial a INCIBE-CERT | M. Cano | Hecha, 13:05 |
-| Determinar la lista exacta de ficheros y de personas afectadas | R. Vidal, con la responsable de administración | Pendiente. Límite: 20 nov, 12:00 |
-| Decidir la notificación a la AEPD y la comunicación a las personas afectadas | Delegada de protección de datos y comité | Pendiente. Límite legal: 22 nov, 12:40 |
-| Informar al organismo público contratante | M. Cano | Pendiente. Hoy |
-| Presentar denuncia | Asesoría jurídica | Pendiente de decisión del comité |
-| Reinstalar `PC-ADM-07` cuando termine la adquisición de evidencias | Sistemas | Pendiente |
-| Elevar el nivel de la firma 1000004 en Wazuh y crear una regla para ejecutables lanzados desde la carpeta de descargas | R. Vidal | Pendiente |
+| Preservar la memoria y hacer un triaje en vivo de `PC-ADM-07` | R. Vidal | Hecha, 08:58 |
+| Aislar `PC-ADM-07` sin apagarlo | R. Vidal | Hecha, 09:05 |
+| Bloquear los indicadores en el cortafuegos y activar el sumidero DNS | R. Vidal | Hecha, 09:07 |
+| Deshabilitar `mgarcia` y revocar sus sesiones | Sistemas | Hecha, 09:10 |
+| Retirar el correo de los tres buzones | Sistemas | Hecha, 09:12 |
+| Buscar los indicadores en el resto de equipos (DNS, proxy, Wazuh) | L. Ortega | En curso. Hasta ahora solo `PC-ADM-07` consultó el dominio |
+| Copiar el disco de `PC-ADM-07` | R. Vidal | En curso desde las 10:00 |
+| Determinar los ficheros y las personas afectadas | R. Vidal, con Facturación y la delegada de protección de datos | Pendiente |
+| Notificación inicial a INCIBE-CERT | M. Cano | Pendiente. Antes de las 13:00 |
+| Decidir la notificación a la AEPD y la comunicación a las personas afectadas | Delegada de protección de datos y comité | Pendiente. Límite legal: 22 nov, 08:12 |
+| Informar al organismo público contratante | M. Cano | Pendiente de decisión del comité |
+| Crear en Wazuh una regla que eleve las alertas 1000003 y 1000004 | R. Vidal | Pendiente |
 
 #### 10. Evidencias y cadena de custodia
 
-| ID | Evidencia | Recogida por | Fecha y hora | Ubicación |
+| ID | Evidencia | Recogida por | Hora | SHA-256 |
 |---|---|---|---|---|
-| EV-01 | Volcado de la memoria de `PC-ADM-07` (16 GB) | R. Vidal | 2026-11-19T12:52:00+01:00 | Almacén de evidencias del SOC, carpeta `INC-2026-0162`, solo lectura |
-| EV-02 | Imagen del disco de `PC-ADM-07` (512 GB) | R. Vidal | En curso | Disco externo precintado n.º 0031 |
-| EV-03 | Eventos de Wazuh y de Suricata del 17 al 19 de noviembre, exportados en JSON | L. Ortega | 2026-11-19T12:30:00+01:00 | Almacén de evidencias del SOC |
-| EV-04 | Registros del cortafuegos del 17 al 19 de noviembre | L. Ortega | 2026-11-19T12:35:00+01:00 | Almacén de evidencias del SOC |
-| EV-05 | Correo original en formato `.eml`, con todas sus cabeceras | R. Vidal | 2026-11-19T13:15:00+01:00 | Almacén de evidencias del SOC |
+| EVD-0162-001 | Volcado de la memoria de `PC-ADM-07` (4 GB) | R. Vidal | 08:40 | En el formulario de custodia |
+| EVD-0162-002 | Triaje en vivo de `PC-ADM-07` (12 ficheros y manifiesto) | R. Vidal | 08:58 | Huella del manifiesto en el formulario |
+| EVD-0162-003 | Recorte de la captura de `ids01` (5 820 paquetes) | Equipo de redes | 09:20 | `f69f271fb91702939219891f85d919a1c5318273ca86a51541ac1dd27f1f7756` |
+| EVD-0162-004 | Memoria USB conectada al equipo (64 MB), en bolsa precintada | L. Ortega | 08:59 | `135295a0aa437c34861490f687f9f979a89d219014c8d1787c4aa49ee6899054` |
+| EVD-0162-005 | Disco de `PC-ADM-07` | R. Vidal | En curso | Se calculará al terminar la copia |
+| EVD-0162-006 | Registros de la pasarela de correo, `srv-files01`, Wazuh y Suricata | L. Ortega | 09:40 | Una huella por fichero |
 
-```text
-Huellas SHA-256 calculadas en el momento de la recogida (valores inventados para el ejercicio)
-EV-01  83abc65dee9982a9068c667fe25e295c02891057ab6b8526ae027205c37a58d3
-EV-03  260714a51bf6916c990c9fcd2ca6c12f9afe294a4d858725c6a0ccb41f143e13
-EV-04  2b330c3926376b9d99e597f1c6d069238f203dce1511e90a5bf7af257331858a
-EV-05  95be3d63a96ab921babb3722821706e5ef72e0e017cb6380ab9ba1794ebd2fc8
-EV-02  pendiente: se calculará al terminar la adquisición
-```
-
-| Traspaso | Evidencia | Entrega | Recibe | Motivo |
-|---|---|---|---|---|
-| 2026-11-19T13:25:00+01:00 | EV-01 (original) | R. Vidal | M. Cano | Custodia del original en el armario de seguridad. R. Vidal trabaja sobre una copia cuya huella coincide |
+Cada evidencia tiene, además, su formulario de cadena de custodia, con cada traspaso firmado. Lo trabajarás en la UD3.
 
 #### 11. Escalado y comunicaciones
 
-| Fecha y hora | De | A | Canal | Contenido |
+| Hora | De | A | Canal | Contenido |
 |---|---|---|---|---|
-| 19 nov, 12:15 | L. Ortega (nivel 1) | R. Vidal (nivel 2) | Teléfono y ficha | Escalado funcional con el guion de cinco puntos. Aceptado a las 12:20 |
-| 19 nov, 12:42 | R. Vidal | M. Cano, Responsable de la Seguridad | Teléfono | Exfiltración confirmada, con datos personales |
-| 19 nov, 12:50 | M. Cano | Dirección | Teléfono | Convocatoria del comité de crisis a las 13:30 |
-| 19 nov, 13:05 | M. Cano | INCIBE-CERT | Canal de notificación, con cifrado | Notificación inicial: descripción, fechas, recursos afectados, taxonomía, peligrosidad e impacto, indicadores y medidas tomadas |
-| 19 nov, 13:30 | Comité de crisis | — | Reunión | Decisiones pendientes: AEPD, organismo público, clientes afectados y denuncia |
+| 08:05 | L. Ortega (nivel 1) | R. Vidal (nivel 2) | Teléfono y aviso en la herramienta de casos | Escalado funcional con el guion de cinco puntos |
+| 08:20 | R. Vidal | M. Cano, Responsable de la Seguridad | Teléfono | Posible salida de datos de Facturación |
+| 08:40 | M. Cano | Elena Soto, Dirección | Teléfono | Resumen y propuesta de convocar el comité |
+| 08:40 | M. Cano | Inés Navarro, delegada de protección de datos | Teléfono | Puede haber datos de clientes |
+| 08:52 | Elena Soto | M. Cano | Teléfono | Aprueba activar el comité de crisis |
+| 09:30 | M. Cano | Miembros del comité | Mensajería cifrada, fuera del correo corporativo | Convocatoria a las 10:30 |
+| 10:25 | M. Cano | Comité de crisis | Informe de situación n.º 1, TLP:AMBER | Lo que se sabe, lo hecho y las decisiones pendientes |
 
 ### Qué hace buena a esta ficha
 
 - **Se entiende sola.** Quien la lea sin haber estado allí sabe qué pasó, qué se hizo y qué falta.
 - **Separa hechos e hipótesis.** La descripción dice qué está confirmado y qué no.
 - **Conserva la historia.** El impacto pasó de MEDIO a ALTO, y constan los dos valores, quién los fijó y por qué.
-- **Cada hecho tiene fuente y cada acción, responsable.**
+- **Cada hecho tiene fuente y cada acción, responsable.** También las decisiones, como la D-01.
 - **Los plazos están calculados**, no solo citados: el límite de la AEPD tiene fecha y hora.
 - **Los indicadores llevan contexto** y están desactivados.
 
 ### Lo que enseña el caso
 
-- **La alerta existía.** Suricata vio la descarga el martes a las 09:42, pero la alerta llegó con nivel 3 y nadie la abrió. El atacante tuvo 50 horas. Una firma que avisa de un ejecutable descargado por HTTP merece una regla que la eleve, como se hizo con la fuerza bruta en el módulo 2.
-- **Archivar todos los eventos permitió reconstruirlo.** Sin el archivo, la ejecución, la tarea programada y el fichero comprimido no se habrían visto.
-- **La inteligencia compartida dio el destino de los datos.** La dirección a la que salieron los ficheros estaba en el evento de MISP de otra empresa.
-- **El nivel 1 hizo lo que debía:** decidió en 18 minutos, aisló sin apagar y escaló con datos.
+- **Las alertas existían.** Suricata vio la consulta y la descarga el martes a las 09:14, pero llegaron a Wazuh con nivel 3 y nadie las abrió entre más de mil alertas. El atacante tuvo casi 47 horas. Una regla que vigila un dominio concreto merece otra en Wazuh que la eleve, como se hizo con la fuerza bruta en el módulo 2.
+- **Archivar todos los eventos permitió reconstruirlo.** Sin el índice de archivo, la ejecución, la tarea programada, `robocopy` y `tar` no se habrían visto.
+- **La inteligencia compartida dio la pista.** El servidor de mando y control no estaba en ninguna lista propia: venía del evento de MISP de otra empresa.
+- **El nivel 1 hizo lo que debía:** avisó en 7 minutos, abrió la ficha en 14, no tocó el equipo y escaló con datos. El nivel 2 decidió con criterio cuándo aislar.
 
-> **En el laboratorio.** No hace falta malware para practicarlo. Sirve un ejecutable inofensivo desde una máquina situada fuera de `HOME_NET` (por ejemplo, con `sudo python3 -m http.server 80`) y descárgalo desde el puesto Windows con el navegador: Suricata disparará la firma 1000004. Con esa alerta, haz el triaje completo y rellena una ficha con tus propios datos, horas y huellas.
+> **En el laboratorio.** No hace falta malware para practicarlo. En la práctica P5 tienes la captura de este caso y una cola con otras dos alertas; con Suricata y el material de contexto harás el triaje completo y rellenarás tu propia ficha.
 
 > **Idea clave.** Detectar es la mitad del trabajo. La otra mitad es decidir bien y dejarlo escrito: una ficha completa convierte lo que ha visto un analista en algo que toda la organización puede usar.
 
-<a id="p-5-8"></a>
+<a id="p-5-9"></a>
 
-## 5.8 Recursos y referencias
+## 5.9 Práctica P5. Tu turno en la cola
+
+> **En el laboratorio.** **Objetivo:** hacer el triaje completo de una cola con tres alertas, ajustar las reglas que fallan y registrar el incidente real. **Duración:** dos sesiones (5 horas). **Material:** carpeta `P5` de los recursos de las prácticas. **Máquina:** Ubuntu 26.04 con Suricata 8 y `jq` (los de la práctica P2). **Se trabaja:** por parejas; una persona hace de nivel 1 y otra de nivel 2 en el escalado.
+
+Es jueves, 19 de noviembre, y te incorporas al turno. Estas son las alertas pendientes.
+
+1. **Obtén la cola.** Desde la carpeta `P5`:
+
+   ```bash
+   mkdir -p salida/cola
+   TZ=Europe/Madrid suricata -r cola_triaje.pcap -S local.rules -l salida/cola -k none \
+     --runmode single --set vars.address-groups.HOME_NET="[10.20.0.0/16]"
+   cat salida/cola/fast.log
+   ```
+
+   **Resultado esperado:** tres alertas, de las reglas 1000004, 1000002 y 1000003.
+
+2. **Triaje.** Para cada alerta, aplica los ocho pasos del apartado 5.3 y completa una tabla como esta. El material de la carpeta `contexto` responde a las preguntas de enriquecimiento: inventario, cambios aprobados, registros de la VPN y de `srv-web01`, eventos de Sysmon, pasarela de correo y el evento de MISP.
+
+   | Alerta | Qué dice la regla | Qué muestra el dato en bruto | Qué aporta el contexto | Veredicto | Qué haces |
+   |---|---|---|---|---|---|
+
+   > **Atención.** `sysmon_PC-ADM-07.csv` y `correo_pasarela.csv` están en UTC, como los guardan Sysmon y la pasarela. Las alertas de Suricata están en hora peninsular. Convierte antes de ordenar nada.
+
+3. **Ajusta las reglas que fallan.** Para cada alerta que no sea un verdadero positivo, propón el ajuste más estrecho posible y demuestra que funciona procesando otra vez la captura. Pistas: una de las alertas se corrige cambiando una variable de la orden y la otra, con un fichero de supresión que se pasa con `--set threshold-file=…`; consulta en la documentación de Suricata la sintaxis de `suppress`. **Comprueba tu trabajo:** con los dos ajustes, solo debe quedar una alerta.
+4. **Registra el incidente.** Con `plantilla_ficha_incidente.md`, abre la ficha del verdadero positivo como si fueras Lucía: usa tus propias horas de apertura y de veredicto, reconstruye la línea de tiempo con las fuentes de `contexto`, desactiva los indicadores y calcula el tiempo de permanencia y el límite para notificar a la AEPD.
+5. **Escala.** Escribe el mensaje de escalado con el guion de cinco puntos (120 palabras como máximo). Por parejas, representad la llamada: quien hace de nivel 2 debe poder decidir la contención solo con lo que oye.
+
+**Entrega:** la tabla de triaje, los dos ajustes con la salida de Suricata que demuestra que funcionan, la ficha y el mensaje de escalado.
+
+<a id="p-5-10"></a>
+
+## 5.10 Recursos y referencias
 
 > **[VÍDEO / RECURSO RECOMENDADO 5.1: Cómo se notifica un incidente a INCIBE-CERT]**
 >
 > - **Enlace:** <https://www.incibe.es/incibe-cert/incidentes/respuesta-incidentes>
 > - **Formato e idioma:** página oficial en español, con el procedimiento descargable para el sector privado y la ciudadanía.
 > - **Qué aporta:** los canales de notificación según el tipo de entidad, las claves para cifrar el envío y la información que conviene incluir.
-> - **Cómo usarlo:** compara los datos que pide INCIBE-CERT con los bloques de la ficha del apartado 5.7 y señala de qué campo saldría cada uno.
+> - **Cómo usarlo:** compara los datos que pide INCIBE-CERT con los bloques de la ficha del apartado 5.8 y señala de qué campo saldría cada uno.
 
 > **[VÍDEO / RECURSO RECOMENDADO 5.2: Jornada «Cómo gestionamos las ciberincidencias», de la Cátedra CiberUGR (INCIBE y Universidad de Granada)]**
 >
@@ -3092,7 +3287,7 @@ EV-02  pendiente: se calculará al terminar la adquisición
 > - **Enlace:** <https://tryhackme.com/room/socl1alerttriage>
 > - **Formato e idioma:** práctica guiada en inglés. Requiere registro; comprueba si el acceso es gratuito.
 > - **Qué aporta:** una cola de alertas simulada en la que hay que asignarse cada alerta, investigarla y cerrarla con un veredicto y un comentario.
-> - **Cómo usarlo:** como práctica de ampliación, después del ejemplo del apartado 5.7.
+> - **Cómo usarlo:** como práctica de ampliación, después de la práctica P5.
 
 > **[REFERENCIAS Y GUÍAS OFICIALES]**
 >
@@ -3108,7 +3303,7 @@ EV-02  pendiente: se calculará al terminar la adquisición
 > - [Wazuh: archivo de todos los eventos](https://documentation.wazuh.com/current/user-manual/manager/event-logging.html).
 > - [DFIR-IRIS, plataforma de respuesta a incidentes de código abierto](https://github.com/dfir-iris/iris-web).
 > - [Sysmon (Microsoft Sysinternals)](https://learn.microsoft.com/sysinternals/downloads/sysmon). Identificadores de los eventos.
-> - [MITRE ATT&CK, técnica T1048: exfiltración por un protocolo alternativo](https://attack.mitre.org/techniques/T1048/).
+> - [MITRE ATT&CK, técnica T1041: exfiltración por el canal de mando y control](https://attack.mitre.org/techniques/T1041/).
 > - [RFC 3227. Guidelines for Evidence Collection and Archiving](https://www.rfc-editor.org/rfc/rfc3227).
 > - [RFC 3339. Date and Time on the Internet: Timestamps](https://www.rfc-editor.org/rfc/rfc3339).
 > - [RFC 9424. Indicators of Compromise (IoCs) and Their Role in Attack Defence](https://www.rfc-editor.org/rfc/rfc9424).
@@ -3117,9 +3312,9 @@ EV-02  pendiente: se calculará al terminar la adquisición
 
 <a id="p-5-act"></a>
 
-## 5.9 Actividades interactivas
+## 5.11 Actividades interactivas
 
-Cada actividad cuenta una vez, en el primer intento. Las preguntas de test muestran después la retroalimentación de todas las opciones.
+Responde antes de desplegar la solución. En la [unidad interactiva](https://jpercas570.github.io/incidentes-ciber-masterfp/ud2-analisis-incidentes/curso/) se corrigen solas y cuentan en el primer intento.
 
 ### Actividad 5.1. El veredicto (pregunta de test)
 
@@ -3130,61 +3325,77 @@ Jueves, 02:30. Alerta: «Barrido de puertos desde 10.20.0.50 contra la red de se
 - **c)** Verdadero positivo. Abro un incidente de «Escaneo de redes» y lo escalo al nivel 2.
 - **d)** No concluyente. Lo dejo en la cola por si se repite.
 
+<details markdown="1">
+<summary>Ver la solución y la retroalimentación</summary>
+
 | Opción | Resultado | Retroalimentación |
 |---|---|---|
 | a) | Incorrecta | No. La regla no se equivocó: el barrido ocurrió. Y desactivarla deja sin detectar los barridos reales: es fabricar un falso negativo para ahorrarse una alerta por semana. |
 | b) | **Correcta** | Correcto. La regla acertó: hubo un barrido. Pero es una actividad autorizada. Se cierra como «sin impacto», con el motivo escrito, y la excepción se limita al origen y al horario conocidos, de modo que un barrido desde ese equipo a otra hora siga avisando. |
 | c) | Incorrecta | No. El origen, el día y la hora coinciden con una tarea planificada. Escalar actividad autorizada gasta el tiempo del nivel 2 y resta crédito a tus escalados. Otra cosa sería que la hora o los destinos no encajaran con el análisis programado. |
-| d) | Incorrecta | No. Hay datos de sobra para decidir, y ninguna alerta se queda sin veredicto. Las que se aparcan acaban sin revisar, que es exactamente lo que ocurrió con la alerta del caso del módulo. |
+| d) | Incorrecta | No. Hay datos de sobra para decidir, y ninguna alerta se queda sin veredicto. Las que se aparcan acaban sin revisar, que es exactamente lo que ocurrió con las alertas del martes en el caso del módulo. |
 
-*Tipo de contenido H5P o Moodle:* Multiple Choice (una sola respuesta), con la retroalimentación de cada fila en el campo de la opción correspondiente.
+</details>
 
 ### Actividad 5.2. La primera medida (pregunta de test)
 
-Confirmas que un puesto de usuario ejecuta un programa malicioso que se comunica con un servidor externo. El procedimiento te autoriza a aislar puestos. ¿Qué haces primero?
+Confirmas que un puesto de usuario ejecuta un programa malicioso y que, en este momento, está enviando ficheros a un servidor externo: la transferencia sigue en curso. El procedimiento te autoriza a aislar puestos. ¿Qué haces primero?
 
 - **a)** Lo apago para detener el programa.
 - **b)** Paso el antivirus y borro los ficheros sospechosos.
 - **c)** Lo aíslo de la red sin apagarlo, lo anoto en la ficha y escalo al nivel 2.
 - **d)** Inicio sesión en el equipo con una cuenta de administración del dominio para investigarlo.
 
+<details markdown="1">
+<summary>Ver la solución y la retroalimentación</summary>
+
 | Opción | Resultado | Retroalimentación |
 |---|---|---|
 | a) | Incorrecta | No. Al apagar se pierde la memoria: procesos, conexiones y claves que pueden ser la única prueba de lo que hacía el programa. Aislar consigue el mismo efecto sin destruir nada. |
 | b) | Incorrecta | No. Borras evidencias y no sabes qué más ha dejado el atacante. La limpieza llega después del análisis y, en un puesto de usuario, suele consistir en reinstalarlo. |
-| c) | **Correcta** | Correcto. El aislamiento corta la comunicación con el atacante y conserva la memoria, donde está el proceso en ejecución. Anotarlo permite al nivel 2 saber qué estado va a encontrar. |
+| c) | **Correcta** | Correcto. Con el daño en curso, cada minuto cuenta: el aislamiento corta la salida de datos y conserva la memoria, donde está el proceso en ejecución. Anotarlo permite al nivel 2 saber qué estado va a encontrar. Si no hubiera nada en curso, como en el caso del módulo, el nivel 2 podría decidir preservar antes la memoria. |
 | d) | Incorrecta | No. En un equipo comprometido, las credenciales con las que entres pueden acabar en manos del atacante. Le estarías entregando una cuenta con privilegios. |
 
-*Tipo de contenido H5P o Moodle:* Multiple Choice (una sola respuesta), con la retroalimentación de cada fila en el campo de la opción correspondiente.
+</details>
 
 ### Actividad 5.3. Cada dato, en su campo (emparejamiento)
 
 Relaciona cada bloque de la ficha de registro con el dato del caso que le corresponde.
 
+**Elementos:**
+
+- ID del incidente
+- Marca de tiempo
+- Origen de la alerta
+- Activo involucrado
+- Indicador de compromiso
+- Línea de tiempo
+- Cadena de custodia
+
+**Con qué van:**
+
+- **A.** 17 nov, 09:15:03. Sysmon, evento 1. La usuaria ejecuta el fichero
+- **B.** EVD-0162-003, recorte de la captura de `ids01`, con su huella SHA-256
+- **C.** Wazuh, regla 100401 de nivel 10, sobre un evento `tls` de Suricata en `ids01`
+- **D.** `198.51.100[.]23`, mando y control por el puerto 443
+- **E.** `2026-11-19T07:57:58+01:00`
+- **F.** `INC-2026-0162`
+- **G.** `PC-ADM-07`, 10.20.5.37, puesto de Administración
+
+<details markdown="1">
+<summary>Ver la solución y la retroalimentación</summary>
+
 | Elemento | Va con | Comentario al corregir |
 |---|---|---|
 | ID del incidente | `INC-2026-0162` | Único y correlativo. |
-| Marca de tiempo | `2026-11-19T11:52:00+01:00` | Con zona horaria, para que no haya ambigüedad. |
-| Origen de la alerta | Suricata, firma 1000004; regla 86601 de Wazuh, nivel 3 | Herramienta, regla e identificador. |
-| Activo involucrado | `PC-ADM-07`, 10.20.5.37, puesto de facturación | Nombre, dirección y función. |
-| Indicador de compromiso | `198.51.100[.]77`, mando y control por el puerto 443 | Desactivado y con su contexto. |
-| Línea de tiempo | 17 nov, 09:43:05. Sysmon, evento 1. La usuaria ejecuta el fichero | Hora, fuente y hecho. |
-| Cadena de custodia | EV-01, volcado de memoria, recogido por R. Vidal, con su huella SHA-256 | Qué es, quién lo recogió y cómo se demuestra que no ha cambiado. |
+| Marca de tiempo | `2026-11-19T07:57:58+01:00` | Con zona horaria, para que no haya ambigüedad. |
+| Origen de la alerta | Wazuh, regla 100401 de nivel 10, sobre un evento `tls` de Suricata en `ids01` | Herramienta, regla e identificador. |
+| Activo involucrado | `PC-ADM-07`, 10.20.5.37, puesto de Administración | Nombre, dirección y función. |
+| Indicador de compromiso | `198.51.100[.]23`, mando y control por el puerto 443 | Desactivado y con su contexto. |
+| Línea de tiempo | 17 nov, 09:15:03. Sysmon, evento 1. La usuaria ejecuta el fichero | Hora, fuente y hecho. |
+| Cadena de custodia | EVD-0162-003, recorte de la captura de `ids01`, con su huella SHA-256 | Qué es, quién lo recogió y cómo se demuestra que no ha cambiado. |
 
-*Tipo de contenido H5P recomendado:* Drag the Words.
-
-Texto preparado para pegar en **Drag the Words** (las respuestas van entre asteriscos):
-
-```text
-INC-2026-0162: *ID del incidente*
-2026-11-19T11:52:00+01:00: *Marca de tiempo*
-Suricata, firma 1000004; regla 86601 de Wazuh, nivel 3: *Origen de la alerta*
-PC-ADM-07, 10.20.5.37, puesto de facturación: *Activo involucrado*
-198.51.100[.]77, mando y control por el puerto 443: *Indicador de compromiso*
-17 nov, 09:43:05. Sysmon, evento 1. La usuaria ejecuta el fichero: *Línea de tiempo*
-EV-01, volcado de memoria, recogido por R. Vidal, con su huella SHA-256: *Cadena de custodia*
-```
-
+</details>
 
 <a id="m-c"></a>
 
@@ -3198,25 +3409,9 @@ Has recorrido el camino completo de un analista de nivel 1: desde la señal que 
 
 **Diagrama 6.1. La unidad en una imagen.** Cuatro familias de fuentes producen alertas; el triaje decide cuáles son incidentes; la taxonomía y las dos escalas les ponen nombre y urgencia; la ficha lo deja escrito y abre el escalado. Lo aprendido en cada cierre vuelve a las fuentes en forma de reglas mejor ajustadas.
 
-```mermaid
-flowchart TB
-    subgraph F["Fuentes de detección"]
-        direction TB
-        F1["Registros de los equipos<br/>y SIEM (módulo 2)"]
-        F2["Tráfico de red<br/>y NIDS (módulo 2)"]
-        F3["Seguridad física<br/>(módulo 3)"]
-        F4["Fuentes abiertas e<br/>inteligencia (módulo 4)"]
-    end
-    subgraph PR["Trabajo del analista"]
-        direction LR
-        TR["Triaje"] --> CV["Clasificación<br/>y valoración"]
-        CV --> FI["Ficha de<br/>registro"]
-        FI --> ES["Escalado y<br/>notificación"]
-        ES --> SE["Seguimiento<br/>y cierre"]
-        SE --> AJ["Lecciones<br/>y ajustes"]
-    end
-    F -->|"alertas"| PR
-```
+![Diagrama 6.1. La unidad en una imagen](img/diagrama_6-1.png)
+
+> **Descripción en texto del diagrama 6.1.** Arriba, cuatro fuentes de detección: los registros de los equipos y el SIEM, el tráfico de red y el NIDS (las dos del módulo 2), la seguridad física (módulo 3) y las fuentes abiertas y la inteligencia (módulo 4). Todas envían alertas al trabajo del analista, que sigue seis pasos en orden: triaje, clasificación y valoración, ficha de registro, escalado y notificación, seguimiento y cierre, y lecciones y ajustes.
 
 ### Módulo 1. Taxonomía y valoración
 
@@ -3245,12 +3440,32 @@ flowchart TB
 ### Módulo 5. Triaje, registro y seguimiento
 
 - El triaje tiene un orden fijo y un tiempo máximo. Si no llegas a un veredicto, escalas con lo que tengas.
-- Un falso positivo se cierra con su motivo y con una propuesta de ajuste. Un equipo comprometido se aísla; no se apaga ni se limpia.
+- Un falso positivo se cierra con su motivo y con una propuesta de ajuste. Un equipo comprometido no se apaga ni se limpia: se aísla, y si no hay daño en curso, el nivel 2 puede decidir preservar antes la memoria.
 - La ficha separa hechos de hipótesis, conserva cada cambio de valoración y da a cada hecho una hora y una fuente.
 
-Las unidades siguientes continúan donde esta termina: la investigación a fondo del incidente, las medidas de contención y de recuperación, y la documentación y la notificación completas.
+Las unidades siguientes continúan donde esta termina: la investigación a fondo del incidente, las medidas de contención y de recuperación, y la documentación y la notificación completas. En la UD3 retomarás el `INC-2026-0162` en el punto exacto en que lo dejas aquí: el jueves a las 08:25, cuando Raúl Vidal decide preservar la memoria de `PC-ADM-07` antes de aislarlo.
 
 <a id="p-c-2"></a>
+
+## Recursos para las prácticas
+
+Todo el material de las prácticas P1 a P5 está en un único fichero comprimido. Descárgalo y descomprímelo en tu máquina Ubuntu del laboratorio.
+
+[Descargar los recursos de las prácticas (UD2_Recursos_alumnado.zip)](descargas/UD2_Recursos_alumnado.zip)
+
+| Carpeta | Práctica | Qué contiene |
+|---|---|---|
+| `P1` | Clasifica y valora | Nada: la práctica se hace con las tablas del módulo 1 |
+| `P2` | Suricata y Wazuh | Tres capturas de tráfico, las reglas locales de Suricata, las reglas de Wazuh y un extracto de `auth.log` |
+| `P3` | Correlación físico-lógica | Eventos del control de accesos, `auth.log` de dos servidores, órdenes de trabajo, inventario y el programa `correlaciona.py` |
+| `P4` | Indicadores de compromiso | Un evento de MISP, un pulso de OTX y el programa `depura_ioc.py` |
+| `P5` | Triaje de una cola | Una captura con tres alertas, las reglas, el material de contexto y la plantilla de ficha |
+
+> **Atención.** Las capturas y los ficheros son sintéticos y no contienen nada malicioso: los «ejecutables» son texto y las direcciones y dominios pertenecen a los rangos reservados para documentación. Aun así, trabaja siempre en las máquinas del laboratorio.
+
+> **Recuerda.** Las horas de las capturas son de noviembre de 2026. Ejecuta Suricata con `TZ=Europe/Madrid` para verlas en hora peninsular, y fíjate en qué ficheros de contexto están en UTC.
+
+<a id="p-c-3"></a>
 
 ## Glosario
 
@@ -3274,6 +3489,7 @@ Las unidades siguientes continúan donde esta termina: la investigación a fondo
 | **HIDS** | Sistema de detección de intrusiones basado en el equipo: analiza registros, ficheros y procesos desde dentro. |
 | **Indicador de compromiso (IoC)** | Dato técnico observable que delata la actividad de una amenaza: una dirección, un dominio, la huella de un fichero. |
 | **Inteligencia de amenazas (CTI)** | Conocimiento elaborado sobre quién ataca, cómo y con qué medios, presentado para tomar decisiones. |
+| **Mando y control (C2)** | Servidor desde el que el atacante da órdenes a los equipos infectados y recibe sus datos. El malware lo contacta de forma periódica (*baliza*). |
 | **Línea de tiempo** | Relación ordenada de los hechos de un incidente, cada uno con su hora y su fuente. |
 | **NIDS** | Sistema de detección de intrusiones de red: analiza una copia del tráfico. |
 | **Nivel de impacto** | Valoración de las consecuencias de un incidente para la organización. Seis niveles, de SIN IMPACTO a CRÍTICO. |
@@ -3283,6 +3499,7 @@ Las unidades siguientes continúan donde esta termina: la investigación a fondo
 | **Regla** | Condición que el SIEM o el detector de intrusiones evalúa sobre los eventos; si se cumple, genera una alerta con un nivel. |
 | **SIEM** | Sistema que centraliza los registros de toda la organización, los normaliza, los correlaciona y genera alertas. |
 | **SOC** | Centro de operaciones de seguridad: el equipo que vigila, detecta y coordina la respuesta. |
+| **Sumidero DNS** | Configuración del servidor DNS interno que responde con una dirección inútil a los dominios maliciosos. Corta la conexión y deja registro de qué equipos los consultan. En inglés, *sinkhole*. |
 | **Superficie de exposición** | Todo lo que la organización tiene a la vista de Internet: dominios, servicios, certificados, repositorios, cuentas y marca. |
 | **Taxonomía** | Sistema de clasificación común de los tipos de incidente. |
 | **TLP** | Protocolo del semáforo: etiqueta que indica hasta dónde puede circular una información compartida. |
@@ -3291,7 +3508,7 @@ Las unidades siguientes continúan donde esta termina: la investigación a fondo
 | **Ventana temporal de reporte** | Plazos de las notificaciones inicial, intermedia y final al CSIRT de referencia, según el nivel del incidente. |
 | **Verdadero positivo benigno** | Alerta correcta sobre una actividad que ocurrió, pero que estaba autorizada o es inocua. |
 
-<a id="p-c-3"></a>
+<a id="p-c-4"></a>
 
 ## Referencias generales
 
@@ -3307,110 +3524,3 @@ Las unidades siguientes continúan donde esta termina: la investigación a fondo
 > - [ISO/IEC 27035-1:2023](https://webstore.iec.ch/en/publication/83157).
 > - [Reglamento (UE) 2016/679, General de Protección de Datos](https://eur-lex.europa.eu/eli/reg/2016/679/oj).
 > - [Documentación de Wazuh](https://documentation.wazuh.com/current/index.html) y [documentación de Suricata](https://docs.suricata.io/en/latest/).
-
----
-
-<a id="docente"></a>
-
-# Guía para el docente
-
-Esta sección no forma parte del contenido del alumnado. Reúne lo que necesitas para montar, adaptar y mantener la unidad.
-
-## Ficha de la unidad
-
-| Dato | Valor |
-|---|---|
-| Enseñanza | Curso de Especialización en Ciberseguridad en Entornos de las Tecnologías de la Información |
-| Módulo profesional | 5021. Incidentes de ciberseguridad |
-| Unidad didáctica | UD2. Análisis de incidentes de ciberseguridad |
-| Resultado de aprendizaje | RA2. Analiza incidentes de ciberseguridad utilizando herramientas, mecanismos de detección y alertas de seguridad |
-| Criterios de evaluación | CE 2.a, 2.b, 2.c, 2.d y 2.e (un módulo por criterio) |
-| Tiempo de estudio estimado | Unas 10 horas: 90, 150, 100, 120 y 130 minutos por módulo |
-| Enfoque | Inductivo y visual: cada módulo parte de una situación del SOC de una empresa ficticia, ACME Logística, y la resuelve al final |
-| Actividades | 15 en total: por módulo, dos preguntas de test con retroalimentación en todas las opciones y una actividad de clasificación o emparejamiento |
-| Terminología | Alineada con el Real Decreto 311/2022 (ENS), la Guía Nacional de Notificación y Gestión de Ciberincidentes y la guía CCN-STIC 817 |
-
-## Qué incluye la entrega
-
-| Fichero | Para qué sirve |
-|---|---|
-| `UD2_Analisis_Incidentes_Contenido_SCORM.md` | Este documento: el guion maestro en Markdown, con todos los textos, diagramas Mermaid, cuadros de imagen y de recursos, actividades y retroalimentación |
-| `UD2_Analisis_Incidentes_SCORM12.zip` | Paquete SCORM 1.2 ya montado, listo para subir a Moodle. Incluye portada, índice navegable, los diagramas ya dibujados, las actividades interactivas y el registro de progreso y de nota |
-| `UD2_Analisis_Incidentes_Contenido.pdf` | El mismo contenido en PDF, con portada e índice con enlaces internos, para quien prefiera leer o imprimir |
-| `UD2_Recursos_docente.zip` | Los diagramas en SVG, PNG y código Mermaid; las figuras; el banco de preguntas en formato GIFT; los textos de las actividades listos para pegar en H5P; la plantilla de ficha de incidente y la portada |
-
-## Mapa de recursos
-
-| Módulo | CE | Diagramas Mermaid | Imagen | Recursos | Actividades |
-|---|---|---|---|---|---|
-| 1. Taxonomía y valoración de incidentes | 2.a | 1.1 Del evento al incidente; 1.2 Árbol de la taxonomía; 1.3 Árbol de decisión de la peligrosidad; 1.4 Los tres casos de ACME sobre la matriz | 1.1 Malware, denegación de servicio y fuga de información, frente a frente | 1.1 | test, test, clasificación |
-| 2. Monitorización técnica: SIEM (Wazuh) y NIDS (Suricata) | 2.b | 2.1 Dónde se coloca cada sensor en la red de ACME; 2.2 Del registro al panel; 2.3 El ataque visto por los dos sensores | 2.1 Panel del SIEM con la fuerza bruta contra SSH | 2.1, 2.2, 2.3 | test, test, emparejamiento |
-| 3. Detección e identificación en seguridad física | 2.c | 3.1 Integración de la seguridad física con el SIEM; 3.2 Fichaje fuera de horario e inicio de sesión concurrente | 3.1 Arquitectura de integración entre la seguridad física y el SIEM | 3.1, 3.2 | test, test, emparejamiento |
-| 4. Ciberinteligencia OSINT y fuentes abiertas | 2.d | 4.1 El ciclo de inteligencia aplicado a un dominio sospechoso | 4.1 Servicios expuestos y dominios parecidos al de ACME | 4.1, 4.2, 4.3 | test, test, emparejamiento |
-| 5. Triaje, registro inicial y seguimiento | 2.e | 5.1 Flujo de trabajo del analista de nivel 1; 5.2 Estados de una ficha en el SOC de ACME; 5.3 Escalado y comunicaciones en un incidente con datos personales | 5.1 Ficha de registro cumplimentada del intento de fuerza bruta del módulo 2 | 5.1, 5.2, 5.3 | test, test, emparejamiento |
-
-## Uso en Moodle
-
-1. En el curso, **Añadir una actividad o un recurso → Paquete SCORM** y sube `UD2_Analisis_Incidentes_SCORM12.zip` sin descomprimir.
-2. Ajustes recomendados: mostrar en **ventana nueva**; **método de calificación: calificación más alta**; **calificación máxima: 100**; número de intentos ilimitado; **forzar nuevo intento: no**, para que el alumnado retome la unidad donde la dejó.
-3. Si usas el seguimiento de finalización, marca **requerir estado: completado**.
-
-Cómo puntúa el paquete:
-
-- Cada actividad vale un punto y solo cuenta el primer intento. En las de clasificación y emparejamiento se puntúa la proporción de aciertos.
-- La nota que recibe Moodle es el porcentaje sobre las 15 actividades.
-- El estado pasa a «completado» cuando se han visitado todas las páginas y se han respondido las 15 actividades. Hasta entonces figura como «incompleto» y la plataforma guarda el punto en que se dejó.
-
-El paquete también funciona abierto directamente en un navegador, sin plataforma: en ese caso guarda el progreso en el propio navegador.
-
-## Uso en eXeLearning y en H5P
-
-Si prefieres rehacer la unidad con tu estilo en eXeLearning, el guion está pensado para trasladarlo sin reescribir:
-
-- **Estructura.** Cada título de segundo nivel (`## 1.3 …`) es una página. Crea un nodo por módulo y una página por apartado.
-- **Texto.** Pega cada apartado en un iDevice de texto. Los recuadros «Recuerda», «Atención», «Ejemplo SOC Tier 1», «En el laboratorio» e «Idea clave» corresponden a cajas destacadas.
-- **Diagramas.** eXeLearning no interpreta Mermaid por sí mismo. Inserta las imágenes SVG o PNG de `UD2_Recursos_docente.zip`, que llevan el mismo número que en el guion. Si quieres modificarlos, edita el fichero `.mmd` en un editor de Mermaid y vuelve a exportar.
-- **Imágenes.** Cada cuadro `[IMAGEN ILUSTRATIVA]` describe qué captura o infografía va en ese punto, su formato y su texto alternativo.
-- **Preguntas de test.** Importa `UD2_banco_preguntas.gift` en el banco de preguntas de Moodle, o cópialas en un iDevice de preguntas de elección múltiple. Cada opción lleva su retroalimentación.
-- **Actividades H5P.** Cada actividad de clasificación o emparejamiento incluye el tipo de contenido H5P recomendado, la tabla de soluciones y un texto preparado para pegar en **Drag the Words** (las respuestas van entre asteriscos). En `UD2_actividades_H5P.txt` están los quince textos seguidos.
-
-## Imágenes pendientes de sustituir
-
-El paquete SCORM no deja huecos: donde el guion pide una captura, muestra una figura construida en HTML. Dos de ellas son definitivas y tres son recreaciones con datos ficticios que conviene sustituir por capturas reales de tu laboratorio.
-
-| Figura | Qué muestra el paquete | Qué hacer |
-|---|---|---|
-| 1.1 Infografía de malware, denegación de servicio y fuga | Infografía definitiva | Nada, salvo que quieras un diseño propio |
-| 2.1 Panel de Wazuh con la fuerza bruta | Recreación esquemática | Sustituir por la captura real tras hacer la práctica |
-| 3.1 Arquitectura del fichaje y el SIEM | Esquema definitivo | Nada |
-| 4.1 Mapa de Shodan y árbol de dnstwist | Recreación. Las variantes del árbol son las que genera dnstwist para el dominio del caso | Sustituir la parte de Shodan por una captura de un rango autorizado |
-| 5.1 Ficha de incidente cumplimentada | Recreación de una ficha sencilla | Sustituir por una captura de tu herramienta de gestión de casos |
-
-## Qué se ha verificado y qué debes validar
-
-| Elemento | Estado |
-|---|---|
-| Reglas de Suricata del módulo 2 | Probadas con Suricata 7.0.3 sobre capturas sintéticas: las cuatro firmas cargan y disparan como se describe. El evento JSON del apartado 5.7 es salida real de esa prueba, recortada |
-| Programa `depura_ioc.py` y reglas de nftables del módulo 4 | Ejecutados: la salida que aparece en el texto es la real |
-| Variantes de dnstwist | Generadas con dnstwist para `acme-logistica.example` |
-| Reglas XML de Wazuh (módulos 2, 3 y 4) | **No ejecutadas.** Están escritas contra la documentación y el código de la rama 4.14, pero no he podido instalar un servidor Wazuh para probarlas. Valídalas con `wazuh-logtest` antes de usarlas en clase |
-| Normativa y guías | Taxonomía, niveles, plazos y estados contrastados con la Guía Nacional, el Real Decreto 43/2021 y el Real Decreto 311/2022 |
-| Paquete SCORM | Probado con una plataforma SCORM 1.2 simulada: inicio, guardado del progreso, nota, reanudación en la última página y cierre de sesión. Revisado en pantallas de escritorio y de móvil. **No lo he probado dentro de tu Moodle**: súbelo primero a un curso de pruebas |
-| Enlaces | Las guías oficiales, la normativa, los vídeos y los recursos recomendados se han comprobado uno a uno en noviembre de 2026. Las páginas de las herramientas y los RFC son direcciones estables |
-
-## Temporalización sugerida
-
-| Sesión | Contenido | Trabajo en el aula |
-|---|---|---|
-| 1 | Presentación y módulo 1 | Resolver en grupo los tres casos antes de ver la solución |
-| 2 y 3 | Módulo 2 | Desplegar Wazuh y Suricata en máquinas virtuales; reproducir la fuerza bruta contra un equipo propio |
-| 4 | Módulo 3 | Simular los eventos del control de accesos con un fichero JSON y probar la correlación |
-| 5 | Módulo 4 | Ejecutar dnstwist sobre el dominio del centro; depurar una lista de indicadores y cargarla en nftables |
-| 6 | Módulo 5 | Triaje de una alerta generada en la sesión 2 o 3 y ficha completa por parejas |
-
-## Qué puede quedar desfasado
-
-- **NIS2.** A la fecha de cierre (noviembre de 2026) España no ha publicado la ley de transposición. Cuando se apruebe, revisa los sujetos obligados y los plazos del módulo 1.
-- **Wazuh 5.** La rama 5 cambia el motor y el formato de las reglas. Los ejemplos XML son de la rama 4.x.
-- **Suricata.** La rama 7 terminó su soporte en septiembre de 2026; la sintaxis de las reglas de la unidad es válida en la rama 8.
-- **Vídeos y enlaces externos.** Revísalos al empezar cada curso.
